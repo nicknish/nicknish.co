@@ -1,8 +1,9 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "nicknish-portfolio-v2",
+  "description": "Nick Nish Portfolio v2",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Nick Nish <nickjnish@gmail.com>",
+  "private": true,
   "dependencies": {
     "bulma": "^0.7.1",
     "gatsby": "^1.9.247",
@@ -19,10 +20,6 @@
     "normalize.css": "^8.0.0",
     "react-helmet": "^5.2.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -31,9 +28,5 @@
   },
   "devDependencies": {
     "prettier": "^1.12.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   }
 }
