@@ -1,5 +1,6 @@
 ---
 title: 'BloomNation'
+type: work
 path: '/work/bloomnation'
 external_url: 'https://bloomnation.com'
 images: []

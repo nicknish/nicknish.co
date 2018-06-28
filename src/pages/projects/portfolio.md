@@ -1,5 +1,6 @@
 ---
 title: 'Portfolio'
+type: project
 path: '/projects/portfolio'
 external_url: ''
 images: []

@@ -1,5 +1,6 @@
 ---
 title: 'Festies'
+type: project
 path: '/projects/festies'
 external_url: 'https://wefesties.com'
 images: []

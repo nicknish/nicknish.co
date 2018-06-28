@@ -1,5 +1,6 @@
 ---
 title: 'Bonsai'
+type: work
 path: '/work/bonsai'
 date: 'June 2016 – March 2018'
 excerpt: 'Using React-Redux on Rails for the freelance management platform.'
