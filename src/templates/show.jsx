@@ -1,12 +1,20 @@
 import React from 'react'
 import Path from 'path'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 export const Show = ({ data }) => {
   const {
     markdownRemark: {
       html,
-      frontmatter: { title, date, external_url, path },
+      frontmatter: {
+        title,
+        date,
+        external_url,
+        path,
+        image_preview_url,
+        image_preview_description,
+      },
     },
   } = data
   const { backUrl, backLinkText, headerText } = prepareShowData(path)
@@ -23,6 +31,20 @@ export const Show = ({ data }) => {
           <i className="show-externalLinkIcon fa fa-external-link-alt" />
         </a>
       </span>
+    )
+  }
+
+  if (image_preview_url) {
+    imageSection = (
+      <div className="container">
+        <figure className="show-imageContainer">
+          <Img
+            sizes={image_preview_url.childImageSharp.sizes}
+            alt={image_preview_description}
+            className="show-image"
+          />
+        </figure>
+      </div>
     )
   }
 
@@ -74,7 +96,22 @@ export const query = graphql`
         title
         path
         external_url
-        image_preview_url
+        image_preview_url {
+          childImageSharp {
+            sizes(maxWidth: 630) {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+            }
+          }
+        }
         image_preview_description
         date
         excerpt

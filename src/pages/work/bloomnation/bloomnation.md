@@ -3,7 +3,7 @@ title: 'BloomNation'
 path: '/work/bloomnation'
 external_url: 'https://bloomnation.com'
 images: []
-image_preview_url: '/images/bloomnation_preview.png'
+image_preview_url: './bloomnation_preview.png'
 image_preview_description: 'BloomNation company logo'
 date: 'Nov 2014 – Dec 2015'
 excerpt: "Using PHP, advanced CSS, and JavaScript to build the florist web platform."
