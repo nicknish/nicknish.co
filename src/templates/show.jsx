@@ -89,8 +89,8 @@ const prepareShowData = path => {
 export default Show
 
 export const query = graphql`
-  query ShowQuery($title: String!) {
-    markdownRemark(frontmatter: { title: { eq: $title } }) {
+  query ShowQuery($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
