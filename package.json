@@ -18,7 +18,8 @@
     "gatsby-transformer-remark": "^1.7.44",
     "gatsby-transformer-sharp": "^1.6.27",
     "normalize.css": "^8.0.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "build": "gatsby build",
