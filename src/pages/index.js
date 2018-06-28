@@ -1,9 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
-import LandingImage from '../images/landing_image_cropped.jpg'
-
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div className="landing">
     <section className="container hero">
       <h1 className="landing-title">
@@ -15,7 +14,7 @@ const IndexPage = () => (
     </section>
 
     <section className="container--lg">
-      <img src={LandingImage} alt="Me and my girlfriend!" />
+      <Img sizes={data.headerImg.sizes} alt="Me and my girlfriend!" />
     </section>
 
     <section className="landing-section container">
@@ -78,3 +77,22 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query LandingQuery {
+    headerImg: imageSharp(id: { regex: "/landing_image/" }) {
+      sizes {
+        base64
+        tracedSVG
+        aspectRatio
+        src
+        srcSet
+        srcWebp
+        srcSetWebp
+        sizes
+        originalImg
+        originalName
+      }
+    }
+  }
+`
