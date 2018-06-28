@@ -1,6 +1,6 @@
 ---
 title: 'Digital Ocean Hacktoberfest 2017'
-type: project
+type: 'project'
 path: '/projects/hacktoberfest-2017'
 external_url: 'https://github.com/yogodoshi/cansei'
 images: []
