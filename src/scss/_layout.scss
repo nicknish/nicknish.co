@@ -1,0 +1,32 @@
+.site-container {
+  display: flex;
+  min-height: 98vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.hero {
+  margin-bottom: 40px;
+}
+
+.container {
+  max-width: 768px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container--lg {
+  max-width: 920px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 auto;
+}
+
+.mbl {
+  margin-bottom: 10px;
+}

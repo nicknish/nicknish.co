@@ -1,0 +1,51 @@
+.show-page {}
+
+.show-backLink {
+  text-decoration: none;
+  font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.show-backLinkIcon {
+  position: relative;
+  vertical-align: top;
+  top: 2px;
+  @media (max-width: 768px) {
+    top: 1px;
+  }
+}
+
+.show-backLinkText {
+  display: inline-block;
+  padding-top: 1px;
+  padding-left: 3px;
+  vertical-align: top;
+  text-transform: uppercase;
+}
+
+.show-title {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.show-subtitle {
+  color: $color-subtitle;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.show-externalLink {
+  text-decoration: none;
+}
+
+.show-externalLinkIcon {
+  top: -2px;
+  position: relative;
+  font-size: 12px;
+}
+
+.show-imageContainer {}
+
+.show-image {}
