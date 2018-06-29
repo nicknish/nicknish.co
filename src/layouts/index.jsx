@@ -17,7 +17,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: data.site.siteMetadata.site_keywords },
       ]}
     />
-    <Header />
+    <Header blogUrl={data.site.siteMetadata.blog_url} />
     <div
       style={{
         margin: '0 auto',
@@ -44,6 +44,7 @@ export const query = graphql`
         title
         site_description
         site_keywords
+        blog_url
       }
     }
   }

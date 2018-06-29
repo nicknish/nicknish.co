@@ -7,7 +7,7 @@ const HeaderLink = ({ to, children }) => (
   </Link>
 )
 
-const Header = () => (
+const Header = ({ blogUrl }) => (
   <header className="header container">
     <Link to="/" className="header-logo">
       NN
@@ -21,11 +21,7 @@ const Header = () => (
           <HeaderLink to="/projects">Projects</HeaderLink>
         </li>
         <li>
-          <a
-            href="https://nicknish.blog"
-            className="header-navlink"
-            target="_blank"
-          >
+          <a href={blogUrl} className="header-navlink" target="_blank">
             Blog
           </a>
         </li>

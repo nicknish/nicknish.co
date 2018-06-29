@@ -43,7 +43,7 @@ const IndexPage = ({ data }) => (
       </p>
       <p>
         I do some{' '}
-        <a href="https://nicknish.blog" target="_blank">
+        <a href={data.site.siteMetadata.blog_url} target="_blank">
           writing
         </a>
         . I
@@ -83,6 +83,11 @@ export default IndexPage
 
 export const query = graphql`
   query LandingQuery {
+    site {
+      siteMetadata {
+        blog_url
+      }
+    }
     headerImg: imageSharp(id: { regex: "/landing_image/" }) {
       sizes {
         base64
