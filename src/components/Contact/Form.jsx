@@ -44,13 +44,14 @@ export default class ContactForm extends React.Component {
       })
     })
       .then(() => {
-        this.setState({ submitting: false, submitSuccess: true });
         navigateTo(formSuccessRedirectUrl);
+        this.setState({ submitting: false, submitSuccess: true });
       })
       .catch(error => console.error(error));
   };
 
   handleChange = e => {
+    if (this.state.submitting) return;
     this.setState({ [e.target.name]: e.target.value });
   };
 
