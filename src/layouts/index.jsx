@@ -21,6 +21,7 @@ const Layout = ({ children, data, location }) => (
     <Header blogUrl={data.site.siteMetadata.blog_url} />
     <main className="site-content">{children()}</main>
     <Footer
+      pathName={location.pathname}
       socialMediaUrls={{
         github: data.site.siteMetadata.github_url,
         linkedin: data.site.siteMetadata.linkedin_url,
