@@ -1,26 +1,11 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Portfolio V2
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+This portfolio version is built with GatsbyJS, a static site generator. In this project, we use the JAMStack architecture using React, GraphQL, and Markdown files.
 
-## Install
+To get reacquainted, check out the `package.json` first or use one of these commands:
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
+```bash
+yarn develop # start server for dev with Hot Module Reloading (!)
+yarn build # create production build
+yarn serve # start server for testing build site
 ```
-
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
-```
-
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
-```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
