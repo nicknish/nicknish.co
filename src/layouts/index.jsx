@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import '../scss/index.scss'
 
 const Layout = ({ children, data }) => (
@@ -28,6 +29,13 @@ const Layout = ({ children, data }) => (
     >
       {children()}
     </div>
+    <Footer
+      socialMediaUrls={{
+        github: data.site.siteMetadata.github_url,
+        linkedin: data.site.siteMetadata.linkedin_url,
+        twitter: data.site.siteMetadata.twitter_url,
+      }}
+    />
   </div>
 )
 
@@ -45,6 +53,9 @@ export const query = graphql`
         site_description
         site_keywords
         blog_url
+        github_url
+        linkedin_url
+        twitter_url
       }
     }
   }
