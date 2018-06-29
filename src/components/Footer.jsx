@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
+import ContactForm from './Contact/Form';
 
 const iconChooser = key => {
   switch (key) {
@@ -15,8 +15,9 @@ const iconChooser = key => {
   }
 };
 
-export const Footer = ({ socialMediaUrls }) => (
+export const Footer = ({ socialMediaUrls, pathName }) => (
   <footer className="footer">
+    <ContactForm pathName={pathName} />
     <nav className="footer-social">
       <ul className="footer-socialList">
         {Object.keys(socialMediaUrls).map(key => (
