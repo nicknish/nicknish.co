@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   // Add site metadata which can be grabbed from GraphQL
   siteMetadata: {
