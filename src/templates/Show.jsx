@@ -66,10 +66,7 @@ export const Show = ({ data }) => {
 
       <div className="container">
         <h3>{headerText}</h3>
-        <p
-          className="u-multiLineText"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>
   );
