@@ -4,11 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require('path')
+const path = require('path');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
-  const ShowTemplate = path.resolve(`${__dirname}/src/templates/Show.jsx`)
+  const { createPage } = boundActionCreators;
+  const ShowTemplate = path.resolve(`${__dirname}/src/templates/Show.jsx`);
 
   return graphql(`
     {
@@ -26,7 +26,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
   `).then(result => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -34,9 +34,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         path: node.frontmatter.path,
         component: ShowTemplate,
         context: {
-          id: node.id,
-        }, // additional data can be passed via context
-      })
-    })
-  })
-}
+          id: node.id
+        } // additional data can be passed via context
+      });
+    });
+  });
+};
