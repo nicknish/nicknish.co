@@ -1,11 +1,11 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
 const HeaderLink = ({ to, children }) => (
   <Link to={to} className="header-navlink" activeClassName="active">
     {children}
   </Link>
-)
+);
 
 const Header = ({ blogUrl }) => (
   <header className="header container">
@@ -28,6 +28,6 @@ const Header = ({ blogUrl }) => (
       </ul>
     </nav>
   </header>
-)
+);
 
-export default Header
+export default Header;

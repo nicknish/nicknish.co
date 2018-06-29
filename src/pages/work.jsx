@@ -1,26 +1,26 @@
-import React from 'react'
-import IndexCard from '../components/IndexCard'
-import shortid from 'shortid'
+import React from 'react';
+import IndexCard from '../components/IndexCard';
+import shortid from 'shortid';
 
 export class Work extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { sortedExperiences: [] }
+    super(props);
+    this.state = { sortedExperiences: [] };
   }
 
   componentDidMount() {
     let sortedExperiences = this.props.data.allMarkdownRemark.edges.map(
       ({ node }) => {
-        node.id = shortid.generate()
-        return node
+        node.id = shortid.generate();
+        return node;
       }
-    )
+    );
 
-    this.setState({ sortedExperiences })
+    this.setState({ sortedExperiences });
   }
 
   render() {
-    const { sortedExperiences } = this.state
+    const { sortedExperiences } = this.state;
 
     return (
       <div className="index">
@@ -39,13 +39,13 @@ export class Work extends React.Component {
               external_url,
               image_preview_url,
               image_preview_description,
-              type,
-            },
-          } = node
+              type
+            }
+          } = node;
 
           const imageSizes = image_preview_url
             ? image_preview_url.childImageSharp.sizes
-            : null
+            : null;
 
           return (
             <IndexCard
@@ -57,14 +57,14 @@ export class Work extends React.Component {
               descriptionExcerpt={excerpt}
               date={date}
             />
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 }
 
-export default Work
+export default Work;
 
 export const query = graphql`
   query WorkQuery {
@@ -100,4 +100,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

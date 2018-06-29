@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
 const NotFoundPage = () => (
   <div className="container">
@@ -13,6 +13,6 @@ const NotFoundPage = () => (
       Go Home
     </Link>
   </div>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

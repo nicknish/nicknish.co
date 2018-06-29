@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import '../scss/index.scss'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../scss/index.scss';
 
 const Layout = ({ children, data }) => (
   <div>
@@ -13,9 +13,9 @@ const Layout = ({ children, data }) => (
       meta={[
         {
           name: 'description',
-          content: data.site.siteMetadata.site_description,
+          content: data.site.siteMetadata.site_description
         },
-        { name: 'keywords', content: data.site.siteMetadata.site_keywords },
+        { name: 'keywords', content: data.site.siteMetadata.site_keywords }
       ]}
     />
     <Header blogUrl={data.site.siteMetadata.blog_url} />
@@ -24,7 +24,7 @@ const Layout = ({ children, data }) => (
         margin: '0 auto',
         maxWidth: 960,
         padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
+        paddingTop: 0
       }}
     >
       {children()}
@@ -33,17 +33,17 @@ const Layout = ({ children, data }) => (
       socialMediaUrls={{
         github: data.site.siteMetadata.github_url,
         linkedin: data.site.siteMetadata.linkedin_url,
-        twitter: data.site.siteMetadata.twitter_url,
+        twitter: data.site.siteMetadata.twitter_url
       }}
     />
   </div>
-)
+);
 
 Layout.propTypes = {
-  children: PropTypes.func,
-}
+  children: PropTypes.func
+};
 
-export default Layout
+export default Layout;
 
 export const query = graphql`
   query SiteTitleQuery {
@@ -59,4 +59,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

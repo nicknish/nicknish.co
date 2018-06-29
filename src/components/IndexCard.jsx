@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import Img from 'gatsby-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Img from 'gatsby-image';
 
 const IndexCard = ({
   path,
@@ -9,13 +9,13 @@ const IndexCard = ({
   date,
   imageSizes,
   imagePreviewDescription,
-  descriptionExcerpt,
+  descriptionExcerpt
 }) => {
-  let subtitle
-  let imageSection
+  let subtitle;
+  let imageSection;
 
   if (date) {
-    subtitle = <span className="indexCard-headerSubtitle">{date}</span>
+    subtitle = <span className="indexCard-headerSubtitle">{date}</span>;
   }
 
   if (imageSizes) {
@@ -23,7 +23,7 @@ const IndexCard = ({
       <Link to={path}>
         <Img sizes={imageSizes} alt={imagePreviewDescription} />
       </Link>
-    )
+    );
   }
 
   return (
@@ -45,8 +45,8 @@ const IndexCard = ({
         Read More
       </Link>
     </section>
-  )
-}
+  );
+};
 
 IndexCard.propTypes = {
   path: PropTypes.string.isRequired,
@@ -54,14 +54,14 @@ IndexCard.propTypes = {
   date: PropTypes.string,
   imageSizes: PropTypes.object,
   imagePreviewDescription: PropTypes.string,
-  descriptionExcerpt: PropTypes.string,
-}
+  descriptionExcerpt: PropTypes.string
+};
 
 IndexCard.defaultProps = {
   date: null,
   imageSizes: null,
   imagePreviewDescription: null,
-  descriptionExcerpt: null,
-}
+  descriptionExcerpt: null
+};
 
-export default IndexCard
+export default IndexCard;

@@ -1,6 +1,6 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Img from 'gatsby-image'
+import React from 'react';
+import Link from 'gatsby-link';
+import Img from 'gatsby-image';
 
 const IndexPage = ({ data }) => (
   <div className="landing">
@@ -77,9 +77,9 @@ const IndexPage = ({ data }) => (
       </nav>
     </section>
   </div>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query LandingQuery {
@@ -103,4 +103,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
