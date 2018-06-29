@@ -5,6 +5,7 @@ require('dotenv').config({
 module.exports = {
   // Add site metadata which can be grabbed from GraphQL
   siteMetadata: {
+    siteUrl: 'https://nicknish.co',
     title: `Nick Nish - Developer & Startup Boy`,
     site_description: `Nick Nish's Portfolio and Blog. Learn about life, love, and business as a millennial.`,
     site_keywords: `developer, business, millennial`,
@@ -52,6 +53,7 @@ module.exports = {
         exclude: [],
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
