@@ -8,6 +8,7 @@ module.exports = {
     title: `Nick Nish - Developer & Startup Boy`,
     site_description: `Nick Nish's Portfolio and Blog. Learn about life, love, and business as a millennial.`,
     site_keywords: `developer, business, millennial`,
+    blog_url: 'https://nicknish.blog',
   },
   plugins: [
     {
