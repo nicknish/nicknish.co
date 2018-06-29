@@ -21,7 +21,13 @@ const Header = () => (
           <HeaderLink to="/projects">Projects</HeaderLink>
         </li>
         <li>
-          <HeaderLink to="/blog">Blog</HeaderLink>
+          <a
+            href="https://nicknish.blog"
+            className="header-navlink"
+            target="_blank"
+          >
+            Blog
+          </a>
         </li>
       </ul>
     </nav>

@@ -42,7 +42,10 @@ const IndexPage = ({ data }) => (
         everything I do.
       </p>
       <p>
-        I do some <Link to="/blog">writing</Link>
+        I do some{' '}
+        <a href="https://nicknish.blog" target="_blank">
+          writing
+        </a>
         . I
         {"'"}
         m trying to build side projects daily. First and foremost, I want to
