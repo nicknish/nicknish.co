@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.7.1",
+    "dotenv": "^6.0.0",
     "gatsby": "^1.9.247",
     "gatsby-image": "^1.0.54",
     "gatsby-link": "^1.6.40",

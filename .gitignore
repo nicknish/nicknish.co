@@ -1,3 +1,5 @@
+.env.production
+
 # Project dependencies
 .cache
 node_modules
