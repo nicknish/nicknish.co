@@ -1,7 +1,7 @@
-import React from 'react'
-import Path from 'path'
-import Link from 'gatsby-link'
-import Img from 'gatsby-image'
+import React from 'react';
+import Path from 'path';
+import Link from 'gatsby-link';
+import Img from 'gatsby-image';
 
 export const Show = ({ data }) => {
   const {
@@ -13,14 +13,14 @@ export const Show = ({ data }) => {
         external_url,
         path,
         image_preview_url,
-        image_preview_description,
-      },
-    },
-  } = data
-  const { backUrl, backLinkText, headerText } = prepareShowData(path)
+        image_preview_description
+      }
+    }
+  } = data;
+  const { backUrl, backLinkText, headerText } = prepareShowData(path);
 
-  let externalLink
-  let imageSection
+  let externalLink;
+  let imageSection;
 
   if (external_url) {
     externalLink = (
@@ -31,7 +31,7 @@ export const Show = ({ data }) => {
           <i className="show-externalLinkIcon fa fa-external-link-alt" />
         </a>
       </span>
-    )
+    );
   }
 
   if (image_preview_url) {
@@ -45,7 +45,7 @@ export const Show = ({ data }) => {
           />
         </figure>
       </div>
-    )
+    );
   }
 
   return (
@@ -72,21 +72,21 @@ export const Show = ({ data }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const prepareShowData = path => {
-  const type = Path.dirname(path).indexOf('work') > -1 ? 'work' : 'project'
-  const isProject = type === 'project'
+  const type = Path.dirname(path).indexOf('work') > -1 ? 'work' : 'project';
+  const isProject = type === 'project';
 
-  const backUrl = `/${type === 'work' ? 'work' : 'projects'}`
-  const backLinkText = `Back to ${isProject ? 'projects' : 'work experience'}`
-  const headerText = `${isProject ? 'Project' : 'Role'} Description`
+  const backUrl = `/${type === 'work' ? 'work' : 'projects'}`;
+  const backLinkText = `Back to ${isProject ? 'projects' : 'work experience'}`;
+  const headerText = `${isProject ? 'Project' : 'Role'} Description`;
 
-  return { backUrl, backLinkText, headerText }
-}
+  return { backUrl, backLinkText, headerText };
+};
 
-export default Show
+export default Show;
 
 export const query = graphql`
   query ShowQuery($id: String!) {
@@ -118,4 +118,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

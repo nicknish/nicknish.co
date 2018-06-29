@@ -1,34 +1,34 @@
-import React from 'react'
-import IndexCard from '../components/IndexCard'
-import shortid from 'shortid'
+import React from 'react';
+import IndexCard from '../components/IndexCard';
+import shortid from 'shortid';
 
 export class Projects extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { sortedProjects: [] }
+    super(props);
+    this.state = { sortedProjects: [] };
   }
 
   componentDidMount() {
-    let sortedProjects = []
+    let sortedProjects = [];
 
     this.props.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const { frontmatter } = node
+      const { frontmatter } = node;
 
-      node.id = shortid.generate()
+      node.id = shortid.generate();
 
       if (frontmatter.title === 'Portfolio') {
-        sortedProjects.unshift(node)
-        return
+        sortedProjects.unshift(node);
+        return;
       }
 
-      sortedProjects.push(node)
-    })
+      sortedProjects.push(node);
+    });
 
-    this.setState({ sortedProjects })
+    this.setState({ sortedProjects });
   }
 
   render() {
-    const { sortedProjects } = this.state
+    const { sortedProjects } = this.state;
 
     return (
       <div className="index">
@@ -47,13 +47,13 @@ export class Projects extends React.Component {
               external_url,
               image_preview_url,
               image_preview_description,
-              type,
-            },
-          } = node
+              type
+            }
+          } = node;
 
           const imageSizes = image_preview_url
             ? image_preview_url.childImageSharp.sizes
-            : null
+            : null;
 
           return (
             <IndexCard
@@ -65,14 +65,14 @@ export class Projects extends React.Component {
               descriptionExcerpt={excerpt}
               date={date}
             />
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 }
 
-export default Projects
+export default Projects;
 
 export const query = graphql`
   query ProjectsQuery {
@@ -111,4 +111,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

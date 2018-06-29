@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa'
+import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
 
 const iconChooser = key => {
   switch (key) {
     case 'github':
-      return <FaGithubAlt />
+      return <FaGithubAlt />;
     case 'twitter':
-      return <FaTwitter />
+      return <FaTwitter />;
     case 'linkedin':
-      return <FaLinkedin />
+      return <FaLinkedin />;
     default:
-      return null
+      return null;
   }
-}
+};
 
 export const Footer = ({ socialMediaUrls }) => (
   <footer className="footer">
@@ -32,6 +32,6 @@ export const Footer = ({ socialMediaUrls }) => (
       </ul>
     </nav>
   </footer>
-)
+);
 
-export default Footer
+export default Footer;
