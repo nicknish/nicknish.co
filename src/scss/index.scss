@@ -1,20 +1,20 @@
-@import "~normalize.css/normalize.css";
-@import "~bulma/sass/utilities/_all";
+@import '~normalize.css/normalize.css';
+@import '~bulma/sass/utilities/_all';
 
 // Variables must be defined before Bulma components brought in
-@import "./_variables";
+@import './_variables';
 
 // Bulma components
-@import "~bulma/sass/elements/form";
+@import '~bulma/sass/elements/form';
 
-@import "./_base";
-@import "./_layout";
-@import "./_helpers";
+@import './_base';
+@import './_layout';
+@import './_helpers';
 
-@import "./components/buttons";
-@import "./components/header";
-@import "./components/footer";
-@import "./components/landing";
-@import "./components/indexPages";
-@import "./components/showPages";
-@import "./components/contactForm"
+@import './components/buttons';
+@import './components/header';
+@import './components/footer';
+@import './components/landing';
+@import './components/indexPages';
+@import './components/showPages';
+@import './components/contactForm';
