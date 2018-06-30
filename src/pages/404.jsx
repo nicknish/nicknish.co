@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 
 const NotFoundPage = () => (
   <div className="container">
-    <h1>Sorry, there{"'"}s nothing here!</h1>
+    <h1 className="index-title">Sorry, there{"'"}s nothing here!</h1>
     <p>
       That
       {"'"}
