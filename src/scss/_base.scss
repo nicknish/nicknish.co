@@ -22,7 +22,7 @@ body {
   color: $color-body-copy;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
+  -moz-font-feature-settings: 'liga' on;
   text-rendering: optimizeLegibility;
 }
 
@@ -35,8 +35,10 @@ figure {
   margin: 0;
 }
 
-
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: $brand-color;
 }
 
