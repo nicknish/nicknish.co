@@ -26,7 +26,7 @@ export default class ContactForm extends React.Component {
 
   render() {
     const { name, email, message, submitting } = this.state;
-    const { formName } = this.state;
+    const { formName } = this.props;
 
     return (
       <form
@@ -48,7 +48,7 @@ export default class ContactForm extends React.Component {
               id="contact-name"
               type="text"
               value={name}
-              placeholder="Jackie Chan"
+              placeholder="Name"
               onChange={this.handleChange}
               required
             />
@@ -65,7 +65,7 @@ export default class ContactForm extends React.Component {
               id="contact-email"
               type="email"
               value={email}
-              placeholder="jackie@chan.com"
+              placeholder="Email"
               onChange={this.handleChange}
               required
             />
