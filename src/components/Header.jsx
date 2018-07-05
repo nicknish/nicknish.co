@@ -21,6 +21,9 @@ const Header = ({ blogUrl }) => (
           <HeaderLink to="/projects">Projects</HeaderLink>
         </li>
         <li>
+          <HeaderLink to="/contact">Contact</HeaderLink>
+        </li>
+        <li>
           <a href={blogUrl} className="header-navlink" target="_blank">
             Blog
           </a>
