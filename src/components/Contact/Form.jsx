@@ -1,53 +1,22 @@
 import React from 'react';
-import axios from 'axios';
-import { navigateTo } from 'gatsby-link';
 import NetlifyHoneypot from './NetlifyHoneypot';
 
-const encode = data =>
-  Object.keys(data)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
-
-const FORM_SUCCESS_REDIRECT_URL = '/thanks';
-const FORM_NAME = 'contact';
-
 export default class ContactForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: '',
-      email: '',
-      message: '',
-      submitting: false,
-      submitSuccess: false
-    };
-  }
+  state = {
+    name: '',
+    email: '',
+    message: '',
+    submitting: false
+  };
 
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.submitting) return;
-
     this.setState({ submitting: true });
 
-    const form = e.target;
-    const formName = form.getAttribute('name');
-    const formSuccessRedirectUrl = form.getAttribute('action');
-
-    axios({
-      url: '/', // Netlify form submission endpoint
-      method: 'post',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      data: encode({
-        'form-name': formName,
-        ...this.state
-      })
-    })
-      .then(() => {
-        navigateTo(formSuccessRedirectUrl);
-        this.setState({ submitting: false, submitSuccess: true });
-      })
-      .catch(error => console.error(error));
+    this.props.handleSubmit(this.state).then(() => {
+      this.setState({ submitting: false });
+    });
   };
 
   handleChange = e => {
@@ -56,22 +25,18 @@ export default class ContactForm extends React.Component {
   };
 
   render() {
-    const { name, email, message, submitting, submitSuccess } = this.state;
-    const { pathName } = this.props;
-
-    if (submitSuccess || pathName === FORM_SUCCESS_REDIRECT_URL) return null;
+    const { name, email, message, submitting } = this.state;
+    const { formName } = this.state;
 
     return (
       <form
         className="contactForm container"
-        action={FORM_SUCCESS_REDIRECT_URL}
-        name={FORM_NAME}
+        name={formName}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
       >
-        <NetlifyHoneypot formName={FORM_NAME} />
-        <h3 className="contactForm-title">Contact Me</h3>
+        <NetlifyHoneypot formName={formName} />
         <div className="field">
           <label className="label" htmlFor="contact-name">
             Name:

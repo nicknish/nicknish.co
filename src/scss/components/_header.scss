@@ -31,7 +31,7 @@
   list-style: none;
   padding: 0;
 
-  li:last-of-type .header-navlink {
+  > li:last-of-type .header-navlink {
     // Select last nav element and add no margin
     margin-right: 0;
   }
@@ -43,6 +43,7 @@
   color: $color-nav-item;
   font-weight: bold;
   transition: 100ms ease all;
+  font-size: 14px;
 
   &.active {
     color: $brand-color;
@@ -52,5 +53,9 @@
   }
   &:hover {
     color: $color-nav-item-hover;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
   }
 }
