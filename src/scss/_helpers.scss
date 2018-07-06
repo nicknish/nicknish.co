@@ -9,3 +9,13 @@
 .u-textCenter {
   text-align: center;
 }
+
+.u-clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.u-flex {
+  display: flex;
+}

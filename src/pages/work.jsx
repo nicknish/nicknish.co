@@ -23,9 +23,13 @@ export class Work extends React.Component {
     const { sortedExperiences } = this.state;
 
     return (
-      <div className="index">
+      <div className="page">
         <section className="container hero">
-          <h1 className="index-title">Work</h1>
+          <h1 className="page-title">Work</h1>
+          <p className="page-subtitle">
+            Work is both a means to gain mastery and a way to create something
+            meaningful. Here are some of the major work experiences I've had.
+          </p>
         </section>
 
         {sortedExperiences.map(node => {

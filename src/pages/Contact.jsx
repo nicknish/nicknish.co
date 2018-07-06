@@ -32,10 +32,12 @@ export default class Contact extends React.Component {
   render() {
     return (
       <div className="page">
-        <section className="container">
-          <h1 className="index-title">Contact Me</h1>
-          <p>Say hello! I'm always happy to talk and meet new people.</p>
-        </section>
+        <header className="container">
+          <h1 className="page-title">Contact Me</h1>
+          <p className="page-subtitle">
+            Say hello! I'm always happy to talk and meet new people.
+          </p>
+        </header>
 
         <Form formName={FORM_NAME} handleSubmit={this.handleSubmit} />
       </div>

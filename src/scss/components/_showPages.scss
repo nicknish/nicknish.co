@@ -1,4 +1,5 @@
-.show-page {
+.show-header {
+  margin-bottom: 20px;
 }
 
 .show-backLink {
@@ -11,10 +12,9 @@
 
 .show-backLinkIcon {
   position: relative;
-  vertical-align: top;
-  top: 2px;
-  @media (max-width: 768px) {
-    top: 1px;
+  top: -7px;
+  @media (min-width: 768px) {
+    top: -3px;
   }
 }
 

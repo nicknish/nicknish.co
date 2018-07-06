@@ -2,6 +2,8 @@ import React from 'react';
 import Path from 'path';
 import Link from 'gatsby-link';
 import Img from 'gatsby-image';
+import FaAngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
+import FaExternalLink from 'react-icons/lib/fa/external-link';
 
 export const Show = ({ data }) => {
   const {
@@ -27,8 +29,7 @@ export const Show = ({ data }) => {
       <span>
         {' -- '}
         <a href={external_url} className="show-externalLink" target="_blank">
-          See it here{' '}
-          <i className="show-externalLinkIcon fa fa-external-link-alt" />
+          See it here <FaExternalLink className="show-externalLinkIcon" />
         </a>
       </span>
     );
@@ -49,10 +50,10 @@ export const Show = ({ data }) => {
   }
 
   return (
-    <div className="show-page">
-      <section className="container hero">
+    <div className="page">
+      <header className="show-header container">
         <Link to={backUrl} className="show-backLink">
-          <i className="show-backLinkIcon fas fa-caret-left" />
+          <FaAngleDoubleLeft className="show-backLinkIcon" />
           <span className="show-backLinkText">{backLinkText}</span>
         </Link>
         <h1 className="show-title">{title}</h1>
@@ -60,7 +61,7 @@ export const Show = ({ data }) => {
           {date}
           {externalLink}
         </span>
-      </section>
+      </header>
 
       {imageSection}
 

@@ -31,10 +31,13 @@ export class Projects extends React.Component {
     const { sortedProjects } = this.state;
 
     return (
-      <div className="index">
-        <section className="container hero">
-          <h1 className="index-title">Projects</h1>
-        </section>
+      <div className="page">
+        <header className="container hero">
+          <h1 className="page-title">Projects</h1>
+          <p className="page-subtitle">
+            Projects create opportunity to experiment and explore.
+          </p>
+        </header>
 
         {sortedProjects.map(node => {
           const {
