@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 const NotFoundPage = () => (
-  <div className="container">
-    <h1 className="index-title">Sorry, there{"'"}s nothing here!</h1>
+  <div className="page container">
+    <h1 className="page-title">Sorry, there{"'"}s nothing here!</h1>
     <p>
       That
       {"'"}

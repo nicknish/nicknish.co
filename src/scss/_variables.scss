@@ -6,7 +6,8 @@ $color-body-copy: #444;
 $color-subtitle: #888;
 $color-nav-item: #b2bec3;
 $color-nav-item-hover: #636e72;
-$color-subheader: #516071;
+$color-subheader: #333;
+$color-date: lighten($color-body-copy, 30%);
 
 // Fonts
 $font: 'Lato', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,4 +21,4 @@ $font: 'Lato', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen'
 $grey-darker: $color-body-copy;
 
 $link: $accent-color;
-$label-color: $color-subheader;
+$label-color: #516071;
