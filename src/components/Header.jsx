@@ -7,7 +7,7 @@ const HeaderLink = ({ to, children }) => (
   </Link>
 );
 
-const Header = ({ blogUrl }) => (
+const Header = () => (
   <header className="header container">
     <Link to="/" className="header-logo">
       NN
@@ -24,9 +24,7 @@ const Header = ({ blogUrl }) => (
           <HeaderLink to="/contact">Contact</HeaderLink>
         </li>
         <li>
-          <a href={blogUrl} className="header-navlink" target="_blank">
-            Blog
-          </a>
+         <HeaderLink to="/blog">Blog</HeaderLink>
         </li>
       </ul>
     </nav>

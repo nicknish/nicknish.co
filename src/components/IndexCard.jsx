@@ -31,11 +31,11 @@ const IndexCard = ({
       {imageSection}
 
       <div className="indexCard-header">
-        <h3 className="indexCard-headerTitle">
+        <h2 className="indexCard-headerTitle">
           <Link to={path} className="indexCard-headerTitleLink">
             {title}
           </Link>
-        </h3>
+        </h2>
         {subtitle}
       </div>
 
