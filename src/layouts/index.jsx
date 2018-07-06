@@ -18,7 +18,7 @@ const Layout = ({ children, data, location }) => (
         { name: 'keywords', content: data.site.siteMetadata.site_keywords }
       ]}
     />
-    <Header blogUrl={data.site.siteMetadata.blog_url} />
+    <Header />
     <main className="site-content">{children()}</main>
     <Footer
       pathName={location.pathname}
@@ -44,7 +44,6 @@ export const query = graphql`
         title
         site_description
         site_keywords
-        blog_url
         github_url
         linkedin_url
         twitter_url

@@ -42,10 +42,7 @@ const IndexPage = ({ data }) => (
         everything I do.
       </p>
       <p>
-        I do some{' '}
-        <a href={data.site.siteMetadata.blog_url} target="_blank">
-          writing
-        </a>
+        I do some <Link to="/blog">writing</Link>
         . I
         {"'"}
         m trying to build side projects daily. First and foremost, I want to
@@ -83,11 +80,6 @@ export default IndexPage;
 
 export const query = graphql`
   query LandingQuery {
-    site {
-      siteMetadata {
-        blog_url
-      }
-    }
     headerImg: imageSharp(id: { regex: "/landing_image/" }) {
       sizes {
         base64
