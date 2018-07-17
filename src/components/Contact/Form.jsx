@@ -1,5 +1,5 @@
 import React from 'react';
-import NetlifyHoneypot from './NetlifyHoneypot';
+import NetlifyForm from './NetlifyForm';
 
 export default class ContactForm extends React.Component {
   state = {
@@ -29,14 +29,12 @@ export default class ContactForm extends React.Component {
     const { formName } = this.props;
 
     return (
-      <form
+      <NetlifyForm
         className="contactForm container"
         name={formName}
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
+        onChange={this.handleChange}
       >
-        <NetlifyHoneypot formName={formName} />
         <div className="field">
           <label className="label" htmlFor="contact-name">
             Name:
@@ -54,6 +52,7 @@ export default class ContactForm extends React.Component {
             />
           </div>
         </div>
+
         <div className="field">
           <label className="label" htmlFor="contact-email">
             Email:
@@ -71,6 +70,7 @@ export default class ContactForm extends React.Component {
             />
           </div>
         </div>
+
         <div className="field">
           <label className="label" htmlFor="contact-message">
             Message:
@@ -87,6 +87,7 @@ export default class ContactForm extends React.Component {
             />
           </div>
         </div>
+
         <div className="u-textCenter">
           <button
             type="submit"
@@ -96,7 +97,7 @@ export default class ContactForm extends React.Component {
             Send Message
           </button>
         </div>
-      </form>
+      </NetlifyForm>
     );
   }
 }
