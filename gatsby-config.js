@@ -16,6 +16,7 @@ module.exports = {
     twitter_url: config.twitter_url
   },
   plugins: [
+    `gatsby-plugin-react-next`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
