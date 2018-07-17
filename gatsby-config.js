@@ -74,6 +74,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`
+    `gatsby-plugin-netlify` // MUST BE LAST
   ]
 };
