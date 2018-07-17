@@ -1,3 +1,5 @@
+const autoprefixer = require('autoprefixer');
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
@@ -69,8 +71,17 @@ module.exports = {
         exclude: [`${__dirname}/src/pages/Thanks.jsx`]
       }
     },
+    {
+      resolve: `gatsby-plugin-postcss-sass`,
+      options: {
+        postCssPlugins: [
+          autoprefixer({
+            browsers: ['last 2 versions']
+          })
+        ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
