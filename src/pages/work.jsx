@@ -72,7 +72,10 @@ export default Work;
 
 export const query = graphql`
   query WorkQuery {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "work" } } }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date] }
+      filter: { frontmatter: { type: { eq: "work" } } }
+    ) {
       edges {
         node {
           frontmatter {
