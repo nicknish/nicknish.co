@@ -4,9 +4,8 @@ type: 'project'
 path: '/projects/portfolio'
 external_url: ''
 images: []
-
 image_preview_description: ''
-date: 'Ongoing'
+date: 'Current'
 excerpt: "It seems like cheating to mention this site, but it's been an invaluable way to learn. I've use it as a testing ground for new, interesting technologies and to challenge my understanding. Read on to learn about the evolution of this site."
 ---
 

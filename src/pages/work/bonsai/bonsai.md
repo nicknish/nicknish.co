@@ -2,7 +2,7 @@
 title: 'Bonsai'
 type: 'work'
 path: '/work/bonsai'
-date: 'June 2016 – March 2018'
+date: 'Jun 2016 – Mar 2018'
 excerpt: 'Using React-Redux on Rails for the freelance management platform.'
 external_url: 'https://hellobonsai.com'
 image_preview_url: './bonsai_preview.png'

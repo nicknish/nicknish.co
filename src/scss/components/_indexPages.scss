@@ -27,3 +27,36 @@
   font-size: 15px;
   color: $color-subtitle;
 }
+
+.contractWork {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  @media (min-width: 640px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.contractWork-card {
+  transition: opacity 150ms ease;
+
+  h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .date {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
