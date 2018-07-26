@@ -2,7 +2,7 @@
 title: 'Credit Karma'
 type: 'work'
 path: '/work/credit_karma'
-date: 'July 2018 – Current'
+date: 'Jul 2018 – Current'
 excerpt: 'Helping the platform create financial progress for everyone using React, Redux, and GraphQL.'
 external_url: 'https://creditkarma.com'
 image_preview_url: './credit_karma_preview.png'

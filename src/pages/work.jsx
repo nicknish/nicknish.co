@@ -1,26 +1,32 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import IndexCard from '../components/IndexCard';
 import shortid from 'shortid';
 
 export class Work extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sortedExperiences: [] };
+    this.state = { sortedExperiences: [], sortedContractExperiences: [] };
   }
 
   componentDidMount() {
-    let sortedExperiences = this.props.data.allMarkdownRemark.edges.map(
+    let sortedExperiences = this.props.data.work.edges.map(({ node }) => {
+      node.id = shortid.generate();
+      return node;
+    });
+
+    let sortedContractExperiences = this.props.data.contract_work.edges.map(
       ({ node }) => {
         node.id = shortid.generate();
         return node;
       }
     );
 
-    this.setState({ sortedExperiences });
+    this.setState({ sortedExperiences, sortedContractExperiences });
   }
 
   render() {
-    const { sortedExperiences } = this.state;
+    const { sortedExperiences, sortedContractExperiences } = this.state;
 
     return (
       <div className="page">
@@ -40,16 +46,10 @@ export class Work extends React.Component {
               path,
               date,
               excerpt,
-              external_url,
               image_preview_url,
-              image_preview_description,
-              type
+              image_preview_description
             }
           } = node;
-
-          const imageSizes = image_preview_url
-            ? image_preview_url.childImageSharp.sizes
-            : null;
 
           return (
             <IndexCard
@@ -63,6 +63,31 @@ export class Work extends React.Component {
             />
           );
         })}
+
+        <div className="container">
+          <hr />
+
+          <h2>Contract Work</h2>
+
+          <div className="contractWork">
+            {sortedContractExperiences.map(node => {
+              const {
+                id,
+                frontmatter: { title, path, date, excerpt }
+              } = node;
+
+              return (
+                <div key={id} className="contractWork-card">
+                  <Link to={path}>
+                    <h3>{title}</h3>
+                    <div className="date">{date}</div>
+                    <p>{excerpt}</p>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }
@@ -72,9 +97,44 @@ export default Work;
 
 export const query = graphql`
   query WorkQuery {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date] }
+    work: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
       filter: { frontmatter: { type: { eq: "work" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+            date
+            excerpt
+            external_url
+            image_preview_url {
+              childImageSharp {
+                sizes(maxWidth: 640) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                }
+              }
+            }
+            image_preview_description
+            type
+          }
+        }
+      }
+    }
+
+    contract_work: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+      filter: { frontmatter: { type: { eq: "contract_work" } } }
     ) {
       edges {
         node {
