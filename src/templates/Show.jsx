@@ -52,7 +52,7 @@ export const Show = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <div className="page">
+      <div>
         <header className="show-header container">
           <Link to={backUrl} className="show-backLink">
             <FaAngleDoubleLeft className="show-backLinkIcon" />

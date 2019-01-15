@@ -36,7 +36,7 @@ export class Projects extends React.Component {
 
     return (
       <Layout location={location}>
-        <div className="page">
+        <div>
           <header className="container hero">
             <h1 className="page-title">Projects</h1>
             <p className="page-subtitle">

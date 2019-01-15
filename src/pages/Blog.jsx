@@ -7,7 +7,7 @@ import BlogIndexPost from '../components/blogIndexPost';
 
 export const Blog = ({ data, location }) => (
   <Layout location={location}>
-    <div className="page">
+    <div>
       <header className="container hero">
         <h1 className="page-title">Blog</h1>
         <p className="page-subtitle">
