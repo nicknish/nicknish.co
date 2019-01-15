@@ -69,9 +69,7 @@ export class Work extends React.Component {
           })}
 
           <div className="container">
-            <hr />
-
-            <h2>Contract Work</h2>
+            <h2 className="pt4 bt b--black-10">Freelance Work</h2>
 
             <div className="contractWork">
               {sortedContractExperiences.map(node => {
