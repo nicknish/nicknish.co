@@ -1,9 +1,4 @@
 const path = require('path');
-const ShowTemplate = path.resolve(`${__dirname}/src/templates/show.jsx`);
-const BlogPostTemplate = path.resolve(
-  `${__dirname}/src/templates/blogPost.jsx`
-);
-const SeriesTemplate = path.resolve(`${__dirname}/src/templates/series.jsx`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -29,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
         if (node.frontmatter.path) {
           createPage({
             path: node.frontmatter.path,
-            component: ShowTemplate,
+            component: path.resolve(`./src/templates/show.jsx`),
             context: {
               id: node.id
             }
@@ -59,7 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.blogPosts.edges.forEach(({ node }) => {
         createPage({
           path: `blog/${node.slug}`,
-          component: BlogPostTemplate,
+          component: path.resolve(`./src/templates/blogPost.jsx`),
           context: {
             id: node.id
           }
@@ -87,7 +82,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.series.edges.forEach(({ node }) => {
         createPage({
           path: `series/${node.slug}`,
-          component: SeriesTemplate,
+          component: path.resolve(`./src/templates/series.jsx`),
           context: {
             slug: node.slug
           }
