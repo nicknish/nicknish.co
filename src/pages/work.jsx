@@ -33,7 +33,7 @@ export class Work extends React.Component {
 
     return (
       <Layout location={location}>
-        <div className="page">
+        <div>
           <section className="container hero">
             <h1 className="page-title">Work</h1>
             <p className="page-subtitle">

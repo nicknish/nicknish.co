@@ -9,15 +9,24 @@
 }
 
 .hero {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
 }
 
 .container {
   max-width: 768px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
+  @media (min-width: 768px) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 
 .container--lg {
