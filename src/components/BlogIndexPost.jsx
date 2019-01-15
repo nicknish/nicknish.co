@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 export const BlogIndexPost = ({ to, title, date, excerpt }) => (
   <article className="blogIndex-post">

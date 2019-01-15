@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { navigateTo } from 'gatsby-link';
 
-import Form from '../components/Contact/Form';
+import Layout from '../components/layout';
+import Form from '../components/contact/form';
 
 const FORM_SUCCESS_REDIRECT_URL = '/thanks';
 const FORM_NAME = 'contact';
@@ -30,17 +31,21 @@ export default class Contact extends React.Component {
   };
 
   render() {
-    return (
-      <div className="page">
-        <header className="container">
-          <h1 className="page-title">Contact Me</h1>
-          <p className="page-subtitle">
-            Say hello! I'm always happy to talk and meet new people.
-          </p>
-        </header>
+    const { location } = this.props;
 
-        <Form formName={FORM_NAME} handleSubmit={this.handleSubmit} />
-      </div>
+    return (
+      <Layout location={location}>
+        <div className="page">
+          <header className="container">
+            <h1 className="page-title">Contact Me</h1>
+            <p className="page-subtitle">
+              Say hello! I'm always happy to talk and meet new people.
+            </p>
+          </header>
+
+          <Form formName={FORM_NAME} handleSubmit={this.handleSubmit} />
+        </div>
+      </Layout>
     );
   }
 }
