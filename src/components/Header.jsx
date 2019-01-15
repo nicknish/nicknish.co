@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const HeaderLink = ({ to, children }) => (
-  <Link to={to} className="header-navlink" activeClassName="active">
-    {children}
-  </Link>
-);
+const HeaderLink = ({ to, children, href }) => {
+  if (href) {
+    return (
+      <a href={href} className="header-navlink" target="_blank">
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={to} className="header-navlink" activeClassName="active">
+      {children}
+    </Link>
+  );
+};
 
 const Header = () => (
   <header className="header container">
@@ -25,6 +35,11 @@ const Header = () => (
         </li>
         <li>
           <HeaderLink to="/blog">Blog</HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href="https://s3-us-west-1.amazonaws.com/nicknish-experiments/resume/nick_nish_resume.pdf">
+            Resume
+          </HeaderLink>
         </li>
       </ul>
     </nav>
