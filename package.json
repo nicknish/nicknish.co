@@ -14,7 +14,6 @@
   "dependencies": {
     "autoprefixer": "^9.4.5",
     "axios": "^0.18.0",
-    "bulma": "^0.7.2",
     "dotenv": "^6.2.0",
     "gatsby": "^2.0.91",
     "gatsby-image": "^2.0.26",
@@ -36,7 +35,8 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "tachyons": "^4.11.1"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",

@@ -1,12 +1,7 @@
 @import '~normalize.css/normalize.css';
-@import '~bulma/sass/utilities/_all';
+@import '~tachyons/css/tachyons.min.css';
 
-// Variables must be defined before Bulma components brought in
 @import './_variables';
-
-// Bulma components
-@import '~bulma/sass/elements/form';
-
 @import './_base';
 @import './_layout';
 @import './_helpers';

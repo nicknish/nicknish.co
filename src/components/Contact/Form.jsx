@@ -1,6 +1,15 @@
 import React from 'react';
 import NetlifyForm from './netlifyForm';
 
+const INPUT_CLASSNAMES = `w-100 ba b--black-20 pa2 mb2 br2`;
+const TEXTAREA_CLASSNAMES = `${INPUT_CLASSNAMES} h4`;
+
+const Label = ({ label, id }) => (
+  <label className="db mb2 b" htmlFor={id}>
+    {label}:
+  </label>
+);
+
 export default class ContactForm extends React.Component {
   state = {
     name: '',
@@ -35,13 +44,11 @@ export default class ContactForm extends React.Component {
         onSubmit={this.handleSubmit}
         onChange={this.handleChange}
       >
-        <div className="field">
-          <label className="label" htmlFor="contact-name">
-            Name:
-          </label>
+        <div className="mb3">
+          <Label label="Name" id="contact-name" />
           <div className="control">
             <input
-              className="input"
+              className={INPUT_CLASSNAMES}
               name="name"
               id="contact-name"
               type="text"
@@ -53,13 +60,11 @@ export default class ContactForm extends React.Component {
           </div>
         </div>
 
-        <div className="field">
-          <label className="label" htmlFor="contact-email">
-            Email:
-          </label>
+        <div className="mb3">
+          <Label label="Email" id="contact-email" />
           <div className="control">
             <input
-              className="input"
+              className={INPUT_CLASSNAMES}
               name="email"
               id="contact-email"
               type="email"
@@ -71,14 +76,12 @@ export default class ContactForm extends React.Component {
           </div>
         </div>
 
-        <div className="field">
-          <label className="label" htmlFor="contact-message">
-            Message:
-          </label>
+        <div className="mb3">
+          <Label label="Message" id="contact-message" />
           <div className="control">
             <textarea
               name="message"
-              className="textarea"
+              className={TEXTAREA_CLASSNAMES}
               id="contact-message"
               value={message}
               placeholder="Hi there!"
