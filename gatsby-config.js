@@ -18,7 +18,6 @@ module.exports = {
     twitter_url: config.twitter_url
   },
   plugins: [
-    `gatsby-plugin-react-next`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -68,11 +67,27 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`${__dirname}/src/pages/Thanks.jsx`]
+        exclude: [`${__dirname}/src/pages/Thanks.jsx`],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`
       }
     },
     {
-      resolve: `gatsby-plugin-postcss-sass`,
+      resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
           autoprefixer({
@@ -81,9 +96,14 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        stripMetadata: true
+      }
+    },
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify` // MUST BE LAST
   ]

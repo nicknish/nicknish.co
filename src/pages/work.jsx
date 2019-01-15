@@ -1,7 +1,9 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import IndexCard from '../components/IndexCard';
+import { Link, graphql } from 'gatsby';
 import shortid from 'shortid';
+
+import IndexCard from '../components/indexCard';
+import Layout from '../components/layout';
 
 export class Work extends React.Component {
   constructor(props) {
@@ -27,68 +29,71 @@ export class Work extends React.Component {
 
   render() {
     const { sortedExperiences, sortedContractExperiences } = this.state;
+    const { location } = this.props;
 
     return (
-      <div className="page">
-        <section className="container hero">
-          <h1 className="page-title">Work</h1>
-          <p className="page-subtitle">
-            Work is both a means to gain mastery and a way to create something
-            meaningful. Here are some of the major work experiences I've had.
-          </p>
-        </section>
+      <Layout location={location}>
+        <div className="page">
+          <section className="container hero">
+            <h1 className="page-title">Work</h1>
+            <p className="page-subtitle">
+              Work is both a means to gain mastery and a way to create something
+              meaningful. Here are some of the major work experiences I've had.
+            </p>
+          </section>
 
-        {sortedExperiences.map(node => {
-          const {
-            id,
-            frontmatter: {
-              title,
-              path,
-              date,
-              excerpt,
-              image_preview_url,
-              image_preview_description
-            }
-          } = node;
+          {sortedExperiences.map(node => {
+            const {
+              id,
+              frontmatter: {
+                title,
+                path,
+                date,
+                excerpt,
+                image_preview_url,
+                image_preview_description
+              }
+            } = node;
 
-          return (
-            <IndexCard
-              key={id}
-              path={path}
-              title={title}
-              imageSizes={image_preview_url.childImageSharp.sizes}
-              imagePreviewDescription={image_preview_description}
-              descriptionExcerpt={excerpt}
-              date={date}
-            />
-          );
-        })}
+            return (
+              <IndexCard
+                key={id}
+                path={path}
+                title={title}
+                imageSizes={image_preview_url.childImageSharp.sizes}
+                imagePreviewDescription={image_preview_description}
+                descriptionExcerpt={excerpt}
+                date={date}
+              />
+            );
+          })}
 
-        <div className="container">
-          <hr />
+          <div className="container">
+            <hr />
 
-          <h2>Contract Work</h2>
+            <h2>Contract Work</h2>
 
-          <div className="contractWork">
-            {sortedContractExperiences.map(node => {
-              const {
-                id,
-                frontmatter: { title, path, date, excerpt }
-              } = node;
+            <div className="contractWork">
+              {sortedContractExperiences.map(node => {
+                const {
+                  id,
+                  frontmatter: { title, path, date, excerpt }
+                } = node;
 
-              return (
-                <div key={id} className="contractWork-card">
-                  <Link to={path}>
-                    <h3>{title}</h3>
-                    <div className="date">{date}</div>
-                    <p>{excerpt}</p>
-                  </Link>
-                </div>
-              );
-            })}
+                return (
+                  <div key={id} className="contractWork-card">
+                    <Link to={path}>
+                      <h3>{title}</h3>
+                      <div className="date">{date}</div>
+                      <p>{excerpt}</p>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }

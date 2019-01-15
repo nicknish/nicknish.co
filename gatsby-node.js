@@ -1,18 +1,17 @@
 const path = require('path');
+const ShowTemplate = path.resolve(`${__dirname}/src/templates/show.jsx`);
+const BlogPostTemplate = path.resolve(
+  `${__dirname}/src/templates/blogPost.jsx`
+);
+const SeriesTemplate = path.resolve(`${__dirname}/src/templates/series.jsx`);
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
-
-  const ShowTemplate = path.resolve(`${__dirname}/src/templates/Show.jsx`);
-  const BlogPostTemplate = path.resolve(
-    `${__dirname}/src/templates/BlogPost.jsx`
-  );
-  const SeriesTemplate = path.resolve(`${__dirname}/src/templates/Series.jsx`);
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
 
   const loadPages = new Promise((resolve, reject) => {
     graphql(`
       {
-        markdownPosts: allMarkdownRemark(filter: { id: { regex: "/.md/" } }) {
+        markdownPosts: allMarkdownRemark {
           edges {
             node {
               id
@@ -27,13 +26,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       if (result.errors) return reject(result.errors);
 
       result.data.markdownPosts.edges.forEach(({ node }) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: ShowTemplate,
-          context: {
-            id: node.id
-          }
-        });
+        if (node.frontmatter.path) {
+          createPage({
+            path: node.frontmatter.path,
+            component: ShowTemplate,
+            context: {
+              id: node.id
+            }
+          });
+        }
       });
 
       resolve();
@@ -61,7 +62,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           component: BlogPostTemplate,
           context: {
             id: node.id
-          } // additional data can be passed via context
+          }
         });
       });
 

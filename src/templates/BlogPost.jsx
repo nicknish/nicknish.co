@@ -1,10 +1,12 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import shortid from 'shortid';
+import Layout from '../components/layout';
 
 const addKeys = (arr = [], propName) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
 
-export const BlogPost = ({ data }) => {
+export const BlogPost = ({ data, location }) => {
   const { id, slug, title, tags, date, body } = data.post;
 
   const tagsWithKeys = tags && tags.length ? addKeys(tags, 'tag') : [];
@@ -15,21 +17,23 @@ export const BlogPost = ({ data }) => {
   ));
 
   return (
-    <div className="page post container">
-      <header className="post-header">
-        <h1>{title}</h1>
-        <span className="post-date">{date}</span>
-      </header>
+    <Layout location={location}>
+      <div className="page post container">
+        <header className="post-header">
+          <h1>{title}</h1>
+          <span className="post-date">{date}</span>
+        </header>
 
-      <div
-        className="post-body"
-        dangerouslySetInnerHTML={{
-          __html: body.childMarkdownRemark.html
-        }}
-      />
+        <div
+          className="post-body"
+          dangerouslySetInnerHTML={{
+            __html: body.childMarkdownRemark.html
+          }}
+        />
 
-      <div className="blogPost-tags u-clearfix">{tagElems}</div>
-    </div>
+        <div className="blogPost-tags u-clearfix">{tagElems}</div>
+      </div>
+    </Layout>
   );
 };
 

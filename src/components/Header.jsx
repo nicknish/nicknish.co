@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 const HeaderLink = ({ to, children }) => (
   <Link to={to} className="header-navlink" activeClassName="active">
@@ -24,7 +24,7 @@ const Header = () => (
           <HeaderLink to="/contact">Contact</HeaderLink>
         </li>
         <li>
-         <HeaderLink to="/blog">Blog</HeaderLink>
+          <HeaderLink to="/blog">Blog</HeaderLink>
         </li>
       </ul>
     </nav>

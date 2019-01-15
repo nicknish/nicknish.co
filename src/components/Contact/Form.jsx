@@ -1,5 +1,5 @@
 import React from 'react';
-import NetlifyForm from './NetlifyForm';
+import NetlifyForm from './netlifyForm';
 
 export default class ContactForm extends React.Component {
   state = {

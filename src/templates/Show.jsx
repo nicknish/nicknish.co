@@ -1,11 +1,12 @@
 import React from 'react';
 import Path from 'path';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import FaAngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
+import Layout from '../components/layout';
 
-export const Show = ({ data }) => {
+export const Show = ({ data, location }) => {
   const {
     markdownRemark: {
       html,
@@ -50,26 +51,28 @@ export const Show = ({ data }) => {
   }
 
   return (
-    <div className="page">
-      <header className="show-header container">
-        <Link to={backUrl} className="show-backLink">
-          <FaAngleDoubleLeft className="show-backLinkIcon" />
-          <span className="show-backLinkText">{backLinkText}</span>
-        </Link>
-        <h1 className="show-title">{title}</h1>
-        <span className="show-subtitle">
-          {date}
-          {externalLink}
-        </span>
-      </header>
+    <Layout location={location}>
+      <div className="page">
+        <header className="show-header container">
+          <Link to={backUrl} className="show-backLink">
+            <FaAngleDoubleLeft className="show-backLinkIcon" />
+            <span className="show-backLinkText">{backLinkText}</span>
+          </Link>
+          <h1 className="show-title">{title}</h1>
+          <span className="show-subtitle">
+            {date}
+            {externalLink}
+          </span>
+        </header>
 
-      {imageSection}
+        {imageSection}
 
-      <div className="container">
-        <h3>{headerText}</h3>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="container">
+          <h3>{headerText}</h3>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

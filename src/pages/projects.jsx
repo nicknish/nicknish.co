@@ -1,6 +1,9 @@
 import React from 'react';
-import IndexCard from '../components/IndexCard';
+import { graphql } from 'gatsby';
+import IndexCard from '../components/indexCard';
 import shortid from 'shortid';
+
+import Layout from '../components/layout';
 
 export class Projects extends React.Component {
   constructor(props) {
@@ -29,48 +32,51 @@ export class Projects extends React.Component {
 
   render() {
     const { sortedProjects } = this.state;
+    const { location } = this.props;
 
     return (
-      <div className="page">
-        <header className="container hero">
-          <h1 className="page-title">Projects</h1>
-          <p className="page-subtitle">
-            Projects create opportunity to experiment and explore.
-          </p>
-        </header>
+      <Layout location={location}>
+        <div className="page">
+          <header className="container hero">
+            <h1 className="page-title">Projects</h1>
+            <p className="page-subtitle">
+              Projects create opportunity to experiment and explore.
+            </p>
+          </header>
 
-        {sortedProjects.map(node => {
-          const {
-            id,
-            frontmatter: {
-              title,
-              path,
-              date,
-              excerpt,
-              external_url,
-              image_preview_url,
-              image_preview_description,
-              type
-            }
-          } = node;
+          {sortedProjects.map(node => {
+            const {
+              id,
+              frontmatter: {
+                title,
+                path,
+                date,
+                excerpt,
+                external_url,
+                image_preview_url,
+                image_preview_description,
+                type
+              }
+            } = node;
 
-          const imageSizes = image_preview_url
-            ? image_preview_url.childImageSharp.sizes
-            : null;
+            const imageSizes = image_preview_url
+              ? image_preview_url.childImageSharp.sizes
+              : null;
 
-          return (
-            <IndexCard
-              key={id}
-              path={path}
-              title={title}
-              imageSizes={imageSizes}
-              imagePreviewDescription={image_preview_description}
-              descriptionExcerpt={excerpt}
-              date={date}
-            />
-          );
-        })}
-      </div>
+            return (
+              <IndexCard
+                key={id}
+                path={path}
+                title={title}
+                imageSizes={imageSizes}
+                imagePreviewDescription={image_preview_description}
+                descriptionExcerpt={excerpt}
+                date={date}
+              />
+            );
+          })}
+        </div>
+      </Layout>
     );
   }
 }
