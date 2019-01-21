@@ -7,6 +7,21 @@ import Header from './header';
 import Footer from './footer';
 import '../scss/index.scss';
 
+const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
+        site_description
+        site_keywords
+        github_url
+        linkedin_url
+        twitter_url
+      }
+    }
+  }
+`;
+
 const Layout = ({ children, location }) => (
   <StaticQuery
     query={query}
@@ -41,18 +56,3 @@ Layout.propTypes = {
 };
 
 export default Layout;
-
-export const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-        site_description
-        site_keywords
-        github_url
-        linkedin_url
-        twitter_url
-      }
-    }
-  }
-`;
