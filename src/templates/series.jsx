@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import sortBy from 'lodash/sortBy';
 import Layout from '../components/layout';
+import Page from '../components/layout/page';
 
 const POST_URL_BASE = slug => `/blog/${slug}`;
 
@@ -10,7 +11,7 @@ export const Series = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <section className="page container">
+      <Page className="page container">
         <header className="hero">
           <h1 className="page-title">{data.series.title}</h1>
           {data.series.description && (
@@ -35,7 +36,7 @@ export const Series = ({ data, location }) => {
             <span className="postPreview-date">{post.date}</span>
           </article>
         ))}
-      </section>
+      </Page>
     </Layout>
   );
 };

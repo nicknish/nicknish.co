@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import shortid from 'shortid';
 import Layout from '../components/layout';
+import Page from '../components/layout/page';
 
 const addKeys = (arr = [], propName) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
@@ -18,7 +19,7 @@ export const BlogPost = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <div className="page post container">
+      <Page className="post container">
         <header className="post-header">
           <h1>{title}</h1>
           <span className="post-date">{date}</span>
@@ -32,7 +33,7 @@ export const BlogPost = ({ data, location }) => {
         />
 
         <div className="blogPost-tags u-clearfix">{tagElems}</div>
-      </div>
+      </Page>
     </Layout>
   );
 };
