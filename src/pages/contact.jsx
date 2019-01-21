@@ -4,6 +4,7 @@ import { navigateTo } from 'gatsby-link';
 
 import Layout from '../components/layout';
 import Form from '../components/contact/form';
+import Page from '../components/layout/page';
 
 const FORM_SUCCESS_REDIRECT_URL = '/thanks';
 const FORM_NAME = 'contact';
@@ -35,7 +36,7 @@ export default class Contact extends React.Component {
 
     return (
       <Layout location={location}>
-        <div>
+        <Page>
           <header className="container">
             <h1 className="page-title">Contact Me</h1>
             <p className="page-subtitle">
@@ -44,7 +45,7 @@ export default class Contact extends React.Component {
           </header>
 
           <Form formName={FORM_NAME} handleSubmit={this.handleSubmit} />
-        </div>
+        </Page>
       </Layout>
     );
   }

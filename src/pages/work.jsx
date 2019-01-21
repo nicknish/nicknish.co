@@ -4,6 +4,7 @@ import shortid from 'shortid';
 
 import IndexCard from '../components/indexCard';
 import Layout from '../components/layout';
+import Page from '../components/layout/page';
 
 export class Work extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ export class Work extends React.Component {
 
     return (
       <Layout location={location}>
-        <div>
+        <Page>
           <section className="container hero">
             <h1 className="page-title">Work</h1>
             <p className="page-subtitle">
@@ -90,7 +91,7 @@ export class Work extends React.Component {
               })}
             </div>
           </div>
-        </div>
+        </Page>
       </Layout>
     );
   }

@@ -3,11 +3,12 @@ import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
+import Page from '../components/layout/page';
 import BlogIndexPost from '../components/blogIndexPost';
 
 export const Blog = ({ data, location }) => (
   <Layout location={location}>
-    <div>
+    <Page>
       <header className="container hero">
         <h1 className="page-title">Blog</h1>
         <p className="page-subtitle">
@@ -69,7 +70,7 @@ export const Blog = ({ data, location }) => (
           })}
         </section>
       </div>
-    </div>
+    </Page>
   </Layout>
 );
 

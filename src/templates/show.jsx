@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import FaAngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
 import Layout from '../components/layout';
+import Page from '../components/layout/page';
 
 export const Show = ({ data, location }) => {
   const {
@@ -52,7 +53,7 @@ export const Show = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <div>
+      <Page>
         <header className="show-header container">
           <Link to={backUrl} className="show-backLink">
             <FaAngleDoubleLeft className="show-backLinkIcon" />
@@ -71,7 +72,7 @@ export const Show = ({ data, location }) => {
           <h3>{headerText}</h3>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
-      </div>
+      </Page>
     </Layout>
   );
 };
