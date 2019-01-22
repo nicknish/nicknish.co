@@ -4,6 +4,29 @@ import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
 
+const WorkLink = ({ to, href, text }) => {
+  const classname = 'w-80 w-auto-ns mh3-ns mb3 mb0-ns btn btn-primary btn-sm';
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classname}
+      >
+        {text}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={to} className={classname}>
+      {text}
+    </Link>
+  );
+};
+
 const IndexPage = ({ data, location }) => (
   <Layout location={location}>
     <div className="landing">
@@ -14,7 +37,7 @@ const IndexPage = ({ data, location }) => (
         </h1>
       </section>
 
-      <section className="container--lg">
+      <section className="ph3 mw-custom center mb5-ns">
         <Img sizes={data.headerImg.sizes} alt="Me and my girlfriend!" />
       </section>
 
@@ -52,29 +75,13 @@ const IndexPage = ({ data, location }) => (
           and <a href="https://www.ycombinator.com/">YCombinator</a> companies.
           The through-line is working with talented, passionate, kind folk.
         </p>
-        <nav className="landing-experienceLinks">
-          <Link
-            to="/work"
-            className="landing-experienceLink btn btn-primary btn-sm"
-          >
-            See Work
-          </Link>
-          <Link
-            to="/projects"
-            className="landing-experienceLink btn btn-primary btn-sm"
-          >
-            See Projects
-          </Link>
-          <a
-            href={data.site.siteMetadata.resume_url}
-            className="landing-experienceLink btn btn-primary btn-sm"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            See Resume
-          </a>
-        </nav>
       </section>
+
+      <nav className="mw-custom center ph3 mt4 mt5-ns tc">
+        <WorkLink to="/work" text="See Work" />
+        <WorkLink to="/projects" text="See Projects" />
+        <WorkLink href={data.site.siteMetadata.resume_url} text="See Resume" />
+      </nav>
     </div>
   </Layout>
 );
