@@ -5,16 +5,9 @@
 .show-backLink {
   text-decoration: none;
   font-size: 16px;
+  vertical-align: middle;
   @media (max-width: 768px) {
     font-size: 12px;
-  }
-}
-
-.show-backLinkIcon {
-  position: relative;
-  top: -7px;
-  @media (min-width: 768px) {
-    top: -3px;
   }
 }
 
@@ -22,7 +15,6 @@
   display: inline-block;
   padding-top: 1px;
   padding-left: 3px;
-  vertical-align: top;
   text-transform: uppercase;
 }
 

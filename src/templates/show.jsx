@@ -2,7 +2,7 @@ import React from 'react';
 import Path from 'path';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import FaAngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
+import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
 import Layout from '../components/layout';
 import Page from '../components/layout/page';
@@ -28,12 +28,9 @@ export const Show = ({ data, location }) => {
 
   if (external_url) {
     externalLink = (
-      <span>
-        {' -- '}
-        <a href={external_url} className="show-externalLink" target="_blank">
-          See it here <FaExternalLink className="show-externalLinkIcon" />
-        </a>
-      </span>
+      <a href={external_url} className="show-externalLink ml2" target="_blank">
+        See it here <FaExternalLink className="show-externalLinkIcon" />
+      </a>
     );
   }
 
@@ -55,10 +52,12 @@ export const Show = ({ data, location }) => {
     <Layout location={location}>
       <Page>
         <header className="show-header container">
-          <Link to={backUrl} className="show-backLink">
-            <FaAngleDoubleLeft className="show-backLinkIcon" />
-            <span className="show-backLinkText">{backLinkText}</span>
-          </Link>
+          <span className="show-backLink dib">
+            <Link to={backUrl} className="flex items-center">
+              <FaChevronLeft className="mt1 mr1" />
+              <span className="show-backLinkText">{backLinkText}</span>
+            </Link>
+          </span>
           <h1 className="show-title">{title}</h1>
           <span className="show-subtitle">
             {date}
@@ -82,7 +81,7 @@ const prepareShowData = path => {
   const isProject = type === 'project';
 
   const backUrl = `/${type === 'work' ? 'work' : 'projects'}`;
-  const backLinkText = `Back to ${isProject ? 'projects' : 'work experience'}`;
+  const backLinkText = `${isProject ? 'projects' : 'work'}`;
   const headerText = `${isProject ? 'Project' : 'Role'} Description`;
 
   return { backUrl, backLinkText, headerText };
