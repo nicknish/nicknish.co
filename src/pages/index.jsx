@@ -67,6 +67,14 @@ const IndexPage = ({ data, location }) => (
           >
             See Projects
           </Link>
+          <a
+            href={data.site.siteMetadata.resume_url}
+            className="landing-experienceLink btn btn-primary btn-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See Resume
+          </a>
         </nav>
       </section>
     </div>
@@ -91,6 +99,12 @@ export const query = graphql`
         sizes
         originalImg
         originalName
+      }
+    }
+
+    site {
+      siteMetadata {
+        resume_url
       }
     }
   }
