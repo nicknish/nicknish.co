@@ -26,24 +26,20 @@ const IndexPage = ({ data, location }) => (
           </span>
         </h3>
         <p>
-          I{"'"}m a passionate creative with a deep love for creating products
-          and the craft of telling important stories. Because I love frontend
-          engineering, I consider myself a frontend developer first, but I{"'"}m
-          a full-stack developer with JavaScript, React/Redux, Ruby, and Rails
+          I{"'"}m a passionate creative with a deep love for creating great
+          products. Because I love design and crafting great user experiences, I
+          consider myself a frontend developer first, but I{"'"}m a full-stack
+          developer with JavaScript, React, GraphQL, Node, and Ruby on Rails
           experience.
         </p>
         <p>
-          I get stoked over conversations of product, design, and brand
-          building.
-        </p>
-        <p>
           I meditate, learn everyday without fail, and strive to carry joy in
-          everything I do.
+          everything I do. First and foremost, I try to live a life of
+          fulfillment and peace.
         </p>
         <p>
-          I do some <Link to="/blog">writing</Link>. I{"'"}m trying to build
-          side projects daily. First and foremost, I want to live a full life
-          surrounded by people I care for.
+          I also <Link to="/blog">write</Link> occasionally and build{' '}
+          <Link to="/projects">side projects</Link>.
         </p>
       </section>
 
@@ -51,8 +47,10 @@ const IndexPage = ({ data, location }) => (
         <h3>Experience</h3>
         <p>
           I{"'"}
-          ve worked for Andreessen-Horowitz and YCombinator companies alike. The
-          through-line is working with other talented, passionate, kind folk.
+          ve worked for <a href="https://capitalg.com/">capitalG</a> (formerly
+          Google Capital), <a href="https://a16z.com/">Andreessen-Horowitz</a>{' '}
+          and <a href="https://www.ycombinator.com/">YCombinator</a> companies.
+          The through-line is working with talented, passionate, kind folk.
         </p>
         <nav className="landing-experienceLinks">
           <Link
