@@ -30,6 +30,12 @@ export const Footer = ({ socialMediaUrls }) => (
         ))}
       </ul>
     </nav>
+
+    <div className="mb3 tc">
+      <span className="f6 black-30">
+        &copy; Nick Nish {new Date().getFullYear()}
+      </span>
+    </div>
   </footer>
 );
 
