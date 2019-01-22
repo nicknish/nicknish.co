@@ -6,5 +6,7 @@ module.exports = {
   blog_url: 'https://nicknish.blog',
   github_url: 'https://github.com/nicknish',
   linkedin_url: 'https://linkedin.com/in/nicknish',
-  twitter_url: 'https://linkedin.com/in/nicknish'
+  twitter_url: 'https://linkedin.com/in/nicknish',
+  resume_url:
+    'https://s3-us-west-1.amazonaws.com/nicknish-experiments/resume/nick_nish_resume.pdf'
 };

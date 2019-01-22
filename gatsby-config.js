@@ -15,7 +15,8 @@ module.exports = {
     blog_url: config.blog_url,
     github_url: config.github_url,
     linkedin_url: config.linkedin_url,
-    twitter_url: config.twitter_url
+    twitter_url: config.twitter_url,
+    resume_url: config.resume_url
   },
   plugins: [
     {
