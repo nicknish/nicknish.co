@@ -3,16 +3,23 @@ const path = require('path');
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  const WorkPage = path.resolve(`./src/templates/work.jsx`);
+  const ProjectPage = path.resolve(`./src/templates/project.jsx`);
+
   const loadPages = new Promise((resolve, reject) => {
     graphql(`
       {
-        markdownPosts: allMarkdownRemark {
+        projects: allContentfulProject {
           edges {
             node {
-              id
-              frontmatter {
-                path
-              }
+              slug
+            }
+          }
+        }
+        work: allContentfulWork {
+          edges {
+            node {
+              slug
             }
           }
         }
@@ -20,16 +27,24 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       if (result.errors) return reject(result.errors);
 
-      result.data.markdownPosts.edges.forEach(({ node }) => {
-        if (node.frontmatter.path) {
-          createPage({
-            path: node.frontmatter.path,
-            component: path.resolve(`./src/templates/show.jsx`),
-            context: {
-              id: node.id
-            }
-          });
-        }
+      result.data.projects.edges.forEach(({ node }) => {
+        createPage({
+          path: `projects/${node.slug}`,
+          component: ProjectPage,
+          context: {
+            slug: node.slug
+          }
+        });
+      });
+
+      result.data.work.edges.forEach(({ node }) => {
+        createPage({
+          path: `work/${node.slug}`,
+          component: WorkPage,
+          context: {
+            slug: node.slug
+          }
+        });
       });
 
       resolve();

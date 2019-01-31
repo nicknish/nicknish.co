@@ -39,7 +39,10 @@ const IndexCard = ({
         {subtitle}
       </div>
 
-      <p className="indexCard-description">{descriptionExcerpt}</p>
+      <div
+        className="indexCard-description"
+        dangerouslySetInnerHTML={{ __html: descriptionExcerpt }}
+      />
 
       <Link to={path} className="btn btn-primary btn-sm">
         Read More

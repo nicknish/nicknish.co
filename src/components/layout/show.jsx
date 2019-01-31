@@ -1,27 +1,28 @@
 import React from 'react';
-import Path from 'path';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
-import Layout from '../components/layout';
-import Page from '../components/layout/page';
 
-export const Show = ({ data, location }) => {
-  const {
-    markdownRemark: {
-      html,
-      frontmatter: {
-        title,
-        date,
-        external_url,
-        path,
-        image_preview_url,
-        image_preview_description
-      }
-    }
-  } = data;
-  const { backUrl, backLinkText, headerText } = prepareShowData(path);
+import Layout from '../layout';
+import Page from './page';
+
+export const SHOW_TYPES = {
+  PROJECT: 'project',
+  WORK: 'work'
+};
+
+export const Show = ({
+  title,
+  description,
+  date,
+  external_url,
+  type,
+  image,
+  image_preview_description,
+  location
+}) => {
+  const { backUrl, backLinkText, headerText } = prepareShowData(type);
 
   let externalLink;
   let imageSection;
@@ -34,12 +35,12 @@ export const Show = ({ data, location }) => {
     );
   }
 
-  if (image_preview_url) {
+  if (image) {
     imageSection = (
       <div className="container">
         <figure className="show-imageContainer">
           <Img
-            sizes={image_preview_url.childImageSharp.sizes}
+            sizes={image}
             alt={image_preview_description}
             className="show-image"
           />
@@ -69,18 +70,17 @@ export const Show = ({ data, location }) => {
 
         <div className="container">
           <h3>{headerText}</h3>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </Page>
     </Layout>
   );
 };
 
-const prepareShowData = path => {
-  const type = Path.dirname(path).indexOf('work') > -1 ? 'work' : 'project';
-  const isProject = type === 'project';
+const prepareShowData = type => {
+  const isProject = type === SHOW_TYPES.PROJECT;
 
-  const backUrl = `/${type === 'work' ? 'work' : 'projects'}`;
+  const backUrl = `/${type === SHOW_TYPES.WORK ? 'work' : 'projects'}`;
   const backLinkText = `${isProject ? 'projects' : 'work'}`;
   const headerText = `${isProject ? 'Project' : 'Role'} Description`;
 
@@ -88,35 +88,3 @@ const prepareShowData = path => {
 };
 
 export default Show;
-
-export const query = graphql`
-  query ShowQuery($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      frontmatter {
-        title
-        path
-        external_url
-        image_preview_url {
-          childImageSharp {
-            sizes(maxWidth: 630) {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
-            }
-          }
-        }
-        image_preview_description
-        date
-        excerpt
-      }
-    }
-  }
-`;
