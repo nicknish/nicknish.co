@@ -50,13 +50,7 @@ const Layout = ({ children, location }) => (
         />
         <Header />
         <main className="site-content">{children}</main>
-        <Footer
-          socialMediaUrls={{
-            github: github_url,
-            linkedin: linkedin_url,
-            twitter: twitter_url
-          }}
-        />
+        <Footer />
       </div>
     )}
   />
