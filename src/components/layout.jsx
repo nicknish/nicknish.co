@@ -25,34 +25,41 @@ const query = graphql`
 const Layout = ({ children, location }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={({
+      site: {
+        siteMetadata: {
+          title,
+          site_description,
+          site_keywords,
+          github_url,
+          linkedin_url,
+          twitter_url
+        }
+      }
+    }) => (
       <div className="site-container">
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={title}
           meta={[
             {
               name: 'description',
-              content: data.site.siteMetadata.site_description
+              content: site_description
             },
-            { name: 'keywords', content: data.site.siteMetadata.site_keywords }
+            { name: 'keywords', content: site_keywords }
           ]}
         />
         <Header />
         <main className="site-content">{children}</main>
         <Footer
           socialMediaUrls={{
-            github: data.site.siteMetadata.github_url,
-            linkedin: data.site.siteMetadata.linkedin_url,
-            twitter: data.site.siteMetadata.twitter_url
+            github: github_url,
+            linkedin: linkedin_url,
+            twitter: twitter_url
           }}
         />
       </div>
     )}
   />
 );
-
-Layout.propTypes = {
-  children: PropTypes.func
-};
 
 export default Layout;
