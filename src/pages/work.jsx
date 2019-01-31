@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import get from 'lodash/get';
 import shortid from 'shortid';
+import { getDate } from '../utils/helpers';
 
 import IndexCard from '../components/indexCard';
 import Layout from '../components/layout';
@@ -46,25 +48,25 @@ export class Work extends React.Component {
           {sortedExperiences.map(node => {
             const {
               id,
-              frontmatter: {
-                title,
-                path,
-                date,
-                excerpt,
-                image_preview_url,
-                image_preview_description
-              }
+              title,
+              slug,
+              startDate,
+              endDate,
+              current,
+              excerpt,
+              images = [],
+              image_preview_description
             } = node;
 
             return (
               <IndexCard
                 key={id}
-                path={path}
+                path={`work/${slug}`}
                 title={title}
-                imageSizes={image_preview_url.childImageSharp.sizes}
+                imageSizes={get(images, '[0].sizes')}
                 imagePreviewDescription={image_preview_description}
-                descriptionExcerpt={excerpt}
-                date={date}
+                descriptionExcerpt={excerpt.childMarkdownRemark.html}
+                date={getDate(startDate, endDate, current)}
               />
             );
           })}
@@ -76,15 +78,26 @@ export class Work extends React.Component {
               {sortedContractExperiences.map(node => {
                 const {
                   id,
-                  frontmatter: { title, path, date, excerpt }
+                  title,
+                  slug,
+                  startDate,
+                  endDate,
+                  current,
+                  excerpt
                 } = node;
 
                 return (
                   <div key={id} className="contractWork-card">
-                    <Link to={path}>
+                    <Link to={`work/${slug}`}>
                       <h3>{title}</h3>
-                      <div className="date">{date}</div>
-                      <p>{excerpt}</p>
+                      <div className="date">
+                        {getDate(startDate, endDate, current)}
+                      </div>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: excerpt.childMarkdownRemark.html
+                        }}
+                      />
                     </Link>
                   </div>
                 );
@@ -101,72 +114,24 @@ export default Work;
 
 export const query = graphql`
   query WorkQuery {
-    work: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
-      filter: { frontmatter: { type: { eq: "work" } } }
+    work: allContentfulWork(
+      filter: { freelanceWork: { eq: false } }
+      sort: { fields: [startDate], order: DESC }
     ) {
       edges {
         node {
-          frontmatter {
-            title
-            path
-            date
-            excerpt
-            external_url
-            image_preview_url {
-              childImageSharp {
-                sizes(maxWidth: 640) {
-                  base64
-                  tracedSVG
-                  aspectRatio
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  sizes
-                  originalImg
-                  originalName
-                }
-              }
-            }
-            image_preview_description
-            type
-          }
+          ...WorkInfo
         }
       }
     }
 
-    contract_work: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
-      filter: { frontmatter: { type: { eq: "contract_work" } } }
+    contract_work: allContentfulWork(
+      filter: { freelanceWork: { eq: true } }
+      sort: { fields: [startDate], order: DESC }
     ) {
       edges {
         node {
-          frontmatter {
-            title
-            path
-            date
-            excerpt
-            external_url
-            image_preview_url {
-              childImageSharp {
-                sizes(maxWidth: 640) {
-                  base64
-                  tracedSVG
-                  aspectRatio
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  sizes
-                  originalImg
-                  originalName
-                }
-              }
-            }
-            image_preview_description
-            type
-          }
+          ...WorkInfo
         }
       }
     }

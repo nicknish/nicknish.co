@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import IndexCard from '../components/indexCard';
 import shortid from 'shortid';
+import get from 'lodash/get';
+import { getDate } from '../utils/helpers';
 
 import Layout from '../components/layout';
 import Page from '../components/layout/page';
@@ -15,12 +17,10 @@ export class Projects extends React.Component {
   componentDidMount() {
     let sortedProjects = [];
 
-    this.props.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const { frontmatter } = node;
-
+    this.props.data.projects.edges.forEach(({ node }) => {
       node.id = shortid.generate();
 
-      if (frontmatter.title === 'Portfolio') {
+      if (node.title === 'Portfolio') {
         sortedProjects.unshift(node);
         return;
       }
@@ -48,31 +48,26 @@ export class Projects extends React.Component {
           {sortedProjects.map(node => {
             const {
               id,
-              frontmatter: {
-                title,
-                path,
-                date,
-                excerpt,
-                external_url,
-                image_preview_url,
-                image_preview_description,
-                type
-              }
+              title,
+              slug,
+              startDate,
+              endDate,
+              current,
+              excerpt,
+              images
             } = node;
 
-            const imageSizes = image_preview_url
-              ? image_preview_url.childImageSharp.sizes
-              : null;
+            const imageSizes = get(images, '[0].sizes');
 
             return (
               <IndexCard
                 key={id}
-                path={path}
+                path={`projects/${slug}`}
                 title={title}
                 imageSizes={imageSizes}
-                imagePreviewDescription={image_preview_description}
-                descriptionExcerpt={excerpt}
-                date={date}
+                imagePreviewDescription={get(images, '[0].description')}
+                descriptionExcerpt={excerpt.childMarkdownRemark.html}
+                date={getDate(startDate, endDate, current)}
               />
             );
           })}
@@ -86,36 +81,24 @@ export default Projects;
 
 export const query = graphql`
   query ProjectsQuery {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
-      filter: { frontmatter: { type: { eq: "project" } } }
-    ) {
+    projects: allContentfulProject(sort: { fields: [startDate], order: ASC }) {
       edges {
         node {
-          frontmatter {
-            title
-            path
-            date
-            excerpt
-            external_url
-            image_preview_url {
-              childImageSharp {
-                sizes(maxWidth: 640) {
-                  base64
-                  tracedSVG
-                  aspectRatio
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  sizes
-                  originalImg
-                  originalName
-                }
-              }
+          title
+          slug
+          startDate(formatString: "MMM YYYY")
+          endDate(formatString: "MMM YYYY")
+          current
+          excerpt {
+            childMarkdownRemark {
+              ...Markdown
             }
-            image_preview_description
-            type
+          }
+          images {
+            description
+            sizes(maxWidth: 640) {
+              ...ImageSizes
+            }
           }
         }
       }

@@ -47,7 +47,7 @@ export const query = graphql`
       title
       description {
         childMarkdownRemark {
-          html
+          ...Markdown
         }
       }
       posts {
