@@ -18,6 +18,9 @@ export default class Contact extends React.Component {
   handleSubmit = values => {
     return axios({
       url: '/', // Netlify form submission endpoint
+      params: {
+        'no-cache': 1 // Recommended for Netlify to work with Gatsby v2
+      },
       method: 'post',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: encode({
