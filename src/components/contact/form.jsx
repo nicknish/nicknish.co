@@ -14,6 +14,8 @@ const Label = ({ label, id }) => (
   </label>
 );
 
+console.log(process.env.SITE_RECAPTCHA_KEY);
+
 export default class ContactForm extends React.Component {
   state = {
     name: '',
