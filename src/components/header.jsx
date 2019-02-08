@@ -26,7 +26,7 @@ const query = graphql`
   query HeaderQuery {
     site {
       siteMetadata {
-        resume_url
+        resumeUrl
       }
     }
   }
@@ -55,7 +55,7 @@ const Header = () => (
               <HeaderLink to="/blog">Blog</HeaderLink>
             </li>
             <li>
-              <HeaderLink href={data.site.siteMetadata.resume_url}>
+              <HeaderLink href={data.site.siteMetadata.resumeUrl}>
                 Resume
               </HeaderLink>
             </li>

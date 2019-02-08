@@ -14,7 +14,7 @@ export const Blog = ({ data, location }) => (
         <p className="page-subtitle">
           Welcome to my blog. I write about software development, business, and
           living a good life here.{' '}
-          <a href={data.site.siteMetadata.blog_url}>
+          <a href={data.site.siteMetadata.blogUrl}>
             Click here for previous blog
           </a>
           .
@@ -78,7 +78,7 @@ export const query = graphql`
   query BlogQuery {
     site {
       siteMetadata {
-        blog_url
+        blogUrl
       }
     }
 

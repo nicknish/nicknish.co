@@ -19,12 +19,16 @@ const query = graphql`
   query FooterQuery {
     site {
       siteMetadata {
-        title
-        site_description
-        site_keywords
-        github_url
-        linkedin_url
-        twitter_url
+        seo {
+          title
+          description
+          keywords
+        }
+        social {
+          github
+          linkedin
+          twitter
+        }
       }
     }
   }
@@ -35,13 +39,15 @@ export const Footer = () => (
     query={query}
     render={({
       site: {
-        siteMetadata: { github_url, linkedin_url, twitter_url }
+        siteMetadata: {
+          social: { github, linkedin, twitter }
+        }
       }
     }) => {
       const socialMediaUrls = {
-        github: github_url,
-        linkedin: linkedin_url,
-        twitter: twitter_url
+        github: github,
+        linkedin: linkedin,
+        twitter: twitter
       };
 
       return (

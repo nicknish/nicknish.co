@@ -8,15 +8,20 @@ const config = require('./src/utils/siteConfig');
 
 module.exports = {
   siteMetadata: {
-    siteUrl: config.siteUrl,
-    title: config.title,
-    site_description: config.site_description,
-    site_keywords: config.site_keywords,
-    blog_url: config.blog_url,
-    github_url: config.github_url,
-    linkedin_url: config.linkedin_url,
-    twitter_url: config.twitter_url,
-    resume_url: config.resume_url
+    blogUrl: config.blogUrl,
+    resumeUrl: config.resumeUrl,
+    seo: {
+      url: config.url,
+      title: config.title,
+      description: config.description,
+      keywords: config.keywords
+    },
+    social: {
+      github: config.githubUrl,
+      linkedin: config.linkedinUrl,
+      twitter: config.twitterUrl,
+      twitterUsername: config.twitterUsername
+    }
   },
   plugins: [
     {
@@ -80,7 +85,7 @@ module.exports = {
           {
             site {
               siteMetadata {
-                siteUrl
+                url
               }
             }
 

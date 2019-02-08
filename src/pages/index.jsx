@@ -80,7 +80,7 @@ const IndexPage = ({ data, location }) => (
       <nav className="mw-custom center ph3 mt4 mt5-ns tc">
         <WorkLink to="/work" text="See Work" />
         <WorkLink to="/projects" text="See Projects" />
-        <WorkLink href={data.site.siteMetadata.resume_url} text="See Resume" />
+        <WorkLink href={data.site.siteMetadata.resumeUrl} text="See Resume" />
       </nav>
     </div>
   </Layout>
@@ -109,7 +109,7 @@ export const query = graphql`
 
     site {
       siteMetadata {
-        resume_url
+        resumeUrl
       }
     }
   }
