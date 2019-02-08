@@ -13,6 +13,7 @@ export const NetlifyForm = ({
     name={name}
     data-netlify="true"
     data-netlify-honeypot="bot-field"
+    data-netlify-recaptcha={true}
     onSubmit={onSubmit}
   >
     <div hidden>

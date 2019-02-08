@@ -104,6 +104,37 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        logo: `${__dirname}/src/images/favicon.png`,
+        // WebApp Manifest Configuration
+        appName: 'Nick Nish', // Inferred with your package.json
+        appDescription: config.site_description,
+        developerName: 'Nick Nish',
+        developerURL: config.siteUrl,
+        dir: 'auto',
+        lang: 'en-US',
+        background: '#ff8061',
+        theme_color: '#ff8061',
+        display: 'standalone',
+        orientation: 'any',
+        start_url: '/?homescreen=1',
+        version: '1.0',
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
@@ -113,6 +144,14 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify` // MUST BE LAST
+    {
+      // MUST BE LAST
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/sw.js': ['Cache-Control: no-cache']
+        }
+      }
+    }
   ]
 };
