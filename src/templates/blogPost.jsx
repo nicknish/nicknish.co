@@ -32,7 +32,7 @@ export const BlogPost = ({ data, location }) => {
           }}
         />
 
-        <div className="blogPost-tags u-clearfix">{tagElems}</div>
+        <div className="blogPost-tags cf">{tagElems}</div>
       </Page>
     </Layout>
   );
