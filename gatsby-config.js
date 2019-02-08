@@ -144,6 +144,14 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify` // MUST BE LAST
+    {
+      // MUST BE LAST
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/sw.js': ['Cache-Control: no-cache']
+        }
+      }
+    }
   ]
 };
