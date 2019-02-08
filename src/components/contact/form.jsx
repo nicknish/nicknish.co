@@ -1,5 +1,9 @@
 import React from 'react';
 import NetlifyForm from './netlifyForm';
+import Recaptcha from 'react-google-recaptcha';
+
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
+const RECAPTCHA_NETLIFY_PROP = 'g-recaptcha-response';
 
 const INPUT_CLASSNAMES = `w-100 ba b--black-20 pa2 mb2 br2`;
 const TEXTAREA_CLASSNAMES = `${INPUT_CLASSNAMES} h4`;
@@ -26,6 +30,10 @@ export default class ContactForm extends React.Component {
     this.props.handleSubmit(this.state).then(() => {
       this.setState({ submitting: false });
     });
+  };
+
+  handleRecaptcha = value => {
+    this.setState({ [RECAPTCHA_NETLIFY_PROP]: value });
   };
 
   handleChange = e => {
@@ -91,15 +99,21 @@ export default class ContactForm extends React.Component {
           </div>
         </div>
 
-        <div className="u-textCenter">
-          <button
-            type="submit"
-            className="btn btn-primary btn-sm"
-            disabled={submitting}
-          >
-            Send Message
-          </button>
+        <div className="mb3">
+          <Recaptcha
+            ref="recaptcha"
+            sitekey={RECAPTCHA_KEY}
+            onChange={this.handleRecaptcha}
+          />
         </div>
+
+        <button
+          type="submit"
+          className="btn btn-primary btn-sm"
+          disabled={submitting || !this.state[RECAPTCHA_NETLIFY_PROP]}
+        >
+          Send Message
+        </button>
       </NetlifyForm>
     );
   }

@@ -6,14 +6,14 @@ import Page from '../components/layout/page';
 
 export const ContactFormSuccess = ({ location }) => (
   <Layout location={location}>
-    <Page className="container">
+    <Page className="container tc">
       <h1 className="page-title">Thank you!</h1>
-      <p>I will try to respond to your message within 24 hours.</p>
-      <div className="u-textCenter">
-        <Link to="/" className="btn btn-sm btn-primary">
-          Go Home
-        </Link>
-      </div>
+      <p className="mb4">
+        I will try to respond to your message within 24 hours.
+      </p>
+      <Link to="/" className="btn btn-sm btn-primary">
+        Go Home
+      </Link>
     </Page>
   </Layout>
 );

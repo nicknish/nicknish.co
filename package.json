@@ -35,6 +35,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
     "shortid": "^2.2.8",
