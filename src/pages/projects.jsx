@@ -81,7 +81,7 @@ export default Projects;
 
 export const query = graphql`
   query ProjectsQuery {
-    projects: allContentfulProject(sort: { fields: [startDate], order: ASC }) {
+    projects: allContentfulProject(sort: { fields: [startDate], order: DESC }) {
       edges {
         node {
           title
