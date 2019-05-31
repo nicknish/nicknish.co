@@ -24,7 +24,7 @@ export default ({
     date={getDate(startDate, endDate, current)}
     path={`work/${slug}`}
     external_url={url}
-    type={SHOW_TYPES.PROJECT}
+    type={SHOW_TYPES.WORK}
     image={get(images, '[0].sizes')}
     image_preview_description={get(images, '[0].description')}
   />
