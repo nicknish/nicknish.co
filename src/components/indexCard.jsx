@@ -45,7 +45,7 @@ const IndexCard = ({
         dangerouslySetInnerHTML={{ __html: descriptionExcerpt }}
       />
 
-      <Button to={path} theme="primary" size="small">
+      <Button to={path} theme="primary" size="small" component={Link}>
         Read More
       </Button>
     </section>
