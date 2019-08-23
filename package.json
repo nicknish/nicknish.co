@@ -5,9 +5,14 @@
   "author": "Nick Nish <nickjnish@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "gatsby build",
+    "dev": "yarn start",
+    "start": "run-p start:**",
+    "start:app": "yarn develop",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "run-p build:**",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "develop": "gatsby develop",
-    "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{js,jsx,scss}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -44,7 +49,10 @@
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^1.6.3",
     "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3"
   }
 }
