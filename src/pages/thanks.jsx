@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import Page from '../components/layout/page';
+import Button from '../components/button';
 
 export const ContactFormSuccess = ({ location }) => (
   <Layout location={location}>
@@ -11,9 +12,9 @@ export const ContactFormSuccess = ({ location }) => (
       <p className="mb4">
         I will try to respond to your message within 24 hours.
       </p>
-      <Link to="/" className="btn btn-sm btn-primary">
+      <Button theme="primary" size="small" component={Link} to="/">
         Go Home
-      </Link>
+      </Button>
     </Page>
   </Layout>
 );

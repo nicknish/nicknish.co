@@ -3,27 +3,37 @@ import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
+import Button from '../components/button';
 
 const WorkLink = ({ to, href, text }) => {
-  const classname = 'w-80 w-auto-ns mh3-ns mb3 mb0-ns btn btn-primary btn-sm';
+  const classNames = 'w-80 w-auto-ns mh3-ns mb3 mb0-ns';
 
   if (href) {
     return (
-      <a
+      <Button
         href={href}
+        component={({ children, ...props }) => <a {...props}>{children}</a>}
+        className={classNames}
+        theme="primary"
+        size="small"
         target="_blank"
         rel="noopener noreferrer"
-        className={classname}
       >
         {text}
-      </a>
+      </Button>
     );
   }
 
   return (
-    <Link to={to} className={classname}>
+    <Button
+      to={to}
+      component={Link}
+      className={classNames}
+      theme="primary"
+      size="small"
+    >
       {text}
-    </Link>
+    </Button>
   );
 };
 
