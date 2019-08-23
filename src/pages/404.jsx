@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import Page from '../components/layout/page';
+import Button from '../components/button';
 
 const NotFoundPage = ({ location }) => (
   <Layout location={location}>
@@ -12,9 +13,9 @@ const NotFoundPage = ({ location }) => (
         {"'"}s weird. You found a dead-end. Click below to go back to the good
         stuff.
       </p>
-      <Link to="/" className="btn btn-primary btn-sm">
+      <Button to="/" component={Link} theme="primary" size="small">
         Go Home
-      </Link>
+      </Button>
     </Page>
   </Layout>
 );

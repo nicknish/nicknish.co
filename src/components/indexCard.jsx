@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+import Button from './button';
 
 const IndexCard = ({
   path,
@@ -44,9 +45,9 @@ const IndexCard = ({
         dangerouslySetInnerHTML={{ __html: descriptionExcerpt }}
       />
 
-      <Link to={path} className="btn btn-primary btn-sm">
+      <Button to={path} theme="primary" size="small">
         Read More
-      </Link>
+      </Button>
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import NetlifyForm from './netlifyForm';
 import Recaptcha from 'react-google-recaptcha';
+import Button from '../button';
 
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 const RECAPTCHA_NETLIFY_PROP = 'g-recaptcha-response';
@@ -107,13 +108,14 @@ export default class ContactForm extends React.Component {
           />
         </div>
 
-        <button
+        <Button
           type="submit"
-          className="btn btn-primary btn-sm"
+          theme="primary"
+          size="small"
           disabled={submitting || !this.state[RECAPTCHA_NETLIFY_PROP]}
         >
           Send Message
-        </button>
+        </Button>
       </NetlifyForm>
     );
   }
