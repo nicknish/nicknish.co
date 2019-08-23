@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
+import NewsletterSignup from './NewsletterSignup';
 
 const iconChooser = key => {
   switch (key) {
@@ -46,6 +47,8 @@ export const Footer = () => (
 
       return (
         <footer className="footer">
+          <NewsletterSignup />
+
           <nav className="footer-social">
             <ul className="footer-socialList">
               {Object.keys(socialMediaUrls).map(key => (
