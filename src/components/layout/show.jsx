@@ -29,7 +29,12 @@ export const Show = ({
 
   if (external_url) {
     externalLink = (
-      <a href={external_url} className="show-externalLink ml2" target="_blank">
+      <a
+        href={external_url}
+        className="show-externalLink ml2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         See it here <FaExternalLink className="show-externalLinkIcon" />
       </a>
     );
