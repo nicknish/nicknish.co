@@ -59,7 +59,8 @@ module.exports = {
               maxWidth: 590
             }
           },
-          `gatsby-remark-copy-linked-files`
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-prismjs`
         ]
       }
     },
@@ -145,6 +146,26 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-remark-prismjs`,
+      options: {
+        // Class prefix for <pre> tags containing syntax highlighting;
+        // defaults to 'language-' (eg <pre class="language-js">).
+        classPrefix: 'language-',
+        // This is used to allow setting a language for inline code
+        // (i.e. single backticks) by creating a separator.
+        inlineCodeMarker: null,
+        aliases: {},
+        showLineNumbers: false,
+        noInlineHighlight: false,
+        languageExtensions: [],
+        prompt: {
+          user: 'root',
+          host: 'localhost',
+          global: false
+        }
+      }
+    },
     {
       // MUST BE LAST
       resolve: `gatsby-plugin-netlify`,
