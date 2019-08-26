@@ -1,4 +1,3 @@
-const autoprefixer = require('autoprefixer');
 const proxy = require('http-proxy-middleware');
 
 require('dotenv').config({
@@ -6,6 +5,15 @@ require('dotenv').config({
 });
 
 const config = require('./src/utils/siteConfig');
+
+const filesystem = require('./plugins/filesystem');
+const sources = require('./plugins/sources');
+const markdown = require('./plugins/markdown');
+const analytics = require('./plugins/analytics');
+const site = require('./plugins/site');
+const css = require('./plugins/css');
+const images = require('./plugins/images');
+const netlify = require('./plugins/netlify');
 
 module.exports = {
   siteMetadata: {
@@ -20,163 +28,16 @@ module.exports = {
     resume_url: config.resume_url
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages'
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/images`,
-        name: 'images'
-      }
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        environment: process.env.CONTENTFUL_ENV
-      }
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        commonmark: true,
-        footnotes: true,
-        pedantic: true,
-        gfm: true,
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 590
-            }
-          },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-prismjs`
-        ]
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        exclude: []
-      }
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        exclude: [`${__dirname}/src/pages/Thanks.jsx`],
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-
-            allSitePage {
-              edges {
-                node {
-                  path
-                }
-              }
-            }
-        }`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        postCssPlugins: [
-          autoprefixer({
-            browsers: ['last 2 versions']
-          })
-        ]
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-favicon',
-      options: {
-        logo: `${__dirname}/src/images/favicon.png`,
-        // WebApp Manifest Configuration
-        appName: 'Nick Nish', // Inferred with your package.json
-        appDescription: config.site_description,
-        developerName: 'Nick Nish',
-        developerURL: config.siteUrl,
-        dir: 'auto',
-        lang: 'en-US',
-        background: '#ff8061',
-        theme_color: '#ff8061',
-        display: 'standalone',
-        orientation: 'any',
-        start_url: '/?homescreen=1',
-        version: '1.0',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false
-        }
-      }
-    },
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        stripMetadata: true
-      }
-    },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-remark-prismjs`,
-      options: {
-        // Class prefix for <pre> tags containing syntax highlighting;
-        // defaults to 'language-' (eg <pre class="language-js">).
-        classPrefix: 'language-',
-        // This is used to allow setting a language for inline code
-        // (i.e. single backticks) by creating a separator.
-        inlineCodeMarker: null,
-        aliases: {},
-        showLineNumbers: false,
-        noInlineHighlight: false,
-        languageExtensions: [],
-        prompt: {
-          user: 'root',
-          host: 'localhost',
-          global: false
-        }
-      }
-    },
-    {
-      // MUST BE LAST
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {
-          '/sw.js': ['Cache-Control: no-cache']
-        }
-      }
-    }
+    ...site(config).plugins,
+    ...css.plugins,
+    ...images.plugins,
+    ...filesystem.plugins,
+    ...sources.plugins,
+    ...markdown.plugins,
+    ...analytics.plugins,
+    // MUST BE LAST (?)
+    ...netlify.plugins
   ],
-  //
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
