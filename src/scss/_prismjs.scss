@@ -49,7 +49,9 @@
 }
 
 :not(pre) > code[class*='language-'] {
+  padding: 2px 4px;
+  font-size: 85%;
   border-radius: 0.15em;
-  margin-right: 2px;
-  margin-left: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  color: $color-body-copy;
 }
