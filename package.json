@@ -5,7 +5,7 @@
   "author": "Nick Nish <nickjnish@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "PREVIEW_CONTENTFUL=true yarn start",
+    "dev": "yarn start",
     "start": "run-p start:**",
     "start:app": "yarn develop",
     "start:lambda": "netlify-lambda serve src/lambda",
