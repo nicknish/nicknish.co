@@ -3,7 +3,7 @@ import NetlifyForm from './netlifyForm';
 import Recaptcha from 'react-google-recaptcha';
 import Button from '../button';
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
+const RECAPTCHA_KEY = process.env.GATSBY_SITE_RECAPTCHA_KEY;
 const RECAPTCHA_NETLIFY_PROP = 'g-recaptcha-response';
 
 const INPUT_CLASSNAMES = `w-100 ba b--black-20 pa2 mb2 br2`;
