@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { navigateTo } from 'gatsby-link';
+import { navigate } from 'gatsby-link';
 
 import Layout from '../components/layout';
 import Form from '../components/contact/form';
@@ -29,7 +29,7 @@ export default class Contact extends React.Component {
       })
     })
       .then(() => {
-        navigateTo(FORM_SUCCESS_REDIRECT_URL);
+        navigate(FORM_SUCCESS_REDIRECT_URL);
       })
       .catch(error => console.error(error));
   };
