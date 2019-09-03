@@ -55,3 +55,7 @@
   background: rgba(0, 0, 0, 0.1);
   color: $color-body-copy;
 }
+
+.gatsby-highlight .language-diff .token.inserted {
+  color: #8fca8f;
+}
