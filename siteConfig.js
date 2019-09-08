@@ -6,7 +6,6 @@ module.exports = {
   siteTitle: `Nick Nish - Developer & Startup Boy`,
   siteTitleAlt: `Nick Nish's Portfolio and Blog`, // Alternative site title for SEO schema
   siteDescription: `Nick Nish's Portfolio and Blog. Learn about software development, React/JavaScript, product, and business.`,
-  themeColor: '#ff8061',
 
   /* SEO */
   publisher: 'Nick Nish',
@@ -18,6 +17,11 @@ module.exports = {
   author: 'Nick Nish', // RSS author segment and SEO schema
   authorUrl: siteUrl, // Author and publisher schema, can be a social profile or other personal site
   userTwitter,
+
+  // Offline Manifest
+  siteLogo: 'logos/logo.png',
+  backgroundColor: '#ff8061',
+  themeColor: '#ff8061',
 
   /* Site Navigation */
   github_url: 'https://github.com/nicknish',
