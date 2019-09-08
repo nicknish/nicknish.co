@@ -55,7 +55,7 @@ export const Show = ({
   }
 
   return (
-    <Layout location={location}>
+    <Layout location={location} isPage>
       <Page>
         <header className="show-header container">
           <span className="show-backLink dib">

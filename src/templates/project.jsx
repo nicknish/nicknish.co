@@ -7,9 +7,11 @@ import { getDate } from '../utils/helpers';
 export default ({
   data: {
     post: { title, startDate, endDate, current, description, images = [], url }
-  }
+  },
+  location
 }) => (
   <Show
+    location={location}
     title={title}
     description={description.childMarkdownRemark.html}
     date={getDate(startDate, endDate, current)}

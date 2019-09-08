@@ -16,9 +16,11 @@ export default ({
       images = [],
       url
     }
-  }
+  },
+  location
 }) => (
   <Show
+    location={location}
     title={title}
     description={description.childMarkdownRemark.html}
     date={getDate(startDate, endDate, current)}

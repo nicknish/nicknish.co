@@ -18,7 +18,10 @@ export const BlogPost = ({ data, location }) => {
   ));
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      post={{ excerpt: body.childMarkdownRemark.excerpt, ...data.post }}
+    >
       <Page className="post container">
         <header className="post-header">
           <h1>{title}</h1>
@@ -45,11 +48,11 @@ export const query = graphql`
       date(formatString: "MMMM DD, YYYY")
       body {
         childMarkdownRemark {
+          excerpt
           ...Markdown
         }
       }
-      createdAt
-      updatedAt
+      publishedDate: date
     }
   }
 `;
