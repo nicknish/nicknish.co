@@ -8,7 +8,7 @@ const addKeys = (arr = [], propName) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
 
 export const BlogPost = ({ data, location }) => {
-  const { id, slug, title, tags, date, body } = data.post;
+  const { title, tags, date, body } = data.post;
 
   const tagsWithKeys = tags && tags.length ? addKeys(tags, 'tag') : [];
   const tagElems = tagsWithKeys.map(tag => (
@@ -41,8 +41,6 @@ export const BlogPost = ({ data, location }) => {
 export const query = graphql`
   query BlogPost($id: String!) {
     post: contentfulPost(id: { eq: $id }) {
-      id
-      slug
       title
       date(formatString: "MMMM DD, YYYY")
       body {
