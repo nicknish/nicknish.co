@@ -20,9 +20,6 @@ const query = graphql`
   query FooterQuery {
     site {
       siteMetadata {
-        title
-        site_description
-        site_keywords
         github_url
         linkedin_url
         twitter_url
