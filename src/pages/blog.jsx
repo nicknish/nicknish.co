@@ -12,12 +12,8 @@ export const Blog = ({ data, location }) => (
       <header className="container hero">
         <h1 className="page-title">Blog</h1>
         <p className="page-subtitle">
-          Welcome to my blog. I write about software development, business, and
-          living a good life here.{' '}
-          <a href={data.site.siteMetadata.blog_url}>
-            Click here for previous blog
-          </a>
-          .
+          Welcome to my blog where I write about software development, product,
+          business, and living a good life.
         </p>
       </header>
 
@@ -76,12 +72,6 @@ export const Blog = ({ data, location }) => (
 
 export const query = graphql`
   query BlogQuery {
-    site {
-      siteMetadata {
-        blog_url
-      }
-    }
-
     posts: allContentfulPost(sort: { fields: [date], order: DESC }) {
       edges {
         node {
