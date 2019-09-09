@@ -5,7 +5,7 @@ module.exports = config => ({
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`${__dirname}/../src/pages/Thanks.jsx`],
+        exclude: ['/thanks'],
         query: `
         {
           site {
