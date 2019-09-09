@@ -5,8 +5,8 @@ import Layout from '../components/layout';
 import Page from '../components/layout/page';
 import Button from '../components/button';
 
-export const ContactFormSuccess = ({ location }) => (
-  <Layout location={location}>
+export const ContactFormSuccess = ({}) => (
+  <Layout page={{ title: 'Thanks' }} path="/thanks">
     <Page className="container tc">
       <h1 className="page-title">Thank you!</h1>
       <p className="mb4">

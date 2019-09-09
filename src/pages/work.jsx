@@ -32,10 +32,9 @@ export class Work extends React.Component {
 
   render() {
     const { sortedExperiences, sortedContractExperiences } = this.state;
-    const { location } = this.props;
 
     return (
-      <Layout location={location}>
+      <Layout page={{ title: 'Work' }} path="/work">
         <Page>
           <section className="container hero">
             <h1 className="page-title">Work</h1>

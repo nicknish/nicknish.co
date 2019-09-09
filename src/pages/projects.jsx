@@ -33,10 +33,9 @@ export class Projects extends React.Component {
 
   render() {
     const { sortedProjects } = this.state;
-    const { location } = this.props;
 
     return (
-      <Layout location={location}>
+      <Layout page={{ title: 'Projects' }} path="/projects">
         <Page>
           <header className="container hero">
             <h1 className="page-title">Projects</h1>

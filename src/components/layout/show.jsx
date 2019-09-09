@@ -13,14 +13,14 @@ export const SHOW_TYPES = {
 };
 
 export const Show = ({
+  path,
   title,
   description,
   date,
   external_url,
   type,
   image,
-  image_preview_description,
-  location
+  image_preview_description
 }) => {
   const { backUrl, backLinkText, headerText } = prepareShowData(type);
 
@@ -55,7 +55,7 @@ export const Show = ({
   }
 
   return (
-    <Layout location={location}>
+    <Layout page={{ title }} path={path}>
       <Page>
         <header className="show-header container">
           <span className="show-backLink dib">

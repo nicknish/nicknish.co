@@ -1,10 +1,30 @@
 const path = require('path');
 
+const PATH_TYPE = {
+  PROJECTS: 'projects',
+  WORK: 'work',
+  SERIES: 'series',
+  BLOG: 'blog'
+};
+
+const PATH_URL_MAP = {
+  [PATH_TYPE.PROJECTS]: 'projects',
+  [PATH_TYPE.WORK]: 'work',
+  [PATH_TYPE.BLOG]: 'blog',
+  [PATH_TYPE.SERIES]: 'series'
+};
+
+const generatePathName = (type, slug) => {
+  return `${PATH_URL_MAP[type]}/${slug}`;
+};
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const WorkPage = path.resolve(`./src/templates/work.jsx`);
   const ProjectPage = path.resolve(`./src/templates/project.jsx`);
+  const BlogPostTemplate = path.resolve(`./src/templates/blogPost.jsx`);
+  const SeriesBlogPostTemplate = path.resolve(`./src/templates/series.jsx`);
 
   const loadPages = new Promise((resolve, reject) => {
     graphql(`
@@ -29,21 +49,17 @@ exports.createPages = ({ graphql, actions }) => {
 
       result.data.projects.edges.forEach(({ node }) => {
         createPage({
-          path: `projects/${node.slug}`,
+          path: generatePathName(PATH_TYPE.PROJECTS, node.slug),
           component: ProjectPage,
-          context: {
-            slug: node.slug
-          }
+          context: { slug: node.slug }
         });
       });
 
       result.data.work.edges.forEach(({ node }) => {
         createPage({
-          path: `work/${node.slug}`,
+          path: generatePathName(PATH_TYPE.WORK, node.slug),
           component: WorkPage,
-          context: {
-            slug: node.slug
-          }
+          context: { slug: node.slug }
         });
       });
 
@@ -68,11 +84,9 @@ exports.createPages = ({ graphql, actions }) => {
 
       result.data.blogPosts.edges.forEach(({ node }) => {
         createPage({
-          path: `blog/${node.slug}`,
-          component: path.resolve(`./src/templates/blogPost.jsx`),
-          context: {
-            id: node.id
-          }
+          path: generatePathName(PATH_TYPE.BLOG, node.slug),
+          component: BlogPostTemplate,
+          context: { id: node.id }
         });
       });
 
@@ -96,11 +110,9 @@ exports.createPages = ({ graphql, actions }) => {
 
       result.data.series.edges.forEach(({ node }) => {
         createPage({
-          path: `series/${node.slug}`,
-          component: path.resolve(`./src/templates/series.jsx`),
-          context: {
-            slug: node.slug
-          }
+          path: generatePathName(PATH_TYPE.SERIES, node.slug),
+          component: SeriesBlogPostTemplate,
+          context: { slug: node.slug }
         });
       });
 
