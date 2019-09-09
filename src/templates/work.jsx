@@ -5,6 +5,7 @@ import Show, { SHOW_TYPES } from '../components/layout/show';
 import { getDate } from '../utils/helpers';
 
 export default ({
+  path,
   data: {
     post: {
       title,
@@ -19,6 +20,7 @@ export default ({
   }
 }) => (
   <Show
+    path={path}
     title={title}
     description={description.childMarkdownRemark.html}
     date={getDate(startDate, endDate, current)}

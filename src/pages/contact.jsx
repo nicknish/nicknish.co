@@ -35,10 +35,8 @@ export default class Contact extends React.Component {
   };
 
   render() {
-    const { location } = this.props;
-
     return (
-      <Layout location={location}>
+      <Layout page={{ title: 'Contact' }} path="/contact">
         <Page>
           <header className="container">
             <h1 className="page-title">Contact Me</h1>
