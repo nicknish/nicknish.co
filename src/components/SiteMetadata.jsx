@@ -49,6 +49,10 @@ const SiteMetadata = () => {
           <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content={themeColor} />
           <meta name="theme-color" content={themeColor} />
+          <meta
+            name="google-site-verification"
+            content="ZsR7DBayXkYHUqgVqkePKJRLeQXzkri7m-s5CFZzMG4"
+          />
         </Helmet>
       )}
     />
