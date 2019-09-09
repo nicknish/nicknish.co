@@ -1,6 +1,8 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
+
 import NewsletterSignup from './NewsletterSignup';
 
 const iconChooser = key => {
@@ -50,12 +52,12 @@ export const Footer = () => (
             <ul className="footer-socialList">
               {Object.keys(socialMediaUrls).map(key => (
                 <li className="footer-socialListItem" key={key}>
-                  <a
+                  <OutboundLink
                     href={socialMediaUrls[key]}
                     className="footer-socialListItemLink"
                   >
                     {iconChooser(key)}
-                  </a>
+                  </OutboundLink>
                 </li>
               ))}
             </ul>

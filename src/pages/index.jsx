@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import Layout from '../components/layout';
 import Button from '../components/button';
@@ -12,7 +13,9 @@ const WorkLink = ({ to, href, text }) => {
     return (
       <Button
         href={href}
-        component={({ children, ...props }) => <a {...props}>{children}</a>}
+        component={({ children, ...props }) => (
+          <OutboundLink {...props}>{children}</OutboundLink>
+        )}
         className={classNames}
         theme="primary"
         size="small"
@@ -80,10 +83,20 @@ const IndexPage = ({ data }) => (
         <h3>Experience</h3>
         <p>
           I{"'"}
-          ve worked for <a href="https://capitalg.com/">capitalG</a> (formerly
-          Google Capital), <a href="https://a16z.com/">Andreessen-Horowitz</a>{' '}
-          and <a href="https://www.ycombinator.com/">YCombinator</a> companies.
-          The through-line is working with talented, passionate, kind folk.
+          ve worked for{' '}
+          <OutboundLink href="https://capitalg.com/">
+            capitalG
+          </OutboundLink>{' '}
+          (formerly Google Capital),{' '}
+          <OutboundLink href="https://a16z.com/">
+            Andreessen-Horowitz
+          </OutboundLink>{' '}
+          and{' '}
+          <OutboundLink href="https://www.ycombinator.com/">
+            YCombinator
+          </OutboundLink>{' '}
+          companies. The through-line is working with talented, passionate, kind
+          folk.
         </p>
       </section>
 

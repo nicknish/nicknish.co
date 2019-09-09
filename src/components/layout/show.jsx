@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import Layout from '../layout';
 import Page from './page';
@@ -29,14 +30,14 @@ export const Show = ({
 
   if (external_url) {
     externalLink = (
-      <a
+      <OutboundLink
         href={external_url}
         className="show-externalLink ml2"
         target="_blank"
         rel="noopener noreferrer"
       >
         See it here <FaExternalLink className="show-externalLinkIcon" />
-      </a>
+      </OutboundLink>
     );
   }
 

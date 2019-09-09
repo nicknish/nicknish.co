@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 const HeaderLink = ({ to, children, href }) => {
   if (href) {
     return (
-      <a
+      <OutboundLink
         href={href}
         className="header-navlink"
         target="_blank"
         rel="noopener noreferrer"
       >
         {children}
-      </a>
+      </OutboundLink>
     );
   }
 
