@@ -7,7 +7,7 @@ import Page from '../components/layout/page';
 const addKeys = (arr = [], propName) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
 
-export const BlogPost = ({ data, location }) => {
+export const BlogPost = ({ data, path }) => {
   const { title, tags, date, body } = data.post;
 
   const tagsWithKeys = tags && tags.length ? addKeys(tags, 'tag') : [];
@@ -18,7 +18,10 @@ export const BlogPost = ({ data, location }) => {
   ));
 
   return (
-    <Layout location={location}>
+    <Layout
+      path={path}
+      post={{ excerpt: body.childMarkdownRemark.excerpt, ...data.post }}
+    >
       <Page className="post container">
         <header className="post-header">
           <h1>{title}</h1>
@@ -45,11 +48,11 @@ export const query = graphql`
       date(formatString: "MMMM DD, YYYY")
       body {
         childMarkdownRemark {
+          excerpt
           ...Markdown
         }
       }
-      createdAt
-      updatedAt
+      publishedDate: date
     }
   }
 `;

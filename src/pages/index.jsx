@@ -37,8 +37,8 @@ const WorkLink = ({ to, href, text }) => {
   );
 };
 
-const IndexPage = ({ data, location }) => (
-  <Layout location={location}>
+const IndexPage = ({ data }) => (
+  <Layout page={{}}>
     <div className="landing">
       <section className="container hero">
         <h1 className="landing-title">

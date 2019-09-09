@@ -6,8 +6,8 @@ import Layout from '../components/layout';
 import Page from '../components/layout/page';
 import BlogIndexPost from '../components/blogIndexPost';
 
-export const Blog = ({ data, location }) => (
-  <Layout location={location}>
+export const Blog = ({ data }) => (
+  <Layout page={{ title: 'Blog' }} path="/blog">
     <Page>
       <header className="container hero">
         <h1 className="page-title">Blog</h1>

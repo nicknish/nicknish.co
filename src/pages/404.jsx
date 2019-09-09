@@ -4,8 +4,8 @@ import Layout from '../components/layout';
 import Page from '../components/layout/page';
 import Button from '../components/button';
 
-const NotFoundPage = ({ location }) => (
-  <Layout location={location}>
+const NotFoundPage = ({}) => (
+  <Layout page={{ title: 'Not Found' }} path="/not-found">
     <Page className="page container">
       <h1 className="page-title">Sorry, there{"'"}s nothing here!</h1>
       <p>

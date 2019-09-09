@@ -6,11 +6,17 @@ import Page from '../components/layout/page';
 
 const POST_URL_BASE = slug => `/blog/${slug}`;
 
-export const Series = ({ data, location }) => {
+export const Series = ({ data, path }) => {
   const posts = sortBy(data.series.posts, 'date');
 
   return (
-    <Layout location={location}>
+    <Layout
+      path={path}
+      post={{
+        title: data.series.title,
+        excerpt: data.series.description.childMarkdownRemark.excerpt
+      }}
+    >
       <Page className="page container">
         <header className="hero">
           <h1 className="page-title">{data.series.title}</h1>
@@ -47,6 +53,7 @@ export const query = graphql`
       title
       description {
         childMarkdownRemark {
+          excerpt
           ...Markdown
         }
       }
