@@ -9,3 +9,7 @@ yarn-error.log
 /public
 /lambda
 .DS_Store
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
