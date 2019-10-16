@@ -32,6 +32,7 @@
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-sitemap": "^2.0.4",
+    "gatsby-plugin-typescript": "^2.1.9",
     "gatsby-remark-copy-linked-files": "^2.0.8",
     "gatsby-remark-embedder": "^1.1.2",
     "gatsby-remark-images": "^3.0.1",
@@ -53,6 +54,10 @@
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
     "cypress": "^3.4.1",
     "cypress-image-snapshot": "^3.1.1",
     "http-proxy-middleware": "^0.19.1",

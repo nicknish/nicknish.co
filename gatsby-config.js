@@ -11,6 +11,7 @@ const sources = require('./plugins/sources');
 const markdown = require('./plugins/markdown');
 const analytics = require('./plugins/analytics');
 const site = require('./plugins/site');
+const typescript = require('./plugins/typescript');
 const css = require('./plugins/css');
 const images = require('./plugins/images');
 const netlify = require('./plugins/netlify');
@@ -18,6 +19,7 @@ const netlify = require('./plugins/netlify');
 module.exports = {
   siteMetadata: config,
   plugins: [
+    ...typescript.plugins,
     ...site(config).plugins,
     ...css.plugins,
     ...images.plugins,
