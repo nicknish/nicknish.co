@@ -1,0 +1,125 @@
+.container {
+  composes: center ph3 mt4 mt5-ns from global;
+  max-width: 768px;
+}
+
+@media (--medium-viewport) {
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+.containerLg {
+  composes: center from global;
+  max-width: 920px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.hero {
+  margin-bottom: 70px;
+}
+
+@media (--medium-viewport) {
+  .hero {
+    margin-bottom: 80px;
+  }
+}
+
+.pageTitle {
+  composes: f3 mt0 mb3 from global;
+}
+
+.pageSubtitle {
+  composes: mt0 from global;
+}
+
+.postPreviewTitle {
+  composes: mt0 mb2 from global;
+  font-size: 22px;
+  color: var(--color-subheader);
+}
+
+.postPreviewExcerpt {
+  composes: ma0 from global;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.postPreviewDate {
+  composes: db from global;
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-date);
+}
+
+@media screen and (min-width: 560px) {
+  .blogIndexPostsAndSeriesContainer {
+    display: flex;
+  }
+}
+
+.blogIndexPosts {
+  margin-bottom: 60px;
+}
+
+@media screen and (min-width: 560px) {
+  .blogIndexPosts {
+    margin: 0;
+    width: 65%;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .blogIndexSeries {
+    width: 35%;
+    margin-left: 50px;
+  }
+}
+
+.seriesPreview {
+  composes: relative from global;
+  margin-bottom: 20px;
+}
+
+.seriesPreview:last-child {
+  margin-bottom: 0;
+}
+
+.seriesPreviewLinkWrapper {
+  composes: flex items-center lh-title no-underline tc from global;
+  height: 150px;
+  padding: 10px 30px;
+}
+
+.seriesPreviewLinkWrapper:hover {
+  text-decoration: none;
+}
+
+.seriesPreviewLinkWrapper:hover .seriesPreviewBgOverlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.seriesPreviewBg {
+  composes: left-0 top-0 w-100 h-100 o-60 from global;
+}
+
+.seriesPreviewBgOverlay {
+  composes: absolute top-0 right-0 bottom-0 left-0 from global;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 100ms ease;
+}
+
+.seriesPreviewTitle {
+  composes: ma0 relative center white lh-title from global;
+  font-size: 18px;
+}
+
+.sectionTitle {
+  composes: mt0 normal ttu from global;
+  margin-bottom: 20px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: rgba(0, 0, 0, 0.45);
+}

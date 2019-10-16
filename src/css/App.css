@@ -1,0 +1,52 @@
+@import '~tachyons/css/tachyons.min.css';
+@import './_variables.css';
+@import './_base.css';
+@import './_typography.css';
+@import './_prismjs.css';
+
+hr {
+  height: 3px;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.grid {
+  display: grid;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.mw-text {
+  max-width: 600px;
+}
+
+.container {
+  max-width: 768px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (--medium-viewport) {
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+.site-container {
+  display: flex;
+  min-height: 98vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}

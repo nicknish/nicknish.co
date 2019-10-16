@@ -21,10 +21,10 @@ const generatePathName = (type, slug) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const WorkPage = path.resolve(`./src/templates/work.jsx`);
-  const ProjectPage = path.resolve(`./src/templates/project.jsx`);
-  const BlogPostTemplate = path.resolve(`./src/templates/blogPost.jsx`);
-  const SeriesBlogPostTemplate = path.resolve(`./src/templates/series.jsx`);
+  const WorkPage = path.resolve(`./src/templates/work.tsx`);
+  const ProjectPage = path.resolve(`./src/templates/project.tsx`);
+  const BlogPostTemplate = path.resolve(`./src/templates/blogPost.tsx`);
+  const SeriesBlogPostTemplate = path.resolve(`./src/templates/series.tsx`);
 
   const loadPages = new Promise((resolve, reject) => {
     graphql(`

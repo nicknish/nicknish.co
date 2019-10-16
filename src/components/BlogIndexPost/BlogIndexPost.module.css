@@ -1,0 +1,37 @@
+.blogIndexPost {
+  margin-bottom: 40px;
+}
+
+.blogIndexPost:last-child {
+  margin: 0;
+}
+
+.blogIndexPostLinkWrapper {
+  display: block;
+  color: var(--color-body-copy);
+  border-radius: 3px;
+  transition: opacity 200ms ease;
+  text-decoration: none;
+}
+
+.blogIndexPostLinkWrapper:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: currentColor;
+}
+
+.blogIndexPostHeader {
+  margin-bottom: 5px;
+}
+
+.blogIndexPostTitle {
+  composes: postPreviewTitle from '../../css/Blog.module.css';
+}
+
+.blogIndexPostDate {
+  composes: postPreviewDate from '../../css/Blog.module.css';
+}
+
+.blogIndexPostExcerpt {
+  composes: postPreviewExcerpt from '../../css/Blog.module.css';
+}

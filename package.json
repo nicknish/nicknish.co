@@ -1,12 +1,12 @@
 {
-  "name": "nicknish-portfolio-v2",
-  "description": "Nick Nish Portfolio v2",
+  "name": "nicknish.co",
+  "description": "Nick Nish's website",
   "version": "1.0.0",
   "author": "Nick Nish <nickjnish@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "yarn start",
-    "start": "run-p start:**",
+    "dev:offline": "GATSBY_CONTENTFUL_OFFLINE=true yarn start",
+    "start": "run-p -n start:**",
     "start:app": "yarn develop",
     "start:lambda": "netlify-lambda serve src/lambda",
     "build": "run-p build:**",
@@ -17,6 +17,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:e2e": "cypress open"
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "dependencies": {
     "autoprefixer": "^9.4.5",
     "axios": "^0.18.0",
@@ -28,10 +31,12 @@
     "gatsby-plugin-google-analytics": "^2.0.9",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-offline": "^2.0.21",
+    "gatsby-plugin-postcss": "^2.1.8",
     "gatsby-plugin-react-helmet": "^3.0.5",
-    "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-sitemap": "^2.0.4",
+    "gatsby-plugin-typescript": "^2.1.9",
+    "gatsby-plugin-typography": "^2.3.14",
     "gatsby-remark-copy-linked-files": "^2.0.8",
     "gatsby-remark-embedder": "^1.1.2",
     "gatsby-remark-images": "^3.0.1",
@@ -42,22 +47,28 @@
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.1.10",
     "lodash-es": "^4.17.11",
-    "normalize.css": "^8.0.1",
+    "postcss-custom-media": "^7.0.8",
     "prismjs": "^1.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-google-recaptcha": "^2.0.0-rc.1",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
+    "react-typography": "^0.16.19",
     "shortid": "^2.2.8",
-    "tachyons": "^4.11.1"
+    "tachyons": "^4.11.1",
+    "typography": "^0.16.19",
+    "typography-theme-kirkham": "^0.16.19"
   },
   "devDependencies": {
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
     "cypress": "^3.4.1",
     "cypress-image-snapshot": "^3.1.1",
     "http-proxy-middleware": "^0.19.1",
     "netlify-lambda": "^1.6.3",
-    "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3"
   }

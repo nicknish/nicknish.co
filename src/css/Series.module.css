@@ -1,0 +1,42 @@
+.page {
+  composes: container from global;
+}
+
+.header {
+  composes: mt4 hero from global;
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  composes: postTitle from './BlogPost.module.css';
+}
+
+.postPreview {
+  composes: db pa3 no-underline inherit hover-inherit from global;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 100ms ease-in-out;
+}
+
+.postPreview:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.postPreview:last-child {
+  margin: 0;
+}
+
+.postPreviewTitle {
+  composes: f4 mt0 mb3 from global;
+}
+
+.postPreviewExcerpt {
+  composes: f5 ma0 mb3 from global;
+}
+
+.postPreviewDate {
+  composes: f6 black-70 from global;
+}

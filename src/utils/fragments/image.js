@@ -1,3 +1,5 @@
+import { graphql } from 'gatsby';
+
 export const query = graphql`
   fragment ImageSizes on ContentfulSizes {
     base64
