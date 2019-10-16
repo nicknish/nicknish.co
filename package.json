@@ -33,6 +33,7 @@
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-sitemap": "^2.0.4",
     "gatsby-plugin-typescript": "^2.1.9",
+    "gatsby-plugin-typography": "^2.3.14",
     "gatsby-remark-copy-linked-files": "^2.0.8",
     "gatsby-remark-embedder": "^1.1.2",
     "gatsby-remark-images": "^3.0.1",
@@ -50,8 +51,11 @@
     "react-google-recaptcha": "^2.0.0-rc.1",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
+    "react-typography": "^0.16.19",
     "shortid": "^2.2.8",
-    "tachyons": "^4.11.1"
+    "tachyons": "^4.11.1",
+    "typography": "^0.16.19",
+    "typography-theme-kirkham": "^0.16.19"
   },
   "devDependencies": {
     "@types/node": "^12.7.5",
