@@ -10,3 +10,5 @@ export const getDate = (startDate, endDate, current) => {
 
   return '';
 };
+
+export const isBrowser = () => typeof window !== 'undefined';

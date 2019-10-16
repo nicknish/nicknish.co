@@ -1,0 +1,50 @@
+.showHeader {
+  composes: container from global;
+  margin-bottom: 20px;
+}
+
+.showBackLink {
+  composes: dib v-mid from global;
+  font-size: 16px;
+}
+
+.showBackLinkLink {
+  composes: flex no-underline items-center from global;
+}
+
+.showBackLinkText {
+  composes: dib from global;
+  padding-top: 3px;
+  padding-left: 3px;
+}
+
+.showTitle {
+  composes: f2 mt4 from global;
+  margin-bottom: 10px;
+}
+
+.showSubtitle {
+  composes: f5 from global;
+  color: var(--color-subtitle);
+}
+
+.showExternalLink {
+  composes: ml2 no-underline from global;
+}
+
+.showExternalLinkIcon {
+  top: -1px;
+  position: relative;
+  font-size: 12px;
+}
+
+.showImageContainer {
+  composes: mb4 from global;
+}
+
+.showImage {
+}
+
+.showSectionTitle {
+  composes: f3 from global;
+}

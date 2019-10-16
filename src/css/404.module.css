@@ -1,0 +1,7 @@
+.page {
+  composes: container from global;
+}
+
+.pageTitle {
+  composes: page-title from global;
+}

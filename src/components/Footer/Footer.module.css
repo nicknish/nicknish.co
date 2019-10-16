@@ -1,0 +1,28 @@
+.footer {
+  composes: w-100 from global;
+}
+
+.footerSocial {
+  composes: tc from global;
+  padding: 40px 20px;
+}
+
+.footerSocialList {
+  composes: flex justify-center pa0 ma0 list from global;
+}
+
+.footerSocialListItem {
+  composes: ph1 mh2 from global;
+}
+
+.footerSocialListItemLink {
+  font-size: 24px;
+}
+
+.copyright {
+  composes: mb3 tc from global;
+}
+
+.copyrightText {
+  composes: f6 black-30 from global;
+}

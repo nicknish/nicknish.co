@@ -1,15 +1,12 @@
 const autoprefixer = require('autoprefixer');
+const customMedia = require('postcss-custom-media');
 
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [
-          autoprefixer({
-            browsers: ['last 2 versions']
-          })
-        ]
+        postCssPlugins: [customMedia(), autoprefixer()]
       }
     }
   ]

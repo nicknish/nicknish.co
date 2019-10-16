@@ -1,0 +1,112 @@
+/* The reason for this nonsense is to match the spacing from the nav and the hero image */
+.sectionMargin {
+  composes: pt3 mv4 mv5-ns from global;
+}
+
+.titleMargin {
+  composes: pb3 mb4 from global;
+}
+
+.titleNoPadding {
+  padding-top: 0;
+}
+/* End nonsense */
+
+.layoutContainer {
+  composes: center ph3 from global;
+  max-width: 960px;
+}
+
+.heroImgContainer {
+  composes: center mv4 mv5-ns from global;
+}
+
+.heroImg {
+  composes: center db from global;
+  max-width: 400px;
+}
+
+.section {
+  composes: center from global;
+  composes: sectionMargin;
+}
+
+@media (--medium-viewport) {
+  .section {
+    margin-top: 70px;
+  }
+}
+
+.about {
+  composes: mw-text from global;
+}
+
+.work {
+  max-width: 900px;
+}
+
+.title {
+  composes: f2 tc ma0 from global;
+  composes: titleMargin;
+}
+
+/* GRID */
+
+.grid {
+  composes: grid from global;
+}
+
+@media (--not-small-viewport) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 7px;
+  }
+}
+
+@media (--medium-viewport) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+.gridItem {
+  composes: flex flex-column pa3 mb4 mb0-ns tc tl-ns ba bw1 br1 b--transparent no-underline from global;
+}
+
+.gridItem:hover {
+  color: currentColor;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.gridItemTitle {
+  composes: f4 ma0 mb1 b black-70 from global;
+  line-height: 1.4;
+}
+
+.gridItemDescription {
+  composes: f5 ma0 mb3 from global;
+  flex: 1;
+}
+
+.gridItemFooterSubtitle {
+  composes: f6 ma0 black-50 from global;
+}
+
+.cvLinkContainer {
+  composes: flex mt2 mt4-ns justify-center from global;
+}
+
+.cvLink {
+  composes: f5 pa2 ph3 no-underline tc br2 bg-primary hover-white white from global;
+}
+
+.cvLink:hover {
+  opacity: 0.8;
+}
+
+.cvLinkIcon {
+  composes: relative f6 from global;
+  top: -2px;
+  margin-left: 5px;
+}

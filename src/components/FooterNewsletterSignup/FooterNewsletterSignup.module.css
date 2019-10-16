@@ -1,0 +1,11 @@
+.container {
+  composes: container mt5 from global;
+}
+
+.title {
+  composes: f4 b mt0 mb2 primary from global;
+}
+
+.subtitle {
+  composes: f5 mt0 from global;
+}

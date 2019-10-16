@@ -1,0 +1,18 @@
+@custom-media --not-small-viewport (min-width: 30em);
+@custom-media --medium-viewport (min-width: 48em);
+@custom-media --large-viewport (min-width: 60em);
+
+:root {
+  --primary: #f9bb56;
+  --color-body-copy: #444;
+  --color-subtitle: #888;
+  --color-nav-item: #b2bec3;
+  --color-nav-item-hover: #636e72;
+  --color-subheader: #333;
+  --color-date: #919191;
+
+  --fontFamily-code: 'SFMono-Regular', Consolas, 'Roboto Mono',
+    'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace;
+  --typographyjs-lineHeight: 1.666;
+  --typography-marginRhythm: 1.2495rem;
+}
