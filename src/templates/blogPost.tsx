@@ -7,11 +7,11 @@ import Page from '../components/layout/page';
 
 import styles from '../css/BlogPost.module.css';
 
-const addKeys = (arr = [], propName) =>
+const addKeys = (arr = [], propName: string) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
 
 export const BlogPost = ({ data, path }) => {
-  const { title, tags, date, body } = data.post;
+  const { title, tags, date, body, description } = data.post;
 
   const tagsWithKeys = tags && tags.length ? addKeys(tags, 'tag') : [];
   const tagElems = tagsWithKeys.map(tag => (
@@ -25,8 +25,10 @@ export const BlogPost = ({ data, path }) => {
       type={SEOTypes.post}
       path={path}
       content={{
-        excerpt: body.childMarkdownRemark.excerpt,
-        ...data.post
+        ...data.post,
+        description: description
+          ? description.childMarkdownRemark.excerpt
+          : body.childMarkdownRemark.excerpt
       }}
     >
       <Page className="post container">
@@ -57,6 +59,11 @@ export const query = graphql`
         childMarkdownRemark {
           excerpt
           ...Markdown
+        }
+      }
+      description {
+        childMarkdownRemark {
+          excerpt(pruneLength: 160)
         }
       }
       publishedDate: date

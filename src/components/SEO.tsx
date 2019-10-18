@@ -35,7 +35,7 @@ const getPageTitle = ({ post, page, siteTitle, shortTitle }) => {
 
 const getPageDescription = ({ page, post, siteDescription }) => {
   if (page && page.description) return page.description;
-  if (post && post.excerpt) return post.excerpt;
+  if (post && post.description) return post.description;
   return siteDescription;
 };
 
