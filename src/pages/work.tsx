@@ -12,6 +12,7 @@ import { getDate } from '../utils/helpers';
 
 import HAPPY_IMG from '../images/happy.svg';
 import styles from '../css/Work.module.css';
+import Button, { ButtonThemes } from '../components/button';
 
 const WorkItem = ({ to, title, description, footerSubtitle }) => (
   <Link to={to} className={styles.gridItem}>
@@ -90,15 +91,17 @@ const Work = ({ data }) => {
             })}
           </div>
           <div className={styles.cvLinkContainer}>
-            <OutboundLink
+            <Button
+              component={OutboundLink}
               href={resumeUrl}
               className={styles.cvLink}
               target="_blank"
               rel="noopener noreferrer"
+              theme={ButtonThemes.primary}
             >
               See Resume
               <FaExternalLink className={styles.cvLinkIcon} />
-            </OutboundLink>
+            </Button>
           </div>
         </section>
 

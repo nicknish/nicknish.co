@@ -21,11 +21,23 @@ button:disabled {
 }
 
 .themePrimary {
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--primary-50);
+  color: var(--white);
 }
 
 .themePrimary:hover {
-  background-color: #e0a23d;
-  color: white;
+  background-color: var(--primary-60);
+  color: var(--white);
+}
+
+@media (prefers-color-scheme: dark) {
+  .themePrimary {
+    background-color: var(--white-90);
+    color: var(--black-70);
+  }
+
+  .themePrimary:hover {
+    background-color: var(--white-60);
+    color: var(--black-70);
+  }
 }

@@ -9,12 +9,10 @@ body {
 
 html {
   height: 100%;
-  background-color: #fafafa;
 }
 
 body {
   margin: 0;
-  color: var(--color-body-copy);
 }
 
 img {
@@ -24,4 +22,9 @@ img {
 
 figure {
   margin: 0;
+}
+
+hr {
+  height: 3px;
+  border: none;
 }

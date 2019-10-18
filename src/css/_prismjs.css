@@ -13,7 +13,7 @@ pre {
   border-radius: 0.3em;
   overflow: auto;
   scroll-behavior: smooth;
-  background: #2d2d2d; /* Matches PrismJS Tomorrow theme */
+  background: var(--bg-code-block-bright); /* Matches PrismJS Tomorrow theme */
 }
 
 /**
@@ -48,17 +48,32 @@ pre {
 /* Personal adjustments */
 
 .gatsby-highlight {
-  font-size: 16px;
+  font-size: 0.8421rem;
 }
 
 :not(pre) > code[class*='language-'] {
   padding: 2px 4px;
   font-size: 85%;
   border-radius: 0.15em;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--black-10);
   color: var(--color-body-copy);
 }
 
 .gatsby-highlight .language-diff .token.inserted {
   color: #8fca8f;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gatsby-highlight {
+    background: var(--bg-code-block-dark);
+  }
+
+  pre[class*='language-'] {
+    background: var(--bg-code-block-dark);
+  }
+
+  :not(pre) > code[class*='language-'] {
+    background: var(--white-30) !important;
+    color: white !important;
+  }
 }

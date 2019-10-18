@@ -1,25 +1,12 @@
 @import '~tachyons/css/tachyons.min.css';
 @import './_variables.css';
 @import './_base.css';
+@import './_colors.css';
 @import './_typography.css';
 @import './_prismjs.css';
 
-hr {
-  height: 3px;
-  border: none;
-  background: rgba(0, 0, 0, 0.2);
-}
-
 .grid {
   display: grid;
-}
-
-.primary {
-  color: var(--primary);
-}
-
-.bg-primary {
-  background-color: var(--primary);
 }
 
 .mw-text {
