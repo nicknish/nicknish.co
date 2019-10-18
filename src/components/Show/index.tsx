@@ -62,9 +62,13 @@ export const Show = ({
   return (
     <Layout type={SEOTypes.page} content={{ title }} path={path}>
       <Page>
-        <header className={styles.showHeader}>
+        <header className={styles.showHeader} data-testid="ShowHeader">
           <span className={styles.showBackLink}>
-            <Link to={backUrl} className={styles.showBackLinkLink}>
+            <Link
+              to={backUrl}
+              className={styles.showBackLinkLink}
+              data-testid="ShowBackLink"
+            >
               <FaChevronLeft className="mt1 mr1" />
               <span className={styles.showBackLinkText}>{backLinkText}</span>
             </Link>

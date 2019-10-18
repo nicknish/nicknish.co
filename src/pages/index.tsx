@@ -28,7 +28,10 @@ const Blog = ({ data }) => {
 
   return (
     <Layout type={SEOTypes.page} content={{}} path={HOME_URL}>
-      <header className={cx(styles.container, styles.hero)}>
+      <header
+        className={cx(styles.container, styles.hero)}
+        data-testid="BlogHeader"
+      >
         <h1 className={styles.pageTitle}>Hi, I'm Nick Nish.</h1>
         <p className={styles.pageSubtitle}>
           Welcome to my blog where you'll find articles on learning to code,
@@ -81,7 +84,10 @@ const Blog = ({ data }) => {
             );
 
             return (
-              <article className={styles.seriesPreview}>
+              <article
+                className={styles.seriesPreview}
+                data-testid="BlogSeriesLink"
+              >
                 <Link to={path} className={styles.seriesPreviewLinkWrapper}>
                   {Image}
                   <h3 className={styles.seriesPreviewTitle}>{data.title}</h3>

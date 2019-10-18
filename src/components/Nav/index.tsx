@@ -16,6 +16,7 @@ const NavLink: React.FC<INavLinkProps> = ({ to, isCurrent, children }) => {
       to={to}
       className={cx(styles.navItem, { [styles.active]: isCurrent })}
       activeClassName={styles.active}
+      data-testid={`NavLink--${to}`}
     >
       {children}
     </Link>

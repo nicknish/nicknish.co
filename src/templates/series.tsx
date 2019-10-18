@@ -39,6 +39,7 @@ export const Series = ({ data, path }) => {
             to={POST_URL_BASE(post.slug)}
             className={styles.postPreview}
             key={post.id}
+            data-testid="BlogSeriesPageLink"
           >
             <article>
               <h2 className={styles.postPreviewTitle}>{post.title}</h2>

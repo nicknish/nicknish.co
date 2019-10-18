@@ -22,7 +22,6 @@ export default ({
 }) => {
   return (
     <Show
-      path={path}
       title={title}
       description={description.childMarkdownRemark.html}
       date={getDate(startDate, endDate, current)}

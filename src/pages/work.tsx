@@ -14,7 +14,7 @@ import HAPPY_IMG from '../images/happy.svg';
 import styles from '../css/Work.module.css';
 
 const WorkItem = ({ to, title, description, footerSubtitle }) => (
-  <Link to={to} className={styles.gridItem}>
+  <Link to={to} className={styles.gridItem} data-testid={`WorkItem--${to}`}>
     <p className={styles.gridItemTitle}>{title}</p>
     <p className={styles.gridItemDescription}>{description}</p>
     <span className={styles.gridItemFooterSubtitle}>{footerSubtitle}</span>
@@ -41,7 +41,10 @@ const Work = ({ data }) => {
           <img src={HAPPY_IMG} className={styles.heroImg} />
         </div>
 
-        <section className={cx(styles.section, styles.about)}>
+        <section
+          className={cx(styles.section, styles.about)}
+          data-testid="WorkSection--about"
+        >
           <h1 className={styles.title}>About Me</h1>
           <p>
             Hello! My name is Nick Nish and I'm a Software Engineer with a
@@ -65,8 +68,11 @@ const Work = ({ data }) => {
           </p>
         </section>
 
-        <section className={cx(styles.section, styles.career)}>
-          <h1 className={cx(styles.title, cx.titleNoPadding)}>Career</h1>
+        <section
+          className={cx(styles.section, styles.career)}
+          data-testid="WorkSection--career"
+        >
+          <h1 className={cx(styles.title, styles.titleNoPadding)}>Career</h1>
           <div className={styles.grid}>
             {work.map(data => {
               const {
@@ -102,7 +108,10 @@ const Work = ({ data }) => {
           </div>
         </section>
 
-        <section className={cx(styles.section, styles.projects)}>
+        <section
+          className={cx(styles.section, styles.projects)}
+          data-testid="WorkSection--projects"
+        >
           <h1 className={cx(styles.title, styles.titleNoPadding)} id="projects">
             Projects
           </h1>

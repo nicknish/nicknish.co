@@ -16,7 +16,7 @@ export const BlogIndexPost: React.FC<BlogPostProps> = ({
   date,
   excerpt
 }) => (
-  <article className={styles.blogIndexPost}>
+  <article className={styles.blogIndexPost} data-testid="BlogIndexPost">
     <Link to={to} className={styles.blogIndexPostLinkWrapper}>
       <header className={styles.blogIndexPostHeader}>
         <h3 className={styles.blogIndexPostTitle}>{title}</h3>
