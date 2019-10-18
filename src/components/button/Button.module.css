@@ -9,7 +9,6 @@ button:disabled {
   border: 0;
   font-family: inherit;
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 0.3px;
   font-weight: bolder;
   transition: all 200ms ease;

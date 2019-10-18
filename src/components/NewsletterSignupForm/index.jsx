@@ -70,7 +70,7 @@ const NewsletterSignupForm = () => {
             <div>
               <Button
                 theme={ButtonThemes.primary}
-                className="mt2"
+                className="mt2 ttu"
                 size={ButtonSizes.small}
                 onClick={handleSubmit}
                 type="button"
