@@ -24,7 +24,7 @@ export interface SEOPropTypes {
 }
 
 const getPageUrl = ({ siteUrl, path }) => {
-  return path ? `${siteUrl}${path}/` : siteUrl;
+  return path ? `${siteUrl}${path}` : siteUrl;
 };
 
 const getPageTitle = ({ post, page, siteTitle, shortTitle }) => {
@@ -41,13 +41,29 @@ const getPageDescription = ({ page, post, siteDescription }) => {
 
 const getPageImage = ({
   siteUrl,
-  shareImage,
-  shareImageWidth,
-  shareImageHeight
+  post,
+  defaultShareImage,
+  defaultShareImageWidth,
+  defaultShareImageHeight
 }) => {
-  const image = `${siteUrl}/${shareImage}`;
-  const imgWidth = shareImageWidth;
-  const imgHeight = shareImageHeight;
+  let image;
+  let imgWidth;
+  let imgHeight;
+
+  if (
+    post &&
+    post.shareImage &&
+    post.shareImageWidth &&
+    post.shareImageHeight
+  ) {
+    image = `https:${post.shareImage}`;
+    imgWidth = post.shareImageWidth;
+    imgHeight = post.shareImageHeight;
+  } else {
+    image = `${siteUrl}/${defaultShareImage}`;
+    imgWidth = defaultShareImageWidth;
+    imgHeight = defaultShareImageHeight;
+  }
 
   // Use Hero Image for OpenGraph
   // if (post.heroImage) {
@@ -183,9 +199,9 @@ const SEO: React.FC<SEOPropTypes> = ({ type, content, path }) => {
             siteUrl,
             siteTitle,
             siteDescription,
-            shareImage,
-            shareImageWidth,
-            shareImageHeight,
+            shareImage: defaultShareImage,
+            shareImageWidth: defaultShareImageWidth,
+            shareImageHeight: defaultShareImageHeight,
             shortTitle,
             userTwitter
           }
@@ -195,10 +211,11 @@ const SEO: React.FC<SEOPropTypes> = ({ type, content, path }) => {
         const title = getPageTitle({ page, post, siteTitle, shortTitle });
         const description = getPageDescription({ page, post, siteDescription });
         const { image, imgWidth, imgHeight } = getPageImage({
+          post,
           siteUrl,
-          shareImage,
-          shareImageWidth,
-          shareImageHeight
+          defaultShareImage,
+          defaultShareImageWidth,
+          defaultShareImageHeight
         });
         const schemaOrgJSONLD = getStructuredDataSchema({
           page,
