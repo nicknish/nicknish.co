@@ -1,0 +1,61 @@
+html {
+  background-color: var(--bg-page-bright);
+}
+
+body {
+  color: var(--color-body-copy);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+a {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+a:hover {
+  color: var(--primary-50);
+}
+
+hr {
+  background: var(--black-20);
+}
+
+/* TODO: Convert class to primary-50 */
+.primary {
+  color: var(--primary-50);
+}
+
+.bg-primary {
+  background-color: var(--primary-50);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background: var(--bg-page-dark);
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  blockquote {
+    color: var(--white);
+  }
+
+  blockquote {
+    border-left-color: var(--white);
+  }
+
+  hr {
+    background: var(--white-30);
+  }
+}

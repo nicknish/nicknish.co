@@ -72,11 +72,12 @@
 
 .gridItem {
   composes: flex flex-column pa3 mb4 mb0-ns tc tl-ns ba bw1 br1 b--transparent no-underline from global;
+  transition: border-color 50ms ease;
 }
 
 .gridItem:hover {
   color: currentColor;
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--black-20);
 }
 
 .gridItemTitle {
@@ -109,4 +110,19 @@
   composes: relative f6 from global;
   top: -2px;
   margin-left: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gridItem {
+    box-shadow: 0 0 2px var(--white);
+  }
+
+  .gridItem:hover {
+    border-color: var(--white-20);
+  }
+
+  .gridItemTitle,
+  .gridItemFooterSubtitle {
+    color: var(--white);
+  }
 }

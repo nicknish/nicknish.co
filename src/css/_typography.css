@@ -5,19 +5,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  color: rgba(0, 0, 0, 0.8);
-}
-
 a {
-  color: rgba(0, 0, 0, 0.7);
   text-decoration: underline;
-}
-
-a:hover {
-  color: var(--primary);
 }

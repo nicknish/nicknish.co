@@ -8,8 +8,8 @@
   padding: 3px 8px;
   margin-right: 4px;
   margin-bottom: 4px;
-  background-color: #e9e9e9;
   border-radius: 3px;
+  background-color: var(--black-05);
 }
 
 .blogPostTag:last-child {
@@ -54,4 +54,15 @@
 
 .postBody h5 {
   margin-top: calc(var(--typography-marginRhythm) + 0.3rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  .blogPostTag {
+    background: var(--white-20);
+    color: var(--white);
+  }
+
+  .postDate {
+    color: var(--white);
+  }
 }

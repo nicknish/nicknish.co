@@ -26,3 +26,9 @@
 .copyrightText {
   composes: f6 black-30 from global;
 }
+
+@media (prefers-color-scheme: dark) {
+  .copyrightText {
+    color: var(--white-70);
+  }
+}

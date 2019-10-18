@@ -98,7 +98,7 @@
 }
 
 .seriesPreviewLinkWrapper:hover .seriesPreviewBgOverlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--black-50);
 }
 
 .seriesPreviewBg {
@@ -107,7 +107,7 @@
 
 .seriesPreviewBgOverlay {
   composes: absolute top-0 right-0 bottom-0 left-0 from global;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--black-30);
   transition: all 100ms ease;
 }
 
@@ -121,5 +121,14 @@
   margin-bottom: 20px;
   font-size: 14px;
   letter-spacing: 0.3px;
-  color: rgba(0, 0, 0, 0.45);
+  color: var(--black-50);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionTitle,
+  .postPreviewTitle,
+  .postPreviewExcerpt,
+  .postPreviewDate {
+    color: var(--white);
+  }
 }
