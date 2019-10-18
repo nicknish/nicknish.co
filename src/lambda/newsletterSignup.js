@@ -21,6 +21,17 @@ const buildResponse = (statusCode, { body = {}, headers = {} }) => ({
 });
 
 export const handler = async (event, context) => {
+  if (process.env.NODE_ENV === 'development') {
+    return buildResponse(201, {
+      body: { status: 'saved email' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true'
+      }
+    });
+  }
+
   try {
     let errorMessage;
     const formData = JSON.parse(event.body);

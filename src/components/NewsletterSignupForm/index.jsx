@@ -43,7 +43,11 @@ const NewsletterSignupForm = () => {
   const [showSuccess, updateShowSuccess] = useState(false);
 
   if (showSuccess) {
-    return <div className="f5 mt3">Thanks for signing up!</div>;
+    return (
+      <div className="f5 mt3" data-testid="NewsletterSignupForm--success">
+        Thanks for signing up!
+      </div>
+    );
   }
 
   return (
@@ -56,7 +60,7 @@ const NewsletterSignupForm = () => {
         const hasSubmittedWithErrors = submitCount > 0 && !isValid;
 
         return (
-          <Form>
+          <Form data-testid="NewsletterSignupForm">
             <Field
               type="email"
               name="email"
@@ -65,7 +69,12 @@ const NewsletterSignupForm = () => {
               disabled={isSubmitting}
             />
             {hasSubmittedWithErrors ? (
-              <ErrorMessage name="email" component="p" className="f6 mv1" />
+              <ErrorMessage
+                name="email"
+                component="p"
+                className="f6 mv1"
+                data-testid="NewsletterSignupForm--error"
+              />
             ) : null}
             <div>
               <Button
