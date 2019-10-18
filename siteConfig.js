@@ -12,8 +12,8 @@ module.exports = {
   publisher: 'Nick Nish',
   shortTitle: 'Nick Nish', // App manifest, e.g. Mobile Home Screen
   shareImage: 'logos/share.png', // OpenGraph Default Share Image (recommended: 1200x1200)
-  shareImageWidth: 900,
-  shareImageHeight: 600,
+  shareImageWidth: 1200,
+  shareImageHeight: 630,
 
   author: 'Nick Nish', // RSS author segment and SEO schema
   authorUrl: siteUrl, // Author and publisher schema, can be a social profile or other personal site
