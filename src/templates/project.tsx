@@ -1,5 +1,6 @@
 import React from 'react';
 import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 import Show, { SHOW_TYPES } from '../components/Show';
 import { getDate } from '../utils/helpers';
