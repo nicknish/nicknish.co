@@ -9,6 +9,7 @@ const config = require('./siteConfig');
 const filesystem = require('./plugins/filesystem');
 const sources = require('./plugins/sources');
 const markdown = require('./plugins/markdown');
+const rss = require('./plugins/rss');
 const analytics = require('./plugins/analytics');
 const site = require('./plugins/site');
 const typescript = require('./plugins/typescript');
@@ -28,6 +29,7 @@ module.exports = {
     ...filesystem.plugins,
     ...sources.plugins,
     ...markdown.plugins,
+    ...rss.plugins,
     ...analytics.plugins,
     ...netlify.plugins // MUST BE LAST
   ],
