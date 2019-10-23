@@ -6,7 +6,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [customMedia(), autoprefixer()]
+        postCssPlugins: [
+          customMedia({
+            importFrom: `${__dirname}/../src/css/_variables.css`
+          }),
+          autoprefixer()
+        ]
       }
     }
   ]
