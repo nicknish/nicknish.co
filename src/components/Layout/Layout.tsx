@@ -4,7 +4,7 @@ import React from 'react';
 
 import SiteMetadata from '../SiteMetadata';
 import SEO, { SEOPropTypes } from '../SEO';
-import Nav from '../Nav';
+import Nav from './Nav';
 import Footer from '../Footer';
 
 const Layout: React.FC<SEOPropTypes> = ({ children, ...seoProps }) => (
