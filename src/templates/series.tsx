@@ -5,7 +5,7 @@ import Layout from '../components/Layout/Layout';
 import Page from '../components/Layout/Page';
 
 import styles from '../css/Series.module.css';
-import { SEOTypes } from '../components/SEO';
+import { SEOTypes } from '../components/Layout/SEO';
 
 const POST_URL_BASE = slug => `/blog/${slug}`;
 

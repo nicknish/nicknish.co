@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import shortid from 'shortid';
-import { SEOTypes } from '../components/SEO';
+import { SEOTypes } from '../components/Layout/SEO';
 import Layout from '../components/Layout/Layout';
 import Page from '../components/Layout/Page';
 

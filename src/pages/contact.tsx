@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { navigate } from 'gatsby-link';
 
-import { SEOTypes } from '../components/SEO';
+import { SEOTypes } from '../components/Layout/SEO';
 import Layout from '../components/Layout/Layout';
 import Form from '../components/contact/form';
 import Page from '../components/Layout/Page';

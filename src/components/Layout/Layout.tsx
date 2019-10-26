@@ -2,8 +2,8 @@ import '../css/App.css';
 
 import React from 'react';
 
-import SiteMetadata from '../SiteMetadata';
-import SEO, { SEOPropTypes } from '../SEO';
+import SiteMetadata from './SiteMetadata';
+import SEO, { SEOPropTypes } from './SEO';
 import Nav from './Nav';
 import Footer from '../Footer';
 
