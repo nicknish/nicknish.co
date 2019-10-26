@@ -1,6 +1,8 @@
 @custom-media --not-small-viewport (min-width: 30em);
 @custom-media --medium-viewport (min-width: 48em);
 @custom-media --large-viewport (min-width: 60em);
+/* TODO: Replace prefers-color-scheme usage with this custom media query */
+@custom-media --dark-mode (prefers-color-scheme: dark);
 
 :root {
   --primary-50: #f9bb56;

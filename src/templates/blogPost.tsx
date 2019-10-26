@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Page from '../components/layout/page';
 
 import styles from '../css/BlogPost.module.css';
+import Comments from '../components/Blog/Comments';
 
 const addKeys = (arr = [], propName: string) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
@@ -63,6 +64,7 @@ export const BlogPost = ({ data, path }) => {
         />
 
         <div className={styles.blogPostTags}>{tagElems}</div>
+        <Comments />
       </Page>
     </Layout>
   );
