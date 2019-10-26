@@ -5,7 +5,7 @@ import Layout from '../components/Layout/Layout';
 import { SEOTypes } from '../components/Layout/SEO';
 import BlogPostSeries from '../components/Blog/BlogPostSeries';
 
-export const Series = ({ data, path }) => {
+export const BlogPostSeriesTemplate = ({ data, path }) => {
   return (
     <Layout
       type={SEOTypes.post}
@@ -45,4 +45,4 @@ export const query = graphql`
   }
 `;
 
-export default Series;
+export default BlogPostSeriesTemplate;
