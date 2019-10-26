@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { SEOTypes } from '../components/SEO';
 import Layout from '../components/Layout/Layout';
 import Page from '../components/Layout/Page';
-import Button, { ButtonThemes, ButtonSizes } from '../components/Button';
+import Button, { ButtonThemes, ButtonSizes } from '../components/common/Button';
 
 export const ContactFormSuccess: React.FC = () => (
   <Layout type={SEOTypes.page} content={{ title: 'Thanks' }} path="/thanks">

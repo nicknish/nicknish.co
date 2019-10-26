@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Button, { ButtonThemes, ButtonSizes } from '../Button';
+import Button, { ButtonThemes, ButtonSizes } from '../common/Button';
 import axios from 'axios';
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
