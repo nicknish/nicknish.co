@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import Show, { SHOW_TYPES } from '../components/Show';
 import { getDate } from '../utils/helpers';
 
-export default ({
+const WorkTemplate = ({
   path,
   data: {
     post: {
@@ -41,3 +41,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default WorkTemplate;
