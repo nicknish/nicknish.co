@@ -28,4 +28,4 @@ jobs:
           CI: true
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          CONTENTFUL_ENV: ${{ secrets.master }}
+          CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
