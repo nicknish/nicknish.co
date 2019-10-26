@@ -6,7 +6,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
 
 import { SEOTypes } from '../components/SEO';
-import Layout from '../components/layout';
+import Layout from '../components/Layout/Layout';
 import { WORK_URL, HOME_URL } from '../constants/urls';
 import { getDate } from '../utils/helpers';
 

@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { SEOTypes } from '../components/SEO';
-import Layout from '../components/layout';
+import Layout from '../components/Layout/Layout';
 import BlogIndexPost from '../components/BlogIndexPost';
 import { HOME_URL } from '../constants/urls';
 
