@@ -8,7 +8,7 @@
 }
 
 .pageTitle {
-  composes: postTitle from './BlogPost.module.css';
+  composes: postTitle from '../BlogPost/BlogPost.module.css';
 }
 
 .postPreview {
