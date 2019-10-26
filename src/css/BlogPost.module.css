@@ -1,19 +1,14 @@
 .blogPostTags {
-  composes: mt4 from global;
+  composes: flex mt4 from global;
 }
 
 .blogPostTag {
-  composes: f5 cf from global;
-  float: left;
+  composes: dib f5 from global;
   padding: 3px 8px;
   margin-right: 4px;
   margin-bottom: 4px;
   border-radius: 3px;
   background-color: var(--black-05);
-}
-
-.blogPostTag:last-child {
-  margin: 0;
 }
 
 .postHeader {
