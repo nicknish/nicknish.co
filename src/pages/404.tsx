@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import { SEOTypes } from '../components/SEO';
 import Page from '../components/layout/page';
-import Button, { ButtonThemes, ButtonSizes } from '../components/button';
+import Button, { ButtonThemes, ButtonSizes } from '../components/Button';
 
 import styles from '../css/404.module.css';
 

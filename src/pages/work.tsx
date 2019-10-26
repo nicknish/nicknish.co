@@ -12,7 +12,7 @@ import { getDate } from '../utils/helpers';
 
 import HAPPY_IMG from '../images/happy.svg';
 import styles from '../css/Work.module.css';
-import Button, { ButtonThemes } from '../components/button';
+import Button, { ButtonThemes } from '../components/Button';
 
 const WorkItem = ({ to, title, description, footerSubtitle }) => (
   <Link to={to} className={styles.gridItem} data-testid={`WorkItem--${to}`}>
