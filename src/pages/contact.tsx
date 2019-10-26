@@ -5,7 +5,7 @@ import { navigate } from 'gatsby-link';
 import { SEOTypes } from '../components/SEO';
 import Layout from '../components/layout';
 import Form from '../components/contact/form';
-import Page from '../components/layout/page';
+import Page from '../components/Layout/Page';
 
 const FORM_SUCCESS_REDIRECT_URL = '/thanks';
 const FORM_NAME = 'contact';

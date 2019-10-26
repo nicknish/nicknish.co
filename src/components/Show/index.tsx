@@ -7,7 +7,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { SEOTypes } from '../SEO';
 import Layout from '../layout';
-import Page from '../layout/page';
+import Page from '../Layout/Page';
 import { WORK_URL } from '../../constants/urls';
 
 import styles from './Show.module.css';

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import sortBy from 'lodash/sortBy';
 import Layout from '../components/layout';
-import Page from '../components/layout/page';
+import Page from '../components/Layout/Page';
 
 import styles from '../css/Series.module.css';
 import { SEOTypes } from '../components/SEO';
