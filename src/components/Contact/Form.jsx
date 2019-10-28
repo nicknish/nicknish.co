@@ -1,5 +1,5 @@
 import React from 'react';
-import NetlifyForm from './netlifyForm';
+import NetlifyForm from './NetlifyForm';
 import Recaptcha from 'react-google-recaptcha';
 import Button, { ButtonThemes, ButtonSizes } from '../common/Button';
 

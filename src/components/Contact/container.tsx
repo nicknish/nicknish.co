@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { navigate } from 'gatsby-link';
 
-import Form from '../contact/form';
+import Form from '../Contact/Form';
 import Page from '../Layout/Page';
 
 const FORM_SUCCESS_REDIRECT_URL = '/thanks';
