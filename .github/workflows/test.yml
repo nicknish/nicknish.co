@@ -22,7 +22,9 @@ jobs:
       - name: Yarn install
         run: yarn install
       - name: Yarn test and build
-        run: yarn test | yarn build
+        run: |
+          yarn test
+          yarn build
         env:
           CI: true
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
