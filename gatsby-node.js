@@ -24,6 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
   const WorkPage = path.resolve(`./src/templates/work.tsx`);
   const ProjectPage = path.resolve(`./src/templates/project.tsx`);
   const BlogPostTemplate = path.resolve(`./src/templates/blogPost.tsx`);
+  const BlogAmpPostTemplate = path.resolve(`./src/templates/blogPost.amp.tsx`);
   const SeriesBlogPostTemplate = path.resolve(`./src/templates/series.tsx`);
 
   const loadPages = new Promise((resolve, reject) => {
@@ -83,9 +84,17 @@ exports.createPages = ({ graphql, actions }) => {
       if (result.errors) return reject(result.errors);
 
       result.data.blogPosts.edges.forEach(({ node }) => {
+        const path = generatePathName(PATH_TYPE.BLOG, node.slug);
+
         createPage({
-          path: generatePathName(PATH_TYPE.BLOG, node.slug),
+          path,
           component: BlogPostTemplate,
+          context: { id: node.id }
+        });
+
+        createPage({
+          path: `${path}/amp`,
+          component: BlogAmpPostTemplate,
           context: { id: node.id }
         });
       });

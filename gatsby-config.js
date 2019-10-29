@@ -28,7 +28,7 @@ module.exports = {
     ...images.plugins,
     ...filesystem.plugins,
     ...sources.plugins,
-    ...markdown.plugins,
+    ...markdown(config).plugins,
     ...rss.plugins,
     ...analytics.plugins,
     ...netlify.plugins // MUST BE LAST

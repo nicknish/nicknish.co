@@ -75,6 +75,18 @@ const getPageImage = ({
   return { image, imgWidth, imgHeight };
 };
 
+export const getShareImageFromData = image => {
+  if (!image) {
+    return {};
+  }
+
+  const shareImage = image.file.url;
+  const shareImageWidth = image.file.details.image.width;
+  const shareImageHeight = image.file.details.image.height;
+
+  return { shareImage, shareImageWidth, shareImageHeight };
+};
+
 const getStructuredDataSchema = ({
   page,
   post,

@@ -5,7 +5,7 @@ import Layout from '../components/Layout/Layout';
 
 import BlogPost from '../components/Blog/BlogPost';
 
-export const BlogPostTemplate = ({ data, path }) => {
+export const BlogAmpPostTemplate = ({ data, path }) => {
   const { body, description } = data.post;
   const {
     shareImage,
@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({ data, path }) => {
 };
 
 export const query = graphql`
-  query BlogPost($id: String!) {
+  query BlogAmpPost($id: String!) {
     post: contentfulPost(id: { eq: $id }) {
       title
       date(formatString: "MMM D, YYYY")
@@ -65,4 +65,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPostTemplate;
+export default BlogAmpPostTemplate;

@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = config => ({
   plugins: [
     {
       resolve: `gatsby-transformer-remark`,
@@ -43,6 +43,31 @@ module.exports = {
           global: false
         }
       }
+    },
+    {
+      resolve: `gatsby-plugin-amp`,
+      options: {
+        analytics: {
+          type: 'gtag',
+          dataCredentials: 'include',
+          config: {
+            vars: {
+              gtag_id: process.env.GOOGLE_ANALYTICS,
+              config: {
+                [process.env.GOOGLE_ANALYTICS]: {
+                  page_location: '{{pathname}}'
+                }
+              }
+            }
+          }
+        },
+        canonicalBaseUrl: config.siteUrl,
+        components: ['amp-form'],
+        includedPaths: ['/blog*'],
+        pathIdentifier: '/amp',
+        relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
+        useAmpClientIdApi: true
+      }
     }
   ]
-};
+});
