@@ -1,10 +1,9 @@
 .footer {
-  composes: w-100 from global;
+  composes: f6 w-100 pa4 ph3 mt4-ns black-30 tc from global;
 }
 
 .footerSocial {
-  composes: tc from global;
-  padding: 40px 20px;
+  composes: mb3 from global;
 }
 
 .footerSocialList {
@@ -19,16 +18,20 @@
   font-size: 24px;
 }
 
-.copyright {
-  composes: mb3 tc from global;
+.footerLinks {
+  composes: flex mw4 justify-center mb4 center from global;
 }
 
-.copyrightText {
-  composes: f6 black-30 from global;
+.footerLink {
+  composes: f5 f6-ns mh2 no-underline black-40 from global;
 }
 
-@media (prefers-color-scheme: dark) {
-  .copyrightText {
+@media (--dark-mode) {
+  .footer {
     color: var(--white-70);
+  }
+
+  .footerLink {
+    color: var(--white-80);
   }
 }
