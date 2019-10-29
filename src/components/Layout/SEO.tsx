@@ -233,7 +233,7 @@ const SEO: React.FC<SEOPropTypes> = ({ type, content, path }) => {
           <Helmet>
             {/* General tags */}
             <title>{title}</title>
-            <link rel="canonical" href={siteUrl} />
+            <link rel="canonical" href={pageUrl} />
             <meta name="image" content={image} />
             <meta name="description" content={description} />
 

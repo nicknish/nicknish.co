@@ -1,4 +1,4 @@
-const siteUrl = 'https://nicknish.co';
+const siteUrl = 'https://www.nicknish.co';
 const userTwitter = '@nickjnish';
 
 module.exports = {

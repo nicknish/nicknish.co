@@ -9,7 +9,6 @@ const SiteMetadata: React.FC = () => {
         query SiteMetadata {
           site {
             siteMetadata {
-              siteUrl
               themeColor
             }
           }

@@ -8,16 +8,7 @@ import { getDate } from '../utils/helpers';
 const WorkTemplate = ({
   path,
   data: {
-    post: {
-      title,
-      slug,
-      startDate,
-      endDate,
-      current,
-      description,
-      images = [],
-      url
-    }
+    post: { title, startDate, endDate, current, description, images = [], url }
   }
 }) => {
   return (
@@ -25,7 +16,7 @@ const WorkTemplate = ({
       title={title}
       description={description.childMarkdownRemark.html}
       date={getDate(startDate, endDate, current)}
-      path={`work/${slug}`}
+      path={path}
       external_url={url}
       type={SHOW_TYPES.WORK}
       image={get(images, '[0].sizes')}
