@@ -5,9 +5,9 @@ import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { SEOTypes } from '../SEO';
-import Layout from '../layout';
-import Page from '../layout/page';
+import { SEOTypes } from '../Layout/SEO';
+import Layout from '../Layout/Layout';
+import Page from '../Layout/Page';
 import { WORK_URL } from '../../constants/urls';
 
 import styles from './Show.module.css';

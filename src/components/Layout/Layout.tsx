@@ -1,11 +1,11 @@
-import '../css/App.css';
+import '../../css/App.css';
 
 import React from 'react';
 
 import SiteMetadata from './SiteMetadata';
 import SEO, { SEOPropTypes } from './SEO';
 import Nav from './Nav';
-import Footer from './Footer';
+import Footer from '../Footer';
 
 const Layout: React.FC<SEOPropTypes> = ({ children, ...seoProps }) => (
   <div className="site-container">

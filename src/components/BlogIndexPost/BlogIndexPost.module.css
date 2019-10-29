@@ -25,13 +25,13 @@
 }
 
 .blogIndexPostTitle {
-  composes: postPreviewTitle from '../../css/Blog.module.css';
+  composes: postPreviewTitle from '../Blog/Blog.module.css';
 }
 
 .blogIndexPostDate {
-  composes: postPreviewDate from '../../css/Blog.module.css';
+  composes: postPreviewDate from '../Blog/Blog.module.css';
 }
 
 .blogIndexPostExcerpt {
-  composes: postPreviewExcerpt from '../../css/Blog.module.css';
+  composes: postPreviewExcerpt from '../Blog/Blog.module.css';
 }
