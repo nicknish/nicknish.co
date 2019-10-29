@@ -1,9 +1,9 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
 import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import { NEWSLETTER_URL } from '../../constants/urls';
 
-import FooterNewsletterSignup from '../FooterNewsletterSignup';
 import styles from './Footer.module.css';
 
 const ICONS = {
@@ -19,6 +19,7 @@ const query = graphql`
         github_url
         linkedin_url
         twitter_url
+        resume_url
       }
     }
   }
@@ -29,7 +30,7 @@ export const Footer = () => (
     query={query}
     render={({
       site: {
-        siteMetadata: { github_url, linkedin_url, twitter_url }
+        siteMetadata: { github_url, linkedin_url, twitter_url, resume_url }
       }
     }) => {
       const socialMediaUrls = {
@@ -40,8 +41,6 @@ export const Footer = () => (
 
       return (
         <footer className={styles.footer}>
-          <FooterNewsletterSignup />
-
           <nav className={styles.footerSocial}>
             <ul className={styles.footerSocialList}>
               {Object.keys(socialMediaUrls).map(key => (
@@ -55,6 +54,15 @@ export const Footer = () => (
                 </li>
               ))}
             </ul>
+          </nav>
+
+          <nav className={styles.footerLinks}>
+            <Link className={styles.footerLink} to={NEWSLETTER_URL}>
+              Newsletter
+            </Link>
+            <OutboundLink className={styles.footerLink} href={resume_url}>
+              Resume
+            </OutboundLink>
           </nav>
 
           <div className={styles.copyright}>

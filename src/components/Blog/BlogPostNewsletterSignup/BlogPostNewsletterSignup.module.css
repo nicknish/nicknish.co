@@ -1,5 +1,5 @@
 .container {
-  composes: container mt5 from global;
+  composes: mt5 from global;
 }
 
 .title {

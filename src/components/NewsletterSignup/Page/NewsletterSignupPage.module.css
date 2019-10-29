@@ -1,0 +1,7 @@
+.newsletter {
+  composes: container mt5 from global;
+}
+
+.title {
+  composes: f3 primary from global;
+}

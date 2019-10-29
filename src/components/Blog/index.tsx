@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import BlogIndexPost from '../BlogIndexPost';
 
 import styles from './Blog.module.css';
-import NewsletterSignupForm from '../NewsletterSignupForm';
+import NewsletterSignupForm from '../NewsletterSignup/Form';
 
 const BlogNewsletterSignupForm = () => (
   <>

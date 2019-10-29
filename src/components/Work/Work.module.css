@@ -31,6 +31,10 @@
   composes: sectionMargin;
 }
 
+.section:last-child {
+  margin-bottom: 0;
+}
+
 @media (--medium-viewport) {
   .section {
     margin-top: 70px;
@@ -75,6 +79,10 @@
   transition: border-color 50ms ease;
 }
 
+.gridItem:last-child {
+  margin-bottom: 0;
+}
+
 .gridItem:hover {
   color: currentColor;
   border-color: var(--black-20);
@@ -95,7 +103,7 @@
 }
 
 .cvLinkContainer {
-  composes: flex mt2 mt4-ns justify-center from global;
+  composes: flex mt4 mt4-ns justify-center from global;
 }
 
 .cvLink {

@@ -3,7 +3,7 @@
 }
 
 .navItem {
-  composes: f4 f5-ns black-50 b no-underline from global;
+  composes: f5 black-50 b no-underline from global;
 }
 
 .active {
@@ -11,7 +11,7 @@
 }
 
 .logo {
-  composes: relative f3 f4-ns mh4 mh3-ns b black-80 no-underline from global;
+  composes: relative f4 mh3 b black-80 no-underline from global;
 }
 
 .logo:after {
