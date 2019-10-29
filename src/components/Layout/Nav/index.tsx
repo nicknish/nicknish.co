@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import Link, { GatsbyLinkProps } from 'gatsby-link';
 
-import { HOME_URL, WORK_URL } from '../../constants/urls';
-import { isBrowser } from '../../utils/helpers';
+import { HOME_URL, WORK_URL } from '../../../constants/urls';
+import { isBrowser } from '../../../utils/helpers';
 import styles from './Nav.module.css';
 
 interface INavLinkProps extends GatsbyLinkProps<{}> {

@@ -1,17 +1,11 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import sortBy from 'lodash/sortBy';
-import Layout from '../components/layout';
-import Page from '../components/layout/page';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout/Layout';
 
-import styles from '../css/Series.module.css';
-import { SEOTypes } from '../components/SEO';
+import { SEOTypes } from '../components/Layout/SEO';
+import BlogPostSeries from '../components/Blog/BlogPostSeries';
 
-const POST_URL_BASE = slug => `/blog/${slug}`;
-
-export const Series = ({ data, path }) => {
-  const posts = sortBy(data.series.posts, 'date');
-
+export const BlogPostSeriesTemplate = ({ data, path }) => {
   return (
     <Layout
       type={SEOTypes.post}
@@ -21,37 +15,7 @@ export const Series = ({ data, path }) => {
         excerpt: data.series.description.childMarkdownRemark.excerpt
       }}
     >
-      <Page className={styles.page}>
-        <header className={styles.header}>
-          <h1 className={styles.pageTitle}>{data.series.title}</h1>
-          {data.series.description && (
-            <div
-              className="page-subtitle"
-              dangerouslySetInnerHTML={{
-                __html: data.series.description.childMarkdownRemark.html
-              }}
-            />
-          )}
-        </header>
-
-        {posts.map(post => (
-          <Link
-            to={POST_URL_BASE(post.slug)}
-            className={styles.postPreview}
-            key={post.id}
-            data-testid="BlogSeriesPageLink"
-          >
-            <article>
-              <h2 className={styles.postPreviewTitle}>{post.title}</h2>
-              <p className={styles.postPreviewExcerpt}>
-                {post.body.childMarkdownRemark.excerpt}
-              </p>
-
-              <span className={styles.postPreviewDate}>{post.date}</span>
-            </article>
-          </Link>
-        ))}
-      </Page>
+      <BlogPostSeries data={data} />
     </Layout>
   );
 };
@@ -81,4 +45,4 @@ export const query = graphql`
   }
 `;
 
-export default Series;
+export default BlogPostSeriesTemplate;

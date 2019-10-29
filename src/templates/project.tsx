@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Show, { SHOW_TYPES } from '../components/Show';
 import { getDate } from '../utils/helpers';
 
-export default ({
+const ProjectTemplate = ({
   path,
   data: {
     post: { title, startDate, endDate, current, description, images = [], url }
@@ -50,3 +50,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default ProjectTemplate;

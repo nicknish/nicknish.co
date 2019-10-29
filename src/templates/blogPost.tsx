@@ -1,14 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import shortid from 'shortid';
-import { SEOTypes } from '../components/SEO';
-import Layout from '../components/layout';
-import Page from '../components/layout/page';
+import { SEOTypes } from '../components/Layout/SEO';
+import Layout from '../components/Layout/Layout';
 
-import styles from '../css/BlogPost.module.css';
-
-const addKeys = (arr = [], propName: string) =>
-  arr.map(item => ({ key: shortid.generate(), [propName]: item }));
+import BlogPost from '../components/Blog/BlogPost';
 
 const getShareImage = image => {
   if (!image) {
@@ -22,18 +17,11 @@ const getShareImage = image => {
   return { shareImage, shareImageWidth, shareImageHeight };
 };
 
-export const BlogPost = ({ data, path }) => {
-  const { title, tags, date, body, description } = data.post;
+export const BlogPostTemplate = ({ data, path }) => {
+  const { body, description } = data.post;
   const { shareImage, shareImageWidth, shareImageHeight } = getShareImage(
     data.post.shareImage
   );
-
-  const tagsWithKeys = tags && tags.length ? addKeys(tags, 'tag') : [];
-  const tagElems = tagsWithKeys.map(tag => (
-    <span className={styles.blogPostTag} key={tag.key}>
-      {tag.tag}
-    </span>
-  ));
 
   return (
     <Layout
@@ -49,21 +37,7 @@ export const BlogPost = ({ data, path }) => {
         shareImageHeight
       }}
     >
-      <Page className="post container">
-        <header className={styles.postHeader}>
-          <h1 className={styles.postTitle}>{title}</h1>
-          <span className={styles.postDate}>{date}</span>
-        </header>
-
-        <div
-          className={styles.postBody}
-          dangerouslySetInnerHTML={{
-            __html: body.childMarkdownRemark.html
-          }}
-        />
-
-        <div className={styles.blogPostTags}>{tagElems}</div>
-      </Page>
+      <BlogPost {...data.post} />
     </Layout>
   );
 };
@@ -101,4 +75,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPost;
+export default BlogPostTemplate;
