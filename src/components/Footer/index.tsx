@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import FooterNewsletterSignup from '../FooterNewsletterSignup';
 import styles from './Footer.module.css';
 
 const ICONS = {
@@ -40,8 +39,6 @@ export const Footer = () => (
 
       return (
         <footer className={styles.footer}>
-          <FooterNewsletterSignup />
-
           <nav className={styles.footerSocial}>
             <ul className={styles.footerSocialList}>
               {Object.keys(socialMediaUrls).map(key => (

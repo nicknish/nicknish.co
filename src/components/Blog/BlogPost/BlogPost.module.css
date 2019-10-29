@@ -25,6 +25,10 @@
   color: var(--color-date);
 }
 
+.newsletter {
+  composes: mv5 from global;
+}
+
 .postBody img {
   display: block;
   margin-right: auto;

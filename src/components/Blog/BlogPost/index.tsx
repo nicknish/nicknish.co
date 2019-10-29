@@ -4,6 +4,7 @@ import shortid from 'shortid';
 import Page from '../../Layout/Page';
 import Comments from '../Comments';
 import styles from './BlogPost.module.css';
+import BlogPostNewsletterSignup from '../BlogPostNewsletterSignup';
 
 const addKeys = (arr = [], propName: string) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
@@ -38,6 +39,8 @@ const BlogPost: React.FC<IBlogPostProps> = ({ title, date, body, tags }) => {
       />
 
       <div className={styles.blogPostTags}>{tagElems}</div>
+
+      <BlogPostNewsletterSignup className={styles.newsletter} />
       <Comments />
     </Page>
   );
