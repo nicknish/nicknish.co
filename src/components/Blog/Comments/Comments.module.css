@@ -1,0 +1,37 @@
+.comments {
+  composes: mt4 mb3 from global;
+}
+
+.notLoaded {
+  composes: pv5 tc from global;
+}
+
+/* Commento.io overrides */
+@media (--dark-mode) {
+  /* Can't make these all one selector unfortunately */
+  :global(.commento-root *) {
+    color: white !important;
+  }
+  :global(.commento-name) {
+    color: white !important;
+  }
+  :global(.commento-option-collapse) {
+    color: white !important;
+  }
+
+  :global(.commento-root input[type='text']) {
+    color: black !important;
+  }
+  :global(.commento-root input[type='password']) {
+    color: black !important;
+  }
+  :global(.commento-root textarea) {
+    color: black !important;
+  }
+  :global(#commento-login-box) {
+    background: #5b5768 !important;
+  }
+  :global(.commento-email-button) {
+    color: #1c7ed6 !important;
+  }
+}

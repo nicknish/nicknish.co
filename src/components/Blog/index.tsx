@@ -82,6 +82,7 @@ const Blog = ({ data }) => {
 
             return (
               <article
+                key={path}
                 className={styles.seriesPreview}
                 data-testid="BlogSeriesLink"
               >

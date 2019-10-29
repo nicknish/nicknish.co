@@ -2,6 +2,7 @@ import React from 'react';
 import shortid from 'shortid';
 
 import Page from '../../Layout/Page';
+import Comments from '../Comments';
 import styles from './BlogPost.module.css';
 
 const addKeys = (arr = [], propName: string) =>
@@ -37,6 +38,7 @@ const BlogPost: React.FC<IBlogPostProps> = ({ title, date, body, tags }) => {
       />
 
       <div className={styles.blogPostTags}>{tagElems}</div>
+      <Comments />
     </Page>
   );
 };
