@@ -28,7 +28,7 @@
 }
 
 .pageTitle {
-  composes: f3 mt0 mb3 from global;
+  composes: f3 mt0 mb3 primary from global;
 }
 
 .pageSubtitle {
