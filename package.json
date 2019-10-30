@@ -49,6 +49,7 @@
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.1.10",
     "lodash-es": "^4.17.11",
+    "medium-zoom": "^1.0.4",
     "postcss-custom-media": "^7.0.8",
     "prismjs": "^1.17.1",
     "react": "^16.9.0",
