@@ -89,7 +89,7 @@
 }
 
 .gridItemTitle {
-  composes: f4 ma0 mb1 b black-70 from global;
+  composes: f4 ma0 mb2 mb3-ns b black-70 from global;
   line-height: 1.4;
 }
 
