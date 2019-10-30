@@ -4,7 +4,23 @@ import { Link } from 'gatsby';
 
 import styles from './BlogPopularPost.module.css';
 
-const BlogPopularPost = ({ idx, length, path, title, description, date }) => {
+interface IBlogPopularPostProps {
+  idx: number;
+  length: number;
+  path: string;
+  title: string;
+  description: string;
+  date: string;
+}
+
+const BlogPopularPost: React.FC<IBlogPopularPostProps> = ({
+  idx,
+  length,
+  path,
+  title,
+  description,
+  date
+}) => {
   return (
     <article
       className={cx(styles.popularPost, {
