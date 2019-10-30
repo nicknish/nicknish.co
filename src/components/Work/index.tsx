@@ -4,7 +4,12 @@ import Link from 'gatsby-link';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import FaExternalLink from 'react-icons/lib/fa/external-link';
 
-import { HOME_URL } from '../../constants/urls';
+import {
+  HOME_URL,
+  createPath,
+  PROJECT_URL,
+  WORK_URL
+} from '../../constants/urls';
 import { getDate } from '../../utils/helpers';
 
 import HAPPY_IMG from '../../images/happy.svg';
@@ -84,7 +89,7 @@ const Work = ({ data }) => {
             return (
               <WorkItem
                 key={title}
-                to={`/work/${slug}`}
+                to={createPath(WORK_URL, slug)}
                 title={title}
                 description={description}
                 footerSubtitle={getDate(startDate, endDate, current)}
@@ -128,7 +133,7 @@ const Work = ({ data }) => {
             return (
               <WorkItem
                 key={title}
-                to={`/projects/${slug}`}
+                to={createPath(PROJECT_URL, slug)}
                 title={title}
                 description={description}
                 footerSubtitle={getDate(startDate, endDate, current)}
