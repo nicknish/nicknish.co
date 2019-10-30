@@ -15,6 +15,27 @@ const Homepage = ({ data }) => {
 
 export const query = graphql`
   query IndexQuery {
+    popularPosts: contentfulPopularPosts(
+      title: { eq: "Blog Index Popular Posts" }
+    ) {
+      title
+      posts {
+        description {
+          childMarkdownRemark {
+            excerpt(pruneLength: 90)
+          }
+        }
+        body {
+          childMarkdownRemark {
+            excerpt(pruneLength: 90)
+          }
+        }
+        date(formatString: "MMM D, YYYY")
+        title
+        slug
+      }
+    }
+
     posts: allContentfulPost(sort: { fields: [date], order: DESC }) {
       edges {
         node {

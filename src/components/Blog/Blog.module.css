@@ -124,11 +124,22 @@
   color: var(--black-50);
 }
 
+.popularPostsSection {
+  composes: mb5 from global;
+  composes: containerLg;
+}
+
+.popularPosts {
+  composes: flex flex-wrap flex-nowrap-ns from global;
+}
+
 @media (prefers-color-scheme: dark) {
   .sectionTitle,
   .postPreviewTitle,
-  .postPreviewExcerpt,
-  .postPreviewDate {
+  .postPreviewExcerpt {
     color: var(--white);
+  }
+  .postPreviewDate {
+    color: var(--white-60);
   }
 }
