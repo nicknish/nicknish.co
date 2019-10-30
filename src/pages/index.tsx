@@ -22,12 +22,12 @@ export const query = graphql`
       posts {
         description {
           childMarkdownRemark {
-            excerpt(pruneLength: 90)
+            excerpt(pruneLength: 160)
           }
         }
         body {
           childMarkdownRemark {
-            excerpt(pruneLength: 90)
+            excerpt(pruneLength: 160)
           }
         }
         date(formatString: "MMM D, YYYY")

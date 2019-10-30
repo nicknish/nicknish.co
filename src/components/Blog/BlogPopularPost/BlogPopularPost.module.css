@@ -41,20 +41,12 @@
 }
 
 .popularPostTitle {
-  composes: f5 ma0 lh-title overflow-hidden from global;
-  /* 
-   * Creates ellipsis 
-   * https://css-tricks.com/almanac/properties/l/line-clamp/
-  */
+  composes: f5 ma0 lh-title ellipsis ellipsis-2-lines from global;
   max-height: 45px;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 .popularPostDescription {
-  composes: flex-auto ma0 mb2 from global;
+  composes: flex-auto ma0 mb2 ellipsis ellipsis-4-lines from global;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.54);
 }
