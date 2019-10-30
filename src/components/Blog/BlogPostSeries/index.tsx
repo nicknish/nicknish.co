@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import sortBy from 'lodash/sortBy';
+
 import Page from '../../Layout/Page';
+import { createPath, BLOG_URL } from '../../../constants/urls';
 
 import styles from './BlogPostSeries.module.css';
-
-const POST_URL_BASE = slug => `/blog/${slug}`;
 
 const BlogPostSeries = ({ data }) => {
   const posts = sortBy(data.series.posts, 'date');
@@ -26,7 +26,7 @@ const BlogPostSeries = ({ data }) => {
 
       {posts.map(post => (
         <Link
-          to={POST_URL_BASE(post.slug)}
+          to={createPath(BLOG_URL, post.slug)}
           className={styles.postPreview}
           key={post.id}
           data-testid="BlogSeriesPageLink"

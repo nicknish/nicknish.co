@@ -29,6 +29,14 @@
   composes: mv5 from global;
 }
 
+/* Medium Zoom */
+:global(.medium-zoom-overlay) {
+  z-index: 1000;
+}
+:global(.medium-zoom-image--opened) {
+  z-index: 1001;
+}
+
 .postBody img {
   display: block;
   margin-right: auto;

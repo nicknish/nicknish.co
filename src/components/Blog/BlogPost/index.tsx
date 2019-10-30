@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef, RefObject } from 'react';
 import shortid from 'shortid';
 
 import Page from '../../Layout/Page';
 import Comments from '../Comments';
 import styles from './BlogPost.module.css';
 import BlogPostNewsletterSignup from '../BlogPostNewsletterSignup';
+import { useMediumZoom } from './BlogPostHooks';
 
 const addKeys = (arr = [], propName: string) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
@@ -17,6 +18,9 @@ interface IBlogPostProps {
 }
 
 const BlogPost: React.FC<IBlogPostProps> = ({ title, date, body, tags }) => {
+  const postBodyRef = useRef();
+  useMediumZoom(postBodyRef);
+
   const tagsWithKeys = tags && tags.length ? addKeys(tags, 'tag') : [];
   const tagElems = tagsWithKeys.map(tag => (
     <span className={styles.blogPostTag} key={tag.key}>
@@ -32,6 +36,7 @@ const BlogPost: React.FC<IBlogPostProps> = ({ title, date, body, tags }) => {
       </header>
 
       <div
+        ref={postBodyRef}
         className={styles.postBody}
         dangerouslySetInnerHTML={{
           __html: body.childMarkdownRemark.html

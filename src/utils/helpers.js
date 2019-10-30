@@ -12,3 +12,10 @@ export const getDate = (startDate, endDate, current) => {
 };
 
 export const isBrowser = () => typeof window !== 'undefined';
+
+export const prefersDarkMode = () => {
+  if (isBrowser()) {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    return media.matches === true;
+  }
+};

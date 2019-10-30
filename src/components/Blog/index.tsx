@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import BlogIndexPost from '../BlogIndexPost';
 import BlogPopularPost from './BlogPopularPost';
 import NewsletterSignupForm from '../NewsletterSignup/Form';
-import { createPath, BLOG_URL } from '../../constants/urls';
+import { createPath, BLOG_URL, SERIES_URL } from '../../constants/urls';
 
 import styles from './Blog.module.css';
 
@@ -99,7 +99,7 @@ const Blog = ({ data }) => {
           </header>
 
           {series.map(data => {
-            const path = `/series/${data.slug}`;
+            const path = createPath(SERIES_URL, data.slug);
             const Image = data.previewImage && (
               <div>
                 <Img
