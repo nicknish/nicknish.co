@@ -18,6 +18,7 @@ describe('happy path', function() {
       .click();
 
     cy.go('back');
+    cy.wait(5000);
 
     cy.get('[data-testid="BlogSeriesLink"]')
       .first()
