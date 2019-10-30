@@ -37,3 +37,26 @@
 .site-content {
   flex: 1;
 }
+
+/* 
+  * Creates ellipsis - Must use max height with it
+  * https://css-tricks.com/almanac/properties/l/line-clamp/
+*/
+.ellipsis {
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.ellipsis-2-lines {
+  -webkit-line-clamp: 2;
+}
+
+.ellipsis-3-lines {
+  -webkit-line-clamp: 3;
+}
+
+.ellipsis-4-lines {
+  -webkit-line-clamp: 4;
+}

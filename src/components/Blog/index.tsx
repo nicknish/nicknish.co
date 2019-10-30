@@ -4,9 +4,11 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 import BlogIndexPost from '../BlogIndexPost';
+import BlogPopularPost from './BlogPopularPost';
+import NewsletterSignupForm from '../NewsletterSignup/Form';
+import { createPath, BLOG_URL } from '../../constants/urls';
 
 import styles from './Blog.module.css';
-import NewsletterSignupForm from '../NewsletterSignup/Form';
 
 const BlogNewsletterSignupForm = () => (
   <>
@@ -20,6 +22,7 @@ const cleanupData = data => {
 };
 
 const Blog = ({ data }) => {
+  const popularPosts = data.popularPosts.posts;
   const posts = cleanupData(data.posts);
   const series = cleanupData(data.series);
 
@@ -36,6 +39,34 @@ const Blog = ({ data }) => {
         </p>
         <BlogNewsletterSignupForm />
       </header>
+
+      <section className={styles.popularPostsSection}>
+        <header className={styles.blogIndexSectionTitle}>
+          <h2 className={styles.sectionTitle}>Popular Posts</h2>
+        </header>
+
+        <div className={styles.popularPosts}>
+          {popularPosts.map((data, idx) => {
+            const path = createPath(BLOG_URL, data.slug);
+
+            return (
+              <BlogPopularPost
+                key={data.id}
+                idx={idx}
+                length={popularPosts.length}
+                path={path}
+                title={data.title}
+                description={
+                  data.description
+                    ? data.description.childMarkdownRemark.excerpt
+                    : data.body.childMarkdownRemark.excerpt
+                }
+                date={data.date}
+              />
+            );
+          })}
+        </div>
+      </section>
 
       <div
         className={cx(

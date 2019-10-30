@@ -1,0 +1,69 @@
+.popularPost {
+  composes: w-50 mb2 mb0-ns from global;
+  transition: all 150ms ease;
+}
+
+.popularPost:hover {
+  opacity: 0.8;
+}
+
+.popularPostLeftPadding {
+  composes: pl1 from global;
+}
+
+.popularPostRightPadding {
+  composes: pr1 from global;
+}
+
+.popularPostLeftPaddingDesktop {
+  composes: pl1-ns from global;
+}
+
+.popularPostRightPaddingDesktop {
+  composes: pr1-ns from global;
+}
+
+.popularPostLink {
+  composes: flex flex-column h-100 pv3 ba no-underline from global;
+  border-width: 2px;
+  border-color: var(--black-05);
+  border-radius: 4px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.popularPostLink:hover {
+  color: inherit;
+}
+
+.popularPostHeader {
+  margin-bottom: 12px;
+}
+
+.popularPostTitle {
+  composes: f5 ma0 lh-title ellipsis ellipsis-2-lines from global;
+  max-height: 45px;
+}
+
+.popularPostDescription {
+  composes: flex-auto ma0 mb2 ellipsis ellipsis-4-lines from global;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.popularPostDate {
+  composes: black-40 from global;
+  font-size: 14px;
+}
+
+@media (--dark-mode) {
+  .popularPostLink {
+    border-color: var(--white-10);
+  }
+  .popularPostDescription {
+    color: var(--white);
+  }
+  .popularPostDate {
+    color: var(--white-60);
+  }
+}
