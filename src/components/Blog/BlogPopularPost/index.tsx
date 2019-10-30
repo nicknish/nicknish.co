@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import { Link } from 'gatsby';
 
