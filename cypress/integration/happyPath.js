@@ -1,6 +1,6 @@
 describe('happy path', function() {
   beforeEach(() => {
-    cy.visit('http://localhost:8000/');
+    cy.visit('/');
   });
 
   it('visits blog', function() {
@@ -17,8 +17,7 @@ describe('happy path', function() {
       .first()
       .click();
 
-    cy.go('back');
-    cy.wait(5000);
+    cy.visit('/');
 
     cy.get('[data-testid="BlogSeriesLink"]')
       .first()
