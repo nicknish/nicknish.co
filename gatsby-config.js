@@ -11,6 +11,7 @@ const sources = require('./plugins/sources');
 const markdown = require('./plugins/markdown');
 const rss = require('./plugins/rss');
 const analytics = require('./plugins/analytics');
+const logging = require('./plugins/logging');
 const site = require('./plugins/site');
 const typescript = require('./plugins/typescript');
 const css = require('./plugins/css');
@@ -31,6 +32,7 @@ module.exports = {
     ...markdown.plugins,
     ...rss.plugins,
     ...analytics.plugins,
+    ...logging.plugins,
     ...netlify.plugins // MUST BE LAST
   ],
   // for avoiding CORS while developing Netlify Functions locally
