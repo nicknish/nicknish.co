@@ -1,3 +1,10 @@
 module.exports = {
-  plugins: [`gatsby-plugin-typescript`]
+  plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        allowNamespaces: true
+      }
+    }
+  ]
 };
