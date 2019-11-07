@@ -1,7 +1,3 @@
-require('prismjs/themes/prism-tomorrow.css');
-// TODO: Figure out why this isn't working
-require('prismjs/plugins/line-numbers/prism-line-numbers.css');
-
 const consoleGreetingFirstLine = `Hi there! 👋`;
 const consoleGreeting = `
 Thanks for checking out my website! If you're seeing this,

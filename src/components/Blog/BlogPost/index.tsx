@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, RefObject } from 'react';
+import React, { useRef } from 'react';
 import shortid from 'shortid';
 
 import Page from '../../Layout/Page';
 import Comments from '../Comments';
+import 'prismjs/themes/prism-tomorrow.css';
 import styles from './BlogPost.module.css';
 import BlogPostNewsletterSignup from '../BlogPostNewsletterSignup';
 import { useMediumZoom } from './BlogPostHooks';

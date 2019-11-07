@@ -9,65 +9,85 @@ pre {
  * and overflow that we removed from <pre>.
  */
 .gatsby-highlight {
+  width: 100%;
+  margin-top: var(--typography-marginRhythm);
   margin-bottom: var(--typography-marginRhythm);
-  border-radius: 0.3em;
+  font-size: 0.8421rem;
   overflow: auto;
   scroll-behavior: smooth;
-  background: var(--bg-code-block-bright); /* Matches PrismJS Tomorrow theme */
 }
 
-/**
- * Remove the default PrismJS theme background-color, border-radius, margin,
- * padding and overflow.
- * 1. Make the element just wide enough to fit its content.
- * 2. Always fill the visible space in .gatsby-highlight.
- * 3. Adjust the position of the line numbers
- */
 .gatsby-highlight pre[class*='language-'] {
-  margin: 0;
-  overflow: initial;
-  min-width: 100%;
-}
-
-.gatsby-highlight-code-line {
-  background-color: #feb;
   display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #f99;
+  width: 100%;
+  padding: 1rem;
+  margin: 0;
+  border-radius: 4px;
+  background-color: var(--bg-code-block-dark);
+  /* 
+   * Flexbox can break right padding on <pre> element
+   * Using float fixes it.
+   * https://stackoverflow.com/questions/26888428/display-flex-loses-right-padding-when-overflowing
+   */
+  float: left;
 }
 
-/* Adjust the position of the line numbers */
 .gatsby-highlight pre[class*='language-'].line-numbers {
-  padding-left: 2.8em;
+  display: flex;
+  padding: 10px;
+  counter-reset: linenumber;
 }
 
-/*************************/
-/* Personal adjustments */
+.gatsby-highlight pre[class*='language-'].line-numbers > code {
+  width: 100%;
+  order: 2;
+}
 
-.gatsby-highlight {
-  font-size: 0.8421rem;
+.gatsby-highlight pre[class*='language-'].line-numbers .line-numbers-rows {
+  position: static;
+  height: 100%;
+  padding: 0;
+  margin-right: 1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.gatsby-highlight .line-numbers .line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.gatsby-highlight .line-numbers .line-numbers-rows > span:before {
+  content: counter(linenumber);
+  text-align: right;
+  color: var(--white-30);
 }
 
 :not(pre) > code[class*='language-'] {
   padding: 2px 4px;
   font-size: 85%;
-  border-radius: 0.15em;
+  border-radius: 0.15rem;
   background: var(--black-10);
   color: var(--color-body-copy);
 }
 
+/* Diff (+) */
 .gatsby-highlight .language-diff .token.inserted {
   color: #8fca8f;
 }
 
-@media (prefers-color-scheme: dark) {
-  .gatsby-highlight {
-    background: var(--bg-code-block-dark);
-  }
+/* Highlighted line */
+.gatsby-highlight-code-line {
+  width: 100%;
+  background-color: #263766;
+  display: block;
+  padding-right: 1rem;
+  padding-left: 0.75rem;
+  border-left: 0.25rem solid #5b70ae;
+}
 
+@media (prefers-color-scheme: dark) {
   pre[class*='language-'] {
     background: var(--bg-code-block-dark);
   }
@@ -75,5 +95,9 @@ pre {
   :not(pre) > code[class*='language-'] {
     background: var(--white-30) !important;
     color: white !important;
+  }
+
+  .gatsby-highlight .line-numbers .line-numbers-rows > span:before {
+    color: var(--white-30);
   }
 }
