@@ -8,7 +8,7 @@
     "develop": "yarn start",
     "develop:offline": "GATSBY_CONTENTFUL_OFFLINE=true yarn start",
     "start": "run-p -n start:**",
-    "start:app": "yarn develop",
+    "start:app": "gatsby develop",
     "start:lambda": "NODE_ENV=development netlify-lambda serve src/lambda",
     "build": "run-p build:**",
     "build:app": "gatsby build",
