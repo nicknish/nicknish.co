@@ -1,17 +1,20 @@
 const path = require('path');
+const kebabCase = require('lodash/kebabCase');
 
 const PATH_TYPE = {
   PROJECTS: 'projects',
   WORK: 'work',
   SERIES: 'series',
-  BLOG: 'blog'
+  BLOG: 'blog',
+  BLOG_TAG: 'tag'
 };
 
 const PATH_URL_MAP = {
   [PATH_TYPE.PROJECTS]: 'projects',
   [PATH_TYPE.WORK]: 'work',
   [PATH_TYPE.BLOG]: 'blog',
-  [PATH_TYPE.SERIES]: 'series'
+  [PATH_TYPE.SERIES]: 'series',
+  [PATH_TYPE.BLOG_TAG]: 'blog/tag'
 };
 
 const generatePathName = (type, slug) => {
@@ -24,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
   const WorkPage = path.resolve(`./src/templates/work.tsx`);
   const ProjectPage = path.resolve(`./src/templates/project.tsx`);
   const BlogPostTemplate = path.resolve(`./src/templates/blogPost.tsx`);
+  const BlogPostTagTemplate = path.resolve(`./src/templates/blogPostTag.tsx`);
   const SeriesBlogPostTemplate = path.resolve(`./src/templates/series.tsx`);
 
   const loadPages = new Promise((resolve, reject) => {
@@ -120,5 +124,35 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 
-  return Promise.all([loadPages, loadPosts, loadSeries]);
+  // const loadBlogPostTags = new Promise((resolve, reject) => {
+  //   graphql(`
+  //     tags: allContentfulPost {
+  //       group(field: tags) {
+  //         tag: fieldValue
+  //         totalCount
+  //       }
+  //     }
+  //   `).then(result => {
+  //     if (result.errors) return reject(result.errors);
+
+  //     result.data.tags.group.forEach(({ node }) => {
+  //       const tag = node.tag.fieldValue;
+
+  //       createPage({
+  //         path: generatePathName(PATH_TYPE.BLOG_TAG, kebabCase(tag)),
+  //         component: BlogPostTagTemplate,
+  //         context: { tag }
+  //       });
+  //     });
+
+  //     resolve();
+  //   });
+  // });
+
+  return Promise.all([
+    loadPages,
+    loadPosts,
+    loadSeries
+    // loadBlogPostTags
+  ]);
 };
