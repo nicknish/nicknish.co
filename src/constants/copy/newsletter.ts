@@ -1,3 +1,2 @@
-export const TITLE = 'Sign up for the newsletter';
-export const SUBTITLE =
-  'Learn how to code and get the scoop on tech salaries, JavaScript, React, and more.';
+export const TITLE = 'Sign up for the Builders newsletter';
+export const SUBTITLE = `Join a community of makers and creatives who are learning how to leverage technology to create new products. Or, you know, just keep up with the latest blog posts.`;

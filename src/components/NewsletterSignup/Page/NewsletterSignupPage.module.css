@@ -1,5 +1,6 @@
 .newsletter {
-  composes: container mt5 from global;
+  composes: center mt5 from global;
+  max-width: 600px;
 }
 
 .title {

@@ -6,7 +6,12 @@ import Img from 'gatsby-image';
 import BlogIndexPost from '../BlogIndexPost';
 import BlogPopularPost from './BlogPopularPost';
 import NewsletterSignupForm from '../NewsletterSignup/Form';
-import { createPath, BLOG_URL, SERIES_URL } from '../../constants/urls';
+import {
+  createPath,
+  BLOG_URL,
+  SERIES_URL,
+  START_HERE_URL,
+} from '../../constants/urls';
 import { cleanupData } from '../../utils/helpers';
 
 import styles from './Blog.module.css';
@@ -31,10 +36,17 @@ const Blog = ({ data }) => {
       >
         <h1 className={styles.pageTitle}>Hi, I'm Nick Nish.</h1>
         <p className={styles.pageSubtitle}>
-          Welcome to my blog where you'll find articles on learning to code,
-          React, JavaScript, and thoughts on tech and products.
+          Welcome to my blog where you'll find writing on ideas, tutorials, and
+          resources ranging on topics like startups, making products, and
+          software engineering.
         </p>
-        <BlogNewsletterSignupForm />
+        <p className="mb2">
+          👉{' '}
+          <Link to={START_HERE_URL} className="b">
+            Start Here
+          </Link>
+        </p>
+        <p className="ma0">👇 Or check out my latest writing</p>
       </header>
 
       <section className={styles.popularPostsSection}>
