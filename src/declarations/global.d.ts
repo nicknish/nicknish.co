@@ -1,8 +1,6 @@
-import Sentry from './sentry';
-
 interface Window {
   commento?: any;
-  Sentry: typeof Sentry;
+  Sentry: typeof import('@sentry/browser');
 }
 
 // https://github.com/s-panferov/awesome-typescript-loader/issues/146#issuecomment-248808206
