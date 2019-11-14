@@ -11,8 +11,7 @@
 }
 
 .containerLg {
-  composes: center from global;
-  max-width: 920px;
+  composes: mwlg center from global;
   padding-right: 20px;
   padding-left: 20px;
 }

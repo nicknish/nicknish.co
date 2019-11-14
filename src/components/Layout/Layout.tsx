@@ -4,7 +4,7 @@ import React from 'react';
 
 import ErrorBoundary from './ErrorBoundary';
 import SiteMetadata from './SiteMetadata';
-import SEO, { SEOPropTypes } from './SEO';
+import SEO, { SEOPropTypes, SEOTypes } from './SEO';
 import Nav from './Nav';
 import Footer from '../Footer';
 
@@ -20,4 +20,5 @@ const Layout: React.FC<SEOPropTypes> = ({ children, ...seoProps }) => (
   </ErrorBoundary>
 );
 
+export { SEOTypes };
 export default Layout;

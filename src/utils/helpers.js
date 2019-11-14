@@ -19,3 +19,8 @@ export const prefersDarkMode = () => {
     return media.matches === true;
   }
 };
+
+// Cleans up GQL data to get directly to each record
+export const cleanupData = data => {
+  return data.edges.map(({ node }) => node);
+};

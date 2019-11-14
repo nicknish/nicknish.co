@@ -1,0 +1,58 @@
+.header {
+  composes: flex-ns mb4 from global;
+}
+
+.headerLeft {
+  composes: w-40-ns pr3-ns from global;
+}
+
+.headerRight {
+  composes: w-60-ns pl3-ns from global;
+}
+
+.headerImg {
+  composes: br2 shadow from global;
+}
+
+@media (--medium-viewport) {
+  .headerImg {
+    transform: rotate(-2deg);
+    transition: transform 100ms ease;
+  }
+
+  .headerImg:hover {
+    transform: rotate(0);
+  }
+}
+
+.headerTitle {
+  composes: mt0 primary from global;
+}
+
+.section {
+  composes: mv4 from global;
+}
+
+.sectionTitle {
+  /* composes: tc from global; */
+}
+
+.sectionSubtitle {
+  composes: f5 from global;
+}
+
+.subsection {
+  composes: mt4 from global;
+}
+
+.posts {
+  composes: list ma0 from global;
+}
+
+.link {
+  composes: dib from global;
+}
+
+.articleWrap {
+  composes: no-underline from global;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import Link, { GatsbyLinkProps } from 'gatsby-link';
 
-import { HOME_URL, WORK_URL } from '../../../constants/urls';
+import { HOME_URL, WORK_URL, START_HERE_URL } from '../../../constants/urls';
 import { isBrowser } from '../../../utils/helpers';
 import styles from './Nav.module.css';
 
@@ -39,18 +39,21 @@ const Nav: React.FC = () => {
 
   return (
     <nav className={styles.nav}>
-      <NavLink
-        to={HOME_URL} // This isn't a bug, the Homepage is the blog
-        isCurrent={isBlog || isBlogSeries}
-      >
-        Blog
-      </NavLink>
       <Link to={HOME_URL} className={styles.logo}>
         nicknish
       </Link>
-      <NavLink to={WORK_URL} isCurrent={isWork || isProject}>
-        Work
-      </NavLink>
+      <div className={styles.navSide}>
+        <NavLink to={START_HERE_URL}>Start Here</NavLink>
+        <NavLink
+          to={HOME_URL} // This isn't a bug, the Homepage is the blog
+          isCurrent={isBlog || isBlogSeries}
+        >
+          Blog
+        </NavLink>
+        <NavLink to={WORK_URL} isCurrent={isWork || isProject}>
+          Work
+        </NavLink>
+      </div>
     </nav>
   );
 };

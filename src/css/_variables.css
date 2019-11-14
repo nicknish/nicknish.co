@@ -47,4 +47,6 @@
     'Droid Sans Mono', 'Liberation Mono', Menlo, Courier, monospace;
   --typographyjs-lineHeight: 1.666;
   --typography-marginRhythm: 1.2495rem;
+
+  --maxWidthLg: 920px;
 }

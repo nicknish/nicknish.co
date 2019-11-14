@@ -7,6 +7,7 @@ import BlogIndexPost from '../BlogIndexPost';
 import BlogPopularPost from './BlogPopularPost';
 import NewsletterSignupForm from '../NewsletterSignup/Form';
 import { createPath, BLOG_URL, SERIES_URL } from '../../constants/urls';
+import { cleanupData } from '../../utils/helpers';
 
 import styles from './Blog.module.css';
 
@@ -16,10 +17,6 @@ const BlogNewsletterSignupForm = () => (
     <NewsletterSignupForm />
   </>
 );
-
-const cleanupData = data => {
-  return data.edges.map(({ node }) => node);
-};
 
 const Blog = ({ data }) => {
   const popularPosts = data.popularPosts.posts;

@@ -1,9 +1,13 @@
 .nav {
-  composes: flex pa4 items-center justify-center from global;
+  composes: flex w-100 mwlg pa3 pv4 center items-center justify-between from global;
+}
+
+.navSide {
+  composes: tr from global;
 }
 
 .navItem {
-  composes: f5 black-50 b no-underline from global;
+  composes: f5 mh2 black-50 b no-underline from global;
 }
 
 .active {
@@ -11,7 +15,7 @@
 }
 
 .logo {
-  composes: relative f4 mh3 b black-80 no-underline from global;
+  composes: relative f4 b black-80 no-underline from global;
 }
 
 .logo:after {
