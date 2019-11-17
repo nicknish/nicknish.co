@@ -34,7 +34,7 @@ export const BlogPostTemplate = ({ data, path }) => {
           : body.childMarkdownRemark.excerpt,
         shareImage,
         shareImageWidth,
-        shareImageHeight
+        shareImageHeight,
       }}
     >
       <BlogPost {...data.post} />
@@ -49,7 +49,7 @@ export const query = graphql`
       date(formatString: "MMM D, YYYY")
       body {
         childMarkdownRemark {
-          excerpt
+          excerpt(pruneLength: 160)
           ...Markdown
         }
       }

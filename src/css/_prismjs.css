@@ -87,6 +87,11 @@ pre {
   border-left: 0.25rem solid #5b70ae;
 }
 
+/* Adds a negative margin to correctly line up indentation */
+.gatsby-highlight-code-line > span:first-child {
+  margin-left: -1rem; /* Match up with padding-left and border-left above */
+}
+
 @media (prefers-color-scheme: dark) {
   pre[class*='language-'] {
     background: var(--bg-code-block-dark);
