@@ -3,7 +3,12 @@ import { Link } from 'gatsby';
 import get from 'lodash/get';
 
 import NewsletterSignupForm from '../NewsletterSignup/Form';
-import { createPath, BLOG_URL, NEWSLETTER_URL } from '../../constants/urls';
+import {
+  createPath,
+  BLOG_URL,
+  NEWSLETTER_URL,
+  NEWSLETTER_ARCHIVE_URL
+} from '../../constants/urls';
 
 import PROFILE_IMG from './profile.png';
 import styles from './StartHere.module.css';
@@ -15,7 +20,7 @@ const StartPopularArticle = ({
   slug,
   title,
   description,
-  date,
+  date
 }) => {
   return (
     <li>
@@ -66,20 +71,28 @@ const StartHereBio = () => (
   <section className={styles.section}>
     <h2 className={styles.sectionTitle}>Quick Bio</h2>
 
-    <p>I'm a product-oriented engineer that loves startups.</p>
-    <p>
-      I publish Builders, a newsletter for product makers.{' '}
-      <Link to={NEWSLETTER_URL}>Subscribe here.</Link>
-    </p>
-    <p>Born and raised in Los Angeles.</p>
-    <p>Living in San Francisco, CA.</p>
-    <p>
-      Favorite book:{' '}
-      <OutboundLink href="https://amzn.to/2XeHjMj">
-        4-Hour Workweek
-      </OutboundLink>
-      .
-    </p>
+    <div className="mw6 center">
+      <p>
+        I'm a product-oriented engineer that loves startups. I currently work at
+        Credit Karma.
+      </p>
+      <p>
+        I publish Makers, a newsletter for creatives, technologists, and makers.{' '}
+        <Link to={NEWSLETTER_URL}>Subscribe here</Link> or{' '}
+        <OutboundLink href={NEWSLETTER_ARCHIVE_URL}>
+          read the archive.
+        </OutboundLink>
+      </p>
+      <p>Born and raised in Los Angeles.</p>
+      <p>Living in San Francisco, CA.</p>
+      <p>
+        Favorite book:{' '}
+        <OutboundLink href="https://amzn.to/2XeHjMj">
+          4-Hour Workweek
+        </OutboundLink>
+        .
+      </p>
+    </div>
   </section>
 );
 
@@ -136,11 +149,15 @@ const StartNewsletter = () => (
     <h2>Subscribe</h2>
     <div className="mw6 center">
       <p>
-        I publish Builders, an occasional newsletter for makers and creatives.
+        I publish Makers, an occasional newsletter for makers and creatives.
       </p>
       <p>
         It's the best way to keep up with everything here, so drop your email
-        below. I promise to never do anything shady or send you spam.
+        below or{' '}
+        <OutboundLink href={NEWSLETTER_ARCHIVE_URL}>
+          read the archive
+        </OutboundLink>
+        . I promise to never do anything shady or send you spam.
       </p>
       <NewsletterSignupForm />
     </div>

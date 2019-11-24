@@ -7,3 +7,6 @@ export const START_HERE_URL = '/start';
 export const NEWSLETTER_URL = '/newsletter';
 
 export const createPath = (type: string, slug: string) => `${type}/${slug}`;
+
+// External URLs
+export const NEWSLETTER_ARCHIVE_URL = 'https://nicknish.substack.com';
