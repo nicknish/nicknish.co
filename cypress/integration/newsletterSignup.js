@@ -1,6 +1,6 @@
 describe('Newsletter Signup', () => {
   it('signs up for newsletter', () => {
-    cy.visit('/');
+    cy.visit('/start');
 
     cy.get('[data-testid="NewsletterSignupForm"]').within(() => {
       cy.get('input')

@@ -66,6 +66,10 @@ const addToCol = async (range, values) => {
 
 exports.handler = async function(event, context, callback) {
   try {
+    if (process.env.NODE_ENV === 'development') {
+      return { statusCode: 201, body: 'saved email' };
+    }
+
     const values = JSON.parse(event.body);
     const sheetsRes = await addToCol(GOOGLE_SPREADSHEET_WORKSHEET_ID, values);
 

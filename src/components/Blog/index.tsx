@@ -10,7 +10,7 @@ import {
   createPath,
   BLOG_URL,
   SERIES_URL,
-  START_HERE_URL,
+  START_HERE_URL
 } from '../../constants/urls';
 import { cleanupData } from '../../utils/helpers';
 
@@ -42,7 +42,11 @@ const Blog = ({ data }) => {
         </p>
         <p className="mb2">
           👉{' '}
-          <Link to={START_HERE_URL} className="b">
+          <Link
+            to={START_HERE_URL}
+            className="b"
+            data-testid="BlogHeader-startHereLink"
+          >
             Start Here
           </Link>
         </p>

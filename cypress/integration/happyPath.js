@@ -10,7 +10,7 @@ describe('happy path', function() {
 
     cy.get('[data-testid="BlogHeader"]').within(() => {
       cy.contains('Welcome to my blog');
-      cy.get('[data-testid="NewsletterSignupForm"]').should('exist');
+      cy.get('[data-testid="BlogHeader-startHereLink"]').should('exist');
     });
 
     cy.get('[data-testid="BlogIndexPost"]')
