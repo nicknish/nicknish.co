@@ -53,7 +53,7 @@
     "lodash-es": "^4.17.11",
     "medium-zoom": "^1.0.4",
     "postcss-custom-media": "^7.0.8",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.21.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-google-recaptcha": "^2.0.0-rc.1",
