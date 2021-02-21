@@ -1,105 +1,84 @@
 /**
  * Based on examples:
- * - https://github.com/netlify/create-react-app-lambda
+ * - https://ccstockholm.netlify.com/.netlify/functions/googleSheets
  * - https://github.com/tobilg/netlify-functions-landingpage
- * - https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/
  */
 
-import axios from 'axios';
+import { google } from 'googleapis';
+import { format } from 'date-fns';
 
-/**
- * EDIT THESE ENV VARIABLES IN NETLIFY
- */
-const mailChimpAPI = process.env.MAILCHIMP_API_KEY;
-const mailChimpListID = process.env.MAILCHIMP_LIST_ID;
-const mcRegion = process.env.MAILCHIMP_REGION;
-
-const buildResponse = (statusCode, { body = {}, headers = {} }) => ({
-  statusCode,
-  headers,
-  body: JSON.stringify(body)
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
 });
 
-export const handler = async (event, context) => {
-  if (process.env.NODE_ENV === 'development') {
-    return buildResponse(201, {
-      body: { status: 'saved email' },
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true'
-      }
-    });
-  }
+const GOOGLE_SPREADSHEET_ID = process.env.GOOGLE_SPREADSHEETS_ID;
+const GOOGLE_CREDS = JSON.parse(process.env.GOOGLE_API_CREDENTIALS);
+const GOOGLE_SPREADSHEET_WORKSHEET_ID = 'Sheet1!A1';
+const FULL_DATE_TOKEN = 'yyyy-MM-dd HH:mm:ss'; // 2019-11-24 19:04:10
 
-  try {
-    let errorMessage;
-    const formData = JSON.parse(event.body);
-    const email = formData.email;
+const getClient = ({ scopes }) => {
+  return google.auth.getClient({
+    credentials: GOOGLE_CREDS,
+    scopes: scopes
+  });
+};
 
-    if (!formData) {
-      errorMessage = 'No form data supplied';
-      console.log('Error', errorMessage);
-      return buildResponse(400, { body: { error: errorMessage } });
-    }
+const authorizeSheets = async () => {
+  const client = await getClient({
+    scopes: ['https://www.googleapis.com/auth/spreadsheets']
+  });
+  return google.sheets({
+    version: 'v4',
+    auth: client
+  });
+};
 
-    if (!email) {
-      errorMessage = 'No EMAIL supplied';
-      console.log('Error', errorMessage);
-      return buildResponse(400, { body: { error: errorMessage } });
-    }
+const prepareResource = values => {
+  // EMAIL | null | null | DATE
+  return [[values.email, null, null, format(new Date(), FULL_DATE_TOKEN)]];
+};
 
-    if (!mailChimpListID) {
-      errorMessage = 'No LIST_ID supplied';
-      console.log('Error', errorMessage);
-      return buildResponse(400, { body: { error: errorMessage } });
-    }
+const addToCol = async (range, values) => {
+  const sheets = await authorizeSheets();
 
-    // Follows the Mailchimp schema
-    const subscriber = {
-      email_address: email,
-      status: 'subscribed',
-      merge_fields: {}
-    };
-
-    console.log('Sending data to mailchimp', subscriber);
-    const request = await axios.post(
-      `https://${mcRegion}.api.mailchimp.com/3.0/lists/${mailChimpListID}/members`,
-      subscriber,
+  // TODO: Prevent multiple submissions by checking column values for same email
+  return new Promise((resolve, reject) => {
+    sheets.spreadsheets.values.append(
       {
-        headers: {
-          Authorization: `apikey ${mailChimpAPI}`,
-          'Content-Type': 'application/json'
+        spreadsheetId: GOOGLE_SPREADSHEET_ID,
+        range,
+        valueInputOption: 'USER_ENTERED',
+        insertDataOption: 'INSERT_ROWS',
+        resource: {
+          values: prepareResource(values)
+        }
+      },
+      (err, response) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(response);
         }
       }
     );
+  });
+};
 
-    const { error, status, data } = request;
-
-    if (error) {
-      return buildResponse(400, { body: { error } });
+exports.handler = async function(event, context, callback) {
+  try {
+    if (process.env.NODE_ENV === 'development') {
+      return { statusCode: 201, body: 'saved email' };
     }
 
-    console.log('Mailchimp body: ' + data);
-    console.log('Status Code: ' + status);
+    const values = JSON.parse(event.body);
+    const sheetsRes = await addToCol(GOOGLE_SPREADSHEET_WORKSHEET_ID, values);
 
-    if (status < 300 || data.title === 'Member Exists') {
-      console.log('Added to list in Mailchimp subscriber list');
-
-      return buildResponse(201, {
-        body: { status: 'saved email' },
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': 'true'
-        }
-      });
-    } else {
-      console.log('Error from mailchimp', data.detail);
-      return buildResponse(500, { body: data.detail });
-    }
-  } catch (error) {
-    console.log('Error', error);
-    return buildResponse(500, { body: { error: 'Error' } });
+    return {
+      statusCode: sheetsRes.status,
+      body: JSON.stringify(sheetsRes)
+    };
+  } catch (err) {
+    console.log(err);
+    return { statusCode: 500, body: err.toString() };
   }
 };
