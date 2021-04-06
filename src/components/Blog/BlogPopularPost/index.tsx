@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { Link } from 'gatsby';
 
-import styles from './BlogPopularPost.module.css';
+import * as styles from './BlogPopularPost.module.css';
 
 interface IBlogPopularPostProps {
   idx: number;
@@ -19,7 +19,7 @@ const BlogPopularPost: React.FC<IBlogPopularPostProps> = ({
   path,
   title,
   description,
-  date
+  date,
 }) => {
   return (
     <article
@@ -27,7 +27,7 @@ const BlogPopularPost: React.FC<IBlogPopularPostProps> = ({
         [styles.popularPostLeftPadding]: idx % 2 !== 0,
         [styles.popularPostRightPadding]: idx % 2 === 0,
         [styles.popularPostRightPaddingDesktop]: !idx || idx !== length - 1,
-        [styles.popularPostLeftPaddingDesktop]: idx
+        [styles.popularPostLeftPaddingDesktop]: idx,
       })}
       data-testid="BlogIndexPost-popular"
     >

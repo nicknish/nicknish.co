@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import get from 'lodash/get';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import NewsletterSignupForm from '../NewsletterSignup/Form';
 import {
   createPath,
   BLOG_URL,
   NEWSLETTER_URL,
-  NEWSLETTER_ARCHIVE_URL
+  NEWSLETTER_ARCHIVE_URL,
 } from '../../constants/urls';
 
-import PROFILE_IMG from './profile.png';
-import styles from './StartHere.module.css';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import * as styles from './StartHere.module.css';
 
 const StartPopularArticle = ({
   idx,
@@ -20,7 +20,7 @@ const StartPopularArticle = ({
   slug,
   title,
   description,
-  date
+  date,
 }) => {
   return (
     <li>
@@ -34,7 +34,7 @@ const StartPopularArticle = ({
 const StartHereSection = () => (
   <div className={styles.header}>
     <div className={styles.headerLeft}>
-      <img className={styles.headerImg} src={PROFILE_IMG} alt="" />
+      <StaticImage className={styles.headerImg} src="./profile.png" alt="" />
     </div>
 
     <div className={styles.headerRight}>

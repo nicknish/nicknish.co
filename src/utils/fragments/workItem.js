@@ -21,9 +21,7 @@ export const query = graphql`
     url
     images {
       description
-      sizes(maxWidth: 640) {
-        ...ImageSizes
-      }
+      gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
     }
   }
 `;

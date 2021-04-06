@@ -1,15 +1,15 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
+import { FaGithubAlt, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { NEWSLETTER_URL } from '../../constants/urls';
 
-import styles from './Footer.module.css';
+import * as styles from './Footer.module.css';
 
 const ICONS = {
   github: <FaGithubAlt />,
   twitter: <FaTwitter />,
-  linkedin: <FaLinkedin />
+  linkedin: <FaLinkedin />,
 };
 
 const query = graphql`
@@ -30,13 +30,13 @@ export const Footer = () => (
     query={query}
     render={({
       site: {
-        siteMetadata: { github_url, linkedin_url, twitter_url, resume_url }
-      }
+        siteMetadata: { github_url, linkedin_url, twitter_url, resume_url },
+      },
     }) => {
       const socialMediaUrls = {
         github: github_url,
         linkedin: linkedin_url,
-        twitter: twitter_url
+        twitter: twitter_url,
       };
 
       return (

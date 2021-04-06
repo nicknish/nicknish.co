@@ -1,14 +1,19 @@
+const PROD_PLUGINS =
+  process.env.NODE_ENV === 'production'
+    ? [
+        {
+          resolve: `gatsby-plugin-google-analytics`,
+          options: {
+            trackingId: process.env.GOOGLE_ANALYTICS,
+            head: true,
+            anonymize: false,
+            respectDNT: true,
+            exclude: [],
+          },
+        },
+      ]
+    : [];
+
 module.exports = {
-  plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
-        anonymize: false,
-        respectDNT: true,
-        exclude: []
-      }
-    }
-  ]
+  plugins: [...PROD_PLUGINS],
 };

@@ -4,7 +4,7 @@ import Link, { GatsbyLinkProps } from 'gatsby-link';
 
 import { HOME_URL, WORK_URL, START_HERE_URL } from '../../../constants/urls';
 import { isBrowser } from '../../../utils/helpers';
-import styles from './Nav.module.css';
+import * as styles from './Nav.module.css';
 
 interface INavLinkProps extends GatsbyLinkProps<{}> {
   isCurrent?: boolean;

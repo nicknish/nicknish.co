@@ -9,7 +9,7 @@ const useOnScreen = (ref: React.RefObject<any>, rootMargin = '0px') => {
 
   useEffect(() => {
     const observerOptions = { rootMargin };
-    const observerCallback = ([entry]) => {
+    const observerCallback: IntersectionObserverCallback = ([entry]) => {
       // Update our state when observer callback fires
       setIntersecting(entry.isIntersecting);
     };
@@ -23,7 +23,11 @@ const useOnScreen = (ref: React.RefObject<any>, rootMargin = '0px') => {
       observer.observe(ref.current);
     }
 
-    return () => observer.unobserve(ref.current);
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
   }, []);
 
   return isIntersecting;

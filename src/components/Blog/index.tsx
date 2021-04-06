@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import BlogIndexPost from '../BlogIndexPost';
 import BlogPopularPost from './BlogPopularPost';
@@ -14,7 +14,7 @@ import {
 } from '../../constants/urls';
 import { cleanupData } from '../../utils/helpers';
 
-import styles from './Blog.module.css';
+import * as styles from './Blog.module.css';
 
 const BlogNewsletterSignupForm = () => (
   <>
@@ -111,10 +111,11 @@ const Blog = ({ data }) => {
             const path = createPath(SERIES_URL, data.slug);
             const Image = data.previewImage && (
               <div>
-                <Img
-                  sizes={data.previewImage.sizes}
+                <GatsbyImage
+                  image={data.previewImage.gatsbyImageData}
                   style={{ position: 'absolute' }}
                   className={styles.seriesPreviewBg}
+                  alt="" // TODO
                 />
                 <div className={styles.seriesPreviewBgOverlay} />
               </div>

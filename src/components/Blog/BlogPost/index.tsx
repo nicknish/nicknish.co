@@ -3,10 +3,11 @@ import shortid from 'shortid';
 
 import Page from '../../Layout/Page';
 import Comments from '../Comments';
-import 'prismjs/themes/prism-tomorrow.css';
-import styles from './BlogPost.module.css';
 import BlogPostNewsletterSignup from '../BlogPostNewsletterSignup';
 import { useMediumZoom } from './BlogPostHooks';
+
+import 'prismjs/themes/prism-tomorrow.css';
+import * as styles from './BlogPost.module.css';
 
 const addKeys = (arr = [], propName: string) =>
   arr.map(item => ({ key: shortid.generate(), [propName]: item }));
@@ -40,7 +41,7 @@ const BlogPost: React.FC<IBlogPostProps> = ({ title, date, body, tags }) => {
         ref={postBodyRef}
         className={styles.postBody}
         dangerouslySetInnerHTML={{
-          __html: body.childMarkdownRemark.html
+          __html: body.childMarkdownRemark.html,
         }}
       />
 

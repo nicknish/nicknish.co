@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-import FaChevronLeft from 'react-icons/lib/fa/chevron-left';
-import FaExternalLink from 'react-icons/lib/fa/external-link';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { FaChevronLeft, FaExternalLinkAlt } from 'react-icons/fa';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { SEOTypes } from '../Layout/SEO';
@@ -10,11 +9,11 @@ import Layout from '../Layout/Layout';
 import Page from '../Layout/Page';
 import { WORK_URL } from '../../constants/urls';
 
-import styles from './Show.module.css';
+import * as styles from './Show.module.css';
 
 export const SHOW_TYPES = {
   PROJECT: 'project',
-  WORK: 'work'
+  WORK: 'work',
 };
 
 export const Show = ({
@@ -25,7 +24,7 @@ export const Show = ({
   external_url,
   type,
   image,
-  image_preview_description
+  image_preview_description,
 }) => {
   const { backUrl, backLinkText, headerText } = prepareShowData(type);
 
@@ -40,7 +39,8 @@ export const Show = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        See it here <FaExternalLink className={styles.showExternalLinkIcon} />
+        See it here{' '}
+        <FaExternalLinkAlt className={styles.showExternalLinkIcon} />
       </OutboundLink>
     );
   }
@@ -49,8 +49,8 @@ export const Show = ({
     imageSection = (
       <div className="container">
         <figure className={styles.showImageContainer}>
-          <Img
-            sizes={image}
+          <GatsbyImage
+            image={image}
             alt={image_preview_description}
             className={styles.showImage}
           />

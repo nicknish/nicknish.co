@@ -2,18 +2,18 @@ import React from 'react';
 import cx from 'classnames';
 import Link from 'gatsby-link';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import FaExternalLink from 'react-icons/lib/fa/external-link';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import {
   HOME_URL,
   createPath,
   PROJECT_URL,
-  WORK_URL
+  WORK_URL,
 } from '../../constants/urls';
 import { getDate } from '../../utils/helpers';
 
-import HAPPY_IMG from '../../images/happy.svg';
-import styles from './Work.module.css';
+import * as styles from './Work.module.css';
 import Button, { ButtonThemes } from '../common/Button';
 
 const WorkItem = ({ to, title, description, footerSubtitle }) => (
@@ -27,7 +27,7 @@ const WorkItem = ({ to, title, description, footerSubtitle }) => (
 const prepareData = nodes => {
   return nodes.edges.map(({ node }) => ({
     ...node,
-    description: node.excerpt.childMarkdownRemark.excerpt
+    description: node.excerpt.childMarkdownRemark.excerpt,
   }));
 };
 
@@ -40,7 +40,12 @@ const Work = ({ data }) => {
   return (
     <div className={styles.layoutContainer}>
       <div className={styles.heroImgContainer}>
-        <img src={HAPPY_IMG} className={styles.heroImg} />
+        <StaticImage
+          src="../../images/happy.svg"
+          className={styles.heroImg}
+          alt="Illustration of man with yellow shirt leaping for joy!"
+          placeholder="tracedSVG"
+        />
       </div>
 
       <section
@@ -83,7 +88,7 @@ const Work = ({ data }) => {
               startDate,
               endDate,
               current,
-              description
+              description,
             } = data;
 
             return (
@@ -107,7 +112,7 @@ const Work = ({ data }) => {
             theme={ButtonThemes.primary}
           >
             See Resume
-            <FaExternalLink className={styles.cvLinkIcon} />
+            <FaExternalLinkAlt className={styles.cvLinkIcon} />
           </Button>
         </div>
       </section>
@@ -127,7 +132,7 @@ const Work = ({ data }) => {
               startDate,
               endDate,
               current,
-              description
+              description,
             } = data;
 
             return (

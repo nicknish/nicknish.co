@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import styles from './BlogIndexPost.module.css';
+import * as styles from './BlogIndexPost.module.css';
 
 interface BlogPostProps {
   to: string;
@@ -14,7 +14,7 @@ export const BlogIndexPost: React.FC<BlogPostProps> = ({
   to,
   title,
   date,
-  excerpt
+  excerpt,
 }) => (
   <article className={styles.blogIndexPost} data-testid="BlogIndexPost">
     <Link to={to} className={styles.blogIndexPostLinkWrapper}>

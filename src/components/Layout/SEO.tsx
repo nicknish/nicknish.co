@@ -14,7 +14,7 @@ interface SEOPostPropTypes {
 
 export enum SEOTypes {
   page = 'page',
-  post = 'post'
+  post = 'post',
 }
 
 export interface SEOPropTypes {
@@ -44,7 +44,7 @@ const getPageImage = ({
   post,
   defaultShareImage,
   defaultShareImageWidth,
-  defaultShareImageHeight
+  defaultShareImageHeight,
 }) => {
   let image;
   let imgWidth;
@@ -88,7 +88,7 @@ const getStructuredDataSchema = ({
   siteTitleAlt,
   author,
   authorUrl,
-  publisher
+  publisher,
 }) => {
   const schema: object[] = [
     {
@@ -96,8 +96,8 @@ const getStructuredDataSchema = ({
       '@type': 'WebSite',
       url: siteUrl,
       name: siteTitle,
-      alternateName: siteTitleAlt
-    }
+      alternateName: siteTitleAlt,
+    },
   ];
 
   if (page) {
@@ -105,7 +105,7 @@ const getStructuredDataSchema = ({
       '@context': 'http://schema.org',
       '@type': 'WebPage',
       url: pageUrl,
-      name: title
+      name: title,
     });
   }
 
@@ -121,18 +121,18 @@ const getStructuredDataSchema = ({
             position: 1,
             item: {
               '@id': siteUrl,
-              name: siteTitle
-            }
+              name: siteTitle,
+            },
           },
           {
             '@type': 'ListItem',
             position: 2,
             item: {
               '@id': pageUrl,
-              name: title
-            }
-          }
-        ]
+              name: title,
+            },
+          },
+        ],
       },
       {
         '@context': 'http://schema.org',
@@ -145,20 +145,20 @@ const getStructuredDataSchema = ({
           '@type': 'ImageObject',
           url: image,
           width: imgWidth,
-          height: imgHeight
+          height: imgHeight,
         },
         author: {
           '@type': 'Person',
           name: author,
-          url: authorUrl
+          url: authorUrl,
         },
         publisher: {
           '@type': 'Organization',
           name: publisher,
-          url: siteUrl
+          url: siteUrl,
         },
         datePublished: post.publishedDate,
-        mainEntityOfPage: pageUrl
+        mainEntityOfPage: pageUrl,
       }
     );
   }
@@ -203,9 +203,9 @@ const SEO: React.FC<SEOPropTypes> = ({ type, content, path }) => {
             shareImageWidth: defaultShareImageWidth,
             shareImageHeight: defaultShareImageHeight,
             shortTitle,
-            userTwitter
-          }
-        }
+            userTwitter,
+          },
+        },
       }) => {
         const pageUrl = getPageUrl({ path, siteUrl });
         const title = getPageTitle({ page, post, siteTitle, shortTitle });
@@ -215,7 +215,7 @@ const SEO: React.FC<SEOPropTypes> = ({ type, content, path }) => {
           siteUrl,
           defaultShareImage,
           defaultShareImageWidth,
-          defaultShareImageHeight
+          defaultShareImageHeight,
         });
         const schemaOrgJSONLD = getStructuredDataSchema({
           page,
@@ -225,7 +225,7 @@ const SEO: React.FC<SEOPropTypes> = ({ type, content, path }) => {
           image,
           imgWidth,
           imgHeight,
-          ...siteMetadata
+          ...siteMetadata,
         });
         const ogType = post ? 'article' : 'website';
 

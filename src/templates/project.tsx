@@ -8,8 +8,8 @@ import { getDate } from '../utils/helpers';
 const ProjectTemplate = ({
   path,
   data: {
-    post: { title, startDate, endDate, current, description, images = [], url }
-  }
+    post: { title, startDate, endDate, current, description, images = [], url },
+  },
 }) => (
   <Show
     path={path}
@@ -18,7 +18,7 @@ const ProjectTemplate = ({
     date={getDate(startDate, endDate, current)}
     external_url={url}
     type={SHOW_TYPES.PROJECT}
-    image={get(images, '[0].sizes')}
+    image={get(images, '[0].gatsbyImageData')}
     image_preview_description={get(images, '[0].description')}
   />
 );
@@ -43,9 +43,7 @@ export const query = graphql`
       }
       images {
         description
-        sizes(maxWidth: 640) {
-          ...ImageSizes
-        }
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
       }
     }
   }
