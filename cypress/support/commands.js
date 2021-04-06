@@ -24,11 +24,43 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
+import 'cypress-plugin-snapshots/commands';
 
-addMatchImageSnapshotCommand({
-  failureThreshold: 0.03, // threshold for entire image
-  failureThresholdType: 'percent', // percent of image or number of pixels
-  customDiffConfig: { threshold: 0.1 }, // threshold for each pixel
-  capture: 'viewport', // capture viewport in screenshot
-});
+// Taken from Autos
+const matchImageSnapshot = (subject, options) => {
+  const updateSnapshotsConfig = Cypress.env('cypress-plugin-snapshots')
+    .updateSnapshots;
+
+  if (updateSnapshotsConfig) {
+    // @ts-ignore
+    const testFile = Cypress.mocha.getRunner().suite.ctx.test.invocationDetails
+      .relativeFile;
+    const relativePath = `${testFile.substring(
+      0,
+      testFile.lastIndexOf('/')
+    )}/__image_snapshots__/`;
+
+    const fileName =
+      options?.name ||
+      // @ts-ignore
+      `${Cypress.mocha.getRunner().suite.title}  ${
+        // @ts-ignore
+        Cypress.mocha.getRunner().suite.ctx.test.title
+      }`;
+
+    const relativePathFilename = `${relativePath}${fileName}`;
+
+    cy.exec(`make cypress_clean_snapshot filename="${relativePathFilename}"`, {
+      failOnNonZeroExit: false,
+    });
+  }
+  return subject
+    ? cy.wrap(subject).toMatchImageSnapshot(options)
+    : cy.document().toMatchImageSnapshot(options);
+};
+
+Cypress.Commands.add(
+  'matchImageSnapshot',
+  { prevSubject: ['optional'] },
+  matchImageSnapshot
+);

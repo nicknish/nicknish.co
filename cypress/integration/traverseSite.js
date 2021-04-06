@@ -14,15 +14,11 @@
  *    name correctly.
  */
 
-describe('Site traversal', () => {
-  let sitemap = [];
+const getSitemapUrls = async () => {
+  const response = await cy.request('/sitemap.xml');
 
-  before(async () => {
-    // this brings up the dev 404 page which sort of acts as the sitemap.xml.
-    // unfortunately /sitemap.xml doesn't exist in development
-    const response = await cy.request('/sitemap.xml');
-
-    sitemap = Cypress.$(response.body)
+  return (
+    Cypress.$(response.body)
       // according to the sitemap.xml spec,
       // the url value should reside in a <loc /> node
       // https://www.google.com/sitemaps/protocol.html
@@ -30,14 +26,21 @@ describe('Site traversal', () => {
       // map to a js array
       .toArray()
       // get the text of the <loc /> node
-      .map((el) => el.innerText);
+      .map(el => el.innerText)
+  );
+};
+
+describe('Site traversal', () => {
+  let sitemap = [];
+
+  before(async () => {
+    sitemap = await getSitemapUrls();
   });
 
   describe('fetched sitemap', () => {
     it('should successfully load each url in the sitemap', () => {
       sitemap.forEach((location, idx) => {
         cy.visit(location);
-        cy.matchImageSnapshot(location);
       });
     });
   });

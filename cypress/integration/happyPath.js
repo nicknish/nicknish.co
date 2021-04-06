@@ -5,7 +5,7 @@ describe('happy path', () => {
 
   describe('blog', () => {
     it('visits blog', () => {
-      cy.matchImageSnapshot('blog');
+      cy.matchImageSnapshot({ name: 'blog' });
 
       cy.get('[data-testid="BlogSeriesLink"]').first().click();
       cy.get('[data-testid="BlogSeriesPageLink"]').first().click();
@@ -18,7 +18,7 @@ describe('happy path', () => {
     });
 
     it('visits work', () => {
-      cy.matchImageSnapshot('work');
+      cy.matchImageSnapshot({ name: 'work' });
 
       cy.get('[data-testid="WorkSection--about"]').contains('About Me');
 
@@ -39,7 +39,7 @@ describe('happy path', () => {
     });
 
     it('visits start', () => {
-      cy.matchImageSnapshot('start');
+      cy.matchImageSnapshot({ name: 'start' });
     });
   });
 });
