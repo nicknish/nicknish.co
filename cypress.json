@@ -1,4 +1,18 @@
 {
   "baseUrl": "http://localhost:8000",
-  "trashAssetsBeforeRuns": true
+  "viewportHeight": 660,
+  "viewportWidth": 1000,
+  "trashAssetsBeforeRuns": true,
+  "videoUploadOnPasses": false,
+  "env": {
+    "cypress-plugin-snapshots": {
+      "autoCleanUp": true,
+      "imageConfig": {
+        "createDiffImage": true,
+        "threshold": 0.2
+      },
+      "updateSnapshots": true
+    }
+  },
+  "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"]
 }

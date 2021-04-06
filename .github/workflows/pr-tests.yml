@@ -44,7 +44,7 @@ jobs:
           CONTENTFUL_PREVIEW_ENDPOINT: ${{ secrets.CONTENTFUL_PREVIEW_ENDPOINT }}
 
       - name: Yarn test
-        run: yarn test
+        run: yarn test:ci
         env:
           CI: true
           CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}

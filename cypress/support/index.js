@@ -12,6 +12,7 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
+require('@cypress/skip-test/support');
 
 import './commands';
 import './server';
