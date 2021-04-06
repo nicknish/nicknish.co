@@ -1,4 +1,9 @@
 /**
+ * Based on
+ * @see https://stackoverflow.com/a/61499577
+ */
+
+/**
  * This whole thing stinks. Please refactor. Issues:
  *
  * 1. `cy.screenshot` is prone to error with `Error: Could not find MIME for Buffer <null>`
@@ -9,27 +14,34 @@
  *    name correctly.
  */
 
-// describe('Site traversal', () => {
-//   let sitemap = [];
+const getSitemapUrls = async () => {
+  const response = await cy.request('/sitemap.xml');
 
-//   before(() => {
-//     // this brings up the dev 404 page which sort of acts as the sitemap.xml.
-//     // unfortunately /sitemap.xml doesn't exist in development
-//     cy.visit('/sitemap.xml');
+  return (
+    Cypress.$(response.body)
+      // according to the sitemap.xml spec,
+      // the url value should reside in a <loc /> node
+      // https://www.google.com/sitemaps/protocol.html
+      .find('loc')
+      // map to a js array
+      .toArray()
+      // get the text of the <loc /> node
+      .map(el => el.innerText)
+  );
+};
 
-//     cy.get('ul > li').each(li => {
-//       const path = li.text();
-//       sitemap.push(path);
-//     });
-//   });
+describe('Site traversal', () => {
+  let sitemap = [];
 
-//   describe('fetched sitemap', () => {
-//     Cypress._.range(0, 50).forEach(i => {
-//       it(`visits page ${i}`, () => {
-//         cy.visit(sitemap[i]);
-//         // cy.wait(1000);
-//         // cy.screenshot(`${sitemap[i]} - test`);
-//       });
-//     });
-//   });
-// });
+  before(async () => {
+    sitemap = await getSitemapUrls();
+  });
+
+  describe('fetched sitemap', () => {
+    it('should successfully load each url in the sitemap', () => {
+      sitemap.forEach((location, idx) => {
+        cy.visit(location);
+      });
+    });
+  });
+});
