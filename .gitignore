@@ -13,3 +13,6 @@ yarn-error.log
 # Cypress
 cypress/screenshots/
 cypress/videos/
+
+# Yarn
+yarn.lock

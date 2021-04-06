@@ -9,27 +9,28 @@
  *    name correctly.
  */
 
-// describe('Site traversal', () => {
-//   let sitemap = [];
+import { skipOn } from '@cypress/skip-test';
 
-//   before(() => {
-//     // this brings up the dev 404 page which sort of acts as the sitemap.xml.
-//     // unfortunately /sitemap.xml doesn't exist in development
-//     cy.visit('/sitemap.xml');
-
-//     cy.get('ul > li').each(li => {
-//       const path = li.text();
-//       sitemap.push(path);
-//     });
-//   });
-
-//   describe('fetched sitemap', () => {
-//     Cypress._.range(0, 50).forEach(i => {
-//       it(`visits page ${i}`, () => {
-//         cy.visit(sitemap[i]);
-//         // cy.wait(1000);
-//         // cy.screenshot(`${sitemap[i]} - test`);
-//       });
-//     });
-//   });
-// });
+describe('Site traversal', () => {
+  skipOn('CI', () => {
+    let sitemap = [];
+    before(() => {
+      // this brings up the dev 404 page which sort of acts as the sitemap.xml.
+      // unfortunately /sitemap.xml doesn't exist in development
+      cy.visit('/sitemap.xml');
+      cy.get('ul > li').each((li) => {
+        const path = li.text();
+        sitemap.push(path);
+      });
+    });
+    describe('fetched sitemap', () => {
+      Cypress._.range(0, 50).forEach((i) => {
+        it(`visits page ${i}`, () => {
+          cy.visit(sitemap[i]);
+          // cy.wait(1000);
+          // cy.screenshot(`${sitemap[i]} - test`);
+        });
+      });
+    });
+  });
+});

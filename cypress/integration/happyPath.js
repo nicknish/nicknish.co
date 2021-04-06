@@ -1,37 +1,15 @@
-describe('happy path', function() {
+describe('happy path', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
-  it('visits blog', function() {
-    cy.get('[data-testid="NavLink--/"]')
-      .first()
-      .click();
-
-    cy.get('[data-testid="BlogHeader"]').within(() => {
-      cy.contains('Welcome to my blog');
-      cy.get('[data-testid="NewsletterSignupForm"]').should('exist');
-    });
-
-    cy.get('[data-testid="BlogIndexPost"]')
-      .first()
-      .click();
-
-    cy.visit('/');
-
-    cy.get('[data-testid="BlogSeriesLink"]')
-      .first()
-      .click();
-
-    cy.get('[data-testid="BlogSeriesPageLink"]')
-      .first()
-      .click();
+  it('visits blog', () => {
+    cy.get('[data-testid="BlogSeriesLink"]').first().click();
+    cy.get('[data-testid="BlogSeriesPageLink"]').first().click();
   });
 
   it('visits work', () => {
-    cy.get('[data-testid="NavLink--/work"]')
-      .first()
-      .click();
+    cy.get('[data-testid="NavLink--/work"]').first().click();
 
     cy.get('[data-testid="WorkSection--about"]').contains('About Me');
 
