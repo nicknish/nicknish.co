@@ -15,9 +15,10 @@
     "build:lambda": "netlify-lambda build src/lambda",
     "serve": "gatsby serve",
     "format": "prettier --write \"src/**/*.{js,jsx,scss}\"",
-    "test": "start-server-and-test start 8000 test:e2e:ci",
+    "test": "start-server-and-test start 8000 test:e2e:headless",
+    "test:ci": "start-server-and-test start 8000 CYPRESS_ENVIRONMENT=CI test:e2e:headless",
     "test:e2e": "cypress open",
-    "test:e2e:ci": "CYPRESS_ENVIRONMENT=CI cypress run"
+    "test:e2e:headless": "cypress run"
   },
   "browserslist": [
     "last 2 versions"

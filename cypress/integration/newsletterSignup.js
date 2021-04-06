@@ -1,4 +1,12 @@
+const SUCCESS_RESPONSE = {
+  status: 200,
+};
+
 describe('Newsletter Signup', () => {
+  beforeEach(() => {
+    cy.intercept('/.netlify/functions/newsletterSignup', SUCCESS_RESPONSE);
+  });
+
   it('signs up for newsletter', () => {
     cy.visit('/start');
 
