@@ -1,9 +1,9 @@
 describe('happy path', () => {
-  beforeEach(() => {
-    cy.visit('/');
-  });
-
   describe('blog', () => {
+    beforeEach(() => {
+      cy.visit('/');
+    });
+
     it('visits blog', () => {
       cy.matchImageSnapshot({ name: 'blog' });
 
@@ -14,7 +14,7 @@ describe('happy path', () => {
 
   describe('work', () => {
     beforeEach(() => {
-      cy.get('[data-testid="NavLink--/work"]').first().click();
+      cy.visit('/work');
     });
 
     it('visits work', () => {
@@ -35,7 +35,7 @@ describe('happy path', () => {
 
   describe('start', () => {
     beforeEach(() => {
-      cy.get('[data-testid="NavLink--/start"]').first().click();
+      cy.visit('/start');
     });
 
     it('visits start', () => {
