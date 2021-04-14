@@ -1,7 +1,7 @@
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 const config = require('./siteConfig');
@@ -33,19 +33,19 @@ module.exports = {
     ...rss.plugins,
     ...analytics.plugins,
     ...logging.plugins,
-    ...netlify.plugins // MUST BE LAST
+    ...netlify.plugins, // MUST BE LAST
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     app.use(
       '/.netlify/functions/',
-      proxy({
+      createProxyMiddleware({
         target: 'http://localhost:9000',
         pathRewrite: {
-          '/.netlify/functions/': ''
-        }
+          '/.netlify/functions/': '',
+        },
       })
     );
-  }
+  },
 };

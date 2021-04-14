@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Page from '../Layout/Page';
 import Button, { ButtonThemes, ButtonSizes } from '../common/Button';
 
-import styles from './404.module.css';
+import * as styles from './404.module.css';
 
 const NotFound: React.FC = () => (
   <Page className={styles.page}>

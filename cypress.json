@@ -3,6 +3,7 @@
   "viewportHeight": 660,
   "viewportWidth": 1000,
   "trashAssetsBeforeRuns": true,
+  "retries": 2,
   "videoUploadOnPasses": false,
   "env": {
     "cypress-plugin-snapshots": {
@@ -10,6 +11,10 @@
       "imageConfig": {
         "createDiffImage": true,
         "threshold": 0.2
+      },
+      "screenshotConfig": {
+        "log": true,
+        "timeout": 60000
       },
       "updateSnapshots": true
     }

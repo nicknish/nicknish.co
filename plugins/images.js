@@ -1,11 +1,12 @@
 module.exports = {
   plugins: [
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        stripMetadata: true
-      }
-    }
-  ]
+        stripMetadata: true,
+      },
+    },
+    `gatsby-transformer-sharp`,
+  ],
 };

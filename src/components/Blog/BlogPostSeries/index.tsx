@@ -5,7 +5,7 @@ import sortBy from 'lodash/sortBy';
 import Page from '../../Layout/Page';
 import { createPath, BLOG_URL } from '../../../constants/urls';
 
-import styles from './BlogPostSeries.module.css';
+import * as styles from './BlogPostSeries.module.css';
 
 const BlogPostSeries = ({ data }) => {
   const posts = sortBy(data.series.posts, 'date');
@@ -18,7 +18,7 @@ const BlogPostSeries = ({ data }) => {
           <div
             className="page-subtitle"
             dangerouslySetInnerHTML={{
-              __html: data.series.description.childMarkdownRemark.html
+              __html: data.series.description.childMarkdownRemark.html,
             }}
           />
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import styles from './Comments.module.css';
+import * as styles from './Comments.module.css';
 import { SCRIPT_ELEMENT_TARGET } from './constants';
 import useComments from './useComments';
 

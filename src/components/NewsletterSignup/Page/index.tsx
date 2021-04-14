@@ -3,7 +3,7 @@ import Page from '../../Layout/Page';
 import NewsletterSignupForm from '../Form';
 
 import { TITLE, SUBTITLE } from '../../../constants/copy/newsletter';
-import styles from './NewsletterSignupPage.module.css';
+import * as styles from './NewsletterSignupPage.module.css';
 
 const NewsletterSignupPage = () => {
   return (

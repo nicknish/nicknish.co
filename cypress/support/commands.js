@@ -25,39 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import 'cypress-plugin-snapshots/commands';
-
-// Taken from Autos
-const matchImageSnapshot = (subject, options) => {
-  const updateSnapshotsConfig = Cypress.env('cypress-plugin-snapshots')
-    .updateSnapshots;
-
-  if (updateSnapshotsConfig) {
-    // @ts-ignore
-    const testFile = Cypress.mocha.getRunner().suite.ctx.test.invocationDetails
-      .relativeFile;
-    const relativePath = `${testFile.substring(
-      0,
-      testFile.lastIndexOf('/')
-    )}/__image_snapshots__/`;
-
-    const fileName =
-      options?.name ||
-      // @ts-ignore
-      `${Cypress.mocha.getRunner().suite.title}  ${
-        // @ts-ignore
-        Cypress.mocha.getRunner().suite.ctx.test.title
-      }`;
-
-    const relativePathFilename = `${relativePath}${fileName}`;
-
-    cy.exec(`make cypress_clean_snapshot filename="${relativePathFilename}"`, {
-      failOnNonZeroExit: false,
-    });
-  }
-  return subject
-    ? cy.wrap(subject).toMatchImageSnapshot(options)
-    : cy.document().toMatchImageSnapshot(options);
-};
+import { matchImageSnapshot } from './plugin-snapshots';
 
 Cypress.Commands.add(
   'matchImageSnapshot',

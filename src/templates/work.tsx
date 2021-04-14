@@ -8,8 +8,8 @@ import { getDate } from '../utils/helpers';
 const WorkTemplate = ({
   path,
   data: {
-    post: { title, startDate, endDate, current, description, images = [], url }
-  }
+    post: { title, startDate, endDate, current, description, images = [], url },
+  },
 }) => {
   return (
     <Show
@@ -19,7 +19,7 @@ const WorkTemplate = ({
       path={path}
       external_url={url}
       type={SHOW_TYPES.WORK}
-      image={get(images, '[0].sizes')}
+      image={get(images, '[0].gatsbyImageData')}
       image_preview_description={get(images, '[0].description')}
     />
   );
