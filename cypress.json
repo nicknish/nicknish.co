@@ -12,6 +12,10 @@
         "createDiffImage": true,
         "threshold": 0.2
       },
+      "screenshotConfig": {
+        "log": true,
+        "timeout": 60000
+      },
       "updateSnapshots": true
     }
   },
