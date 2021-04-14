@@ -47,3 +47,11 @@ jobs:
           CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
           CONTENTFUL_PRODUCTION_ENDPOINT: ${{ secrets.CONTENTFUL_PRODUCTION_ENDPOINT }}
           CONTENTFUL_PREVIEW_ENDPOINT: ${{ secrets.CONTENTFUL_PREVIEW_ENDPOINT }}
+
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
