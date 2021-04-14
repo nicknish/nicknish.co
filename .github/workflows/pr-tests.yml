@@ -14,36 +14,26 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: actions/cache@v1
+      - name: Cache node_modules
+        id: cache-node_modules
+        uses: actions/cache@v2
         with:
-          path: ~/.cache/yarn
+          path: '**/node_modules'
           key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          # restore-keys: |
+          #   ${{ runner.os }}-yarn-
 
-      - name: Yarn install
+      - name: Install node_modules
         run: yarn install
 
-      - name: Yarn build
-        run: yarn build
-        env:
-          CI: true
-          GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
-          CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
-          CONTENTFUL_PRODUCTION_ENDPOINT: ${{ secrets.CONTENTFUL_PRODUCTION_ENDPOINT }}
-          CONTENTFUL_PREVIEW_ENDPOINT: ${{ secrets.CONTENTFUL_PREVIEW_ENDPOINT }}
-
-      - name: Yarn test
+      - name: Run tests
         run: yarn test:ci
         env:
           CI: true
