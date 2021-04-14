@@ -14,6 +14,8 @@
  *    name correctly.
  */
 
+import { skipOn } from '@cypress/skip-test';
+
 const getSitemapUrls = async () => {
   const response = await cy.request('/sitemap.xml');
 
@@ -30,17 +32,19 @@ const getSitemapUrls = async () => {
   );
 };
 
-describe('Site traversal', () => {
-  let sitemap = [];
+skipOn('ci', () => {
+  describe('Site traversal', () => {
+    let sitemap = [];
 
-  before(async () => {
-    sitemap = await getSitemapUrls();
-  });
+    before(async () => {
+      sitemap = await getSitemapUrls();
+    });
 
-  describe('fetched sitemap', () => {
-    it('should successfully load each url in the sitemap', () => {
-      sitemap.forEach((location, idx) => {
-        cy.visit(location);
+    describe('fetched sitemap', () => {
+      it('should successfully load each url in the sitemap', () => {
+        sitemap.forEach((location, idx) => {
+          cy.visit(location);
+        });
       });
     });
   });
