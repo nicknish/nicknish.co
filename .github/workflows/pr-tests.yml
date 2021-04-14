@@ -48,7 +48,8 @@ jobs:
           CONTENTFUL_PRODUCTION_ENDPOINT: ${{ secrets.CONTENTFUL_PRODUCTION_ENDPOINT }}
           CONTENTFUL_PREVIEW_ENDPOINT: ${{ secrets.CONTENTFUL_PREVIEW_ENDPOINT }}
 
-      - uses: actions/upload-artifact@v1
+      - name: Upload test failure artifacts
+        uses: actions/upload-artifact@v2
         if: failure()
         with:
           name: cypress-artifacts
