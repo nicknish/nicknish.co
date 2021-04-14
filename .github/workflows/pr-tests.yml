@@ -33,6 +33,10 @@ jobs:
       - name: Install node_modules
         run: yarn install
 
+      # - name: Build repo
+      #   # We fetch the sitemap in order to traverse the site locally
+      #   run: yarn build
+
       - name: Run tests
         run: yarn test:ci
         env:
